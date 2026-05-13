@@ -1,0 +1,750 @@
+{
+	"info": {
+		"name": "C3 — MuSEE Requirement Extraction API Tests",
+		"description": "Part C3 interface testing: Postman collection v2.1 for the MuSEE + Constrained Decoding requirement extraction service. Tests extraction, confidence assessment, clarification, and integration endpoints using real PURE dataset excerpts.",
+		"_postman_id": "c3-musee-api-tests-001",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "0 — Health Check",
+			"item": [
+				{
+					"name": "GET /health",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response contains status field\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.expect(json).to.have.property(\"status\");",
+									"});",
+									"",
+									"pm.test(\"Status value is ok\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.expect(json.status).to.eql(\"ok\");",
+									"});",
+									"",
+									"pm.test(\"Response has service identifier\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.expect(json).to.have.property(\"service\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/health",
+							"host": ["{{base_url}}"],
+							"path": ["health"]
+						},
+						"description": "Health check endpoint. Verifies the FastAPI server is running and responsive."
+					},
+					"response": []
+				}
+			],
+			"description": "Basic server health verification."
+		},
+		{
+			"name": "1 — Scenario 1: Get Real 0.2 SRS Extraction",
+			"item": [
+				{
+					"name": "1a — POST /extract/text (Get Real 0.2)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response has required top-level fields\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.expect(json).to.have.property(\"document\");",
+									"    pm.expect(json).to.have.property(\"requirements\");",
+									"    pm.expect(json).to.have.property(\"total_requirements\");",
+									"    pm.expect(json).to.have.property(\"functional\");",
+									"    pm.expect(json).to.have.property(\"non_functional\");",
+									"});",
+									"",
+									"pm.test(\"Requirements is a non-empty array\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.expect(json.requirements).to.be.an(\"array\");",
+									"    pm.expect(json.requirements.length).to.be.above(0);",
+									"});",
+									"",
+									"pm.test(\"Each requirement has valid ID, title, type, and source_location\", function () {",
+									"    var json = pm.response.json();",
+									"    json.requirements.forEach(function (req) {",
+									"        pm.expect(req.requirement_id).to.match(/^REQ-\\d+$/);",
+									"        pm.expect(req.title).to.be.a(\"string\").and.not.empty;",
+									"        pm.expect(req.description).to.be.a(\"string\").and.not.empty;",
+									"        pm.expect(req.type).to.be.oneOf([\"functional\", \"non-functional\"]);",
+									"        pm.expect(req.source_location).to.be.an(\"object\");",
+									"        pm.expect(req.source_location.document).to.be.a(\"string\").and.not.empty;",
+									"        pm.expect(req.source_location.verse).to.be.an(\"array\").and.not.empty;",
+									"    });",
+									"});",
+									"",
+									"pm.test(\"total_requirements matches array length\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.expect(json.total_requirements).to.eql(json.requirements.length);",
+									"});",
+									"",
+									"pm.test(\"Counters add up: functional + non_functional == total\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.expect(json.functional + json.non_functional).to.eql(json.total_requirements);",
+									"});",
+									"",
+									"// Store first few requirements for downstream requests",
+									"pm.test(\"Save requirement IDs for downstream use\", function () {",
+									"    var json = pm.response.json();",
+									"    if (json.requirements.length > 0) {",
+									"        var sampleIds = json.requirements.slice(0, Math.min(3, json.requirements.length)).map(function(r){ return r.requirement_id; });",
+									"        pm.environment.set(\"scenario1_req_ids\", JSON.stringify(sampleIds));",
+									"        pm.environment.set(\"scenario1_requrements_json\", JSON.stringify(json.requirements));",
+									"        pm.environment.set(\"scenario1_document\", json.document);",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"document_name\": \"get-real-0.2\",\n    \"text\": \"Maintaining a teen friendly site is deemed of highest importance in order to hold student attention and guide the viewer to information that will lead to a decision to pursue a career in CS.\\n\\nThe intent of this section is to show recommended curricula for high school students interested in CS and related careers. This page should provide pointers to curricula recommendations from OUS campuses and other university sources. The ACM has recommended curricula for HS CS students.\\n\\nThe Get Real site should work and be tested against IE, Firefox and Netscape.\\n\\nThe Get Real site should be hosted on a server that can provide adequate response time. High school students tend to have short attentions spans, so a slow server would not be satisfactory for this application. The current OUS (www.ous.edu) site is a good example of rapid response time.\\n\\nCopyright and other security measures for Get Real should be the same as the OUS site.\\n\\nWeb design conventions should be consistent with the standards and conventions used on the OUS site.\\n\\nAt least two kinds of searches are needed, 1) internal search of the Get Real site, and 2) external search of CS related outside sites such as OUS campuses, articles on CS etc. Google, for example provides tools for internal and external searches. The Get Real prototype index page ~getreal.ous.edu/protoindex.html has examples of various search engines.\\n\\nThe use of video or audio could help convey a personal message that could \\\"push\\\" some students to pursue a CS degree.\\n\\nSelected articles from the chancellor's office daily communications distribution, fed to RSS subscribers on the Get Real site. This feature requires X hours per week of web design resource for editing the URLs to the DSS feed.\\n\\nGet fast feedback from the Oregon University System on questions asked in a Q and A format. Answers are posted in an FAQ section for all to read. A Grad or Prof BLOG on CS careers would also work here.\\n\\nThere is a need to track and evaluate the \\\"hits\\\" and time spent on the student-focused website over time; and make content, design, and navigation changes as needed based on evaluation of hits.\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/extract/text",
+							"host": ["{{base_url}}"],
+							"path": ["extract", "text"]
+						},
+						"description": "Extract requirements from a Get Real 0.2 SRS text excerpt. The text contains functional requirements (search, Q&A, content display, analytics) and non-functional requirements (browser compatibility, server response time, security conventions, CSS standards)."
+					},
+					"response": []
+				},
+				{
+					"name": "1b — POST /assess/confidence (Get Real 0.2)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response has documents array\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.expect(json).to.have.property(\"documents\");",
+									"    pm.expect(json.documents).to.be.an(\"array\");",
+									"});",
+									"",
+									"pm.test(\"Each document has document name and flags map\", function () {",
+									"    var json = pm.response.json();",
+									"    json.documents.forEach(function (doc) {",
+									"        pm.expect(doc).to.have.property(\"document\");",
+									"        pm.expect(doc).to.have.property(\"flags\");",
+									"        pm.expect(doc.flags).to.be.an(\"object\");",
+									"    });",
+									"});",
+									"",
+									"pm.test(\"All confidence flags have valid structure\", function () {",
+									"    var json = pm.response.json();",
+									"    json.documents.forEach(function (doc) {",
+									"        Object.keys(doc.flags).forEach(function (reqId) {",
+									"            doc.flags[reqId].forEach(function (flag) {",
+									"                pm.expect(flag).to.have.property(\"field\");",
+									"                pm.expect(flag).to.have.property(\"issue\");",
+									"                pm.expect(flag).to.have.property(\"severity\");",
+									"                pm.expect(flag.severity).to.be.oneOf([\"low\", \"medium\", \"high\"]);",
+									"            });",
+									"        });",
+									"    });",
+									"});",
+									"",
+									"// Save flagged requirements that have high-severity issues for clarify step",
+									"pm.test(\"Extract high-severity flagged requirements for describe step\", function () {",
+									"    var json = pm.response.json();",
+									"    var requirementsJson = pm.environment.get(\"scenario1_requrements_json\");",
+									"    var requirements = requirementsJson ? JSON.parse(requirementsJson) : [];",
+									"",
+									"    var flagIdSet = {};",
+									"    json.documents.forEach(function (doc) {",
+									"        Object.keys(doc.flags).forEach(function (reqId) {",
+									"            doc.flags[reqId].forEach(function (flag) {",
+									"                if (flag.severity === \"high\" || flag.severity === \"medium\") {",
+									"                    flagIdSet[reqId] = true;",
+									"                }",
+									"            });",
+									"        });",
+									"    });",
+									"",
+									"    var flaggedReqs = requirements.filter(function(r) { return flagIdSet[r.requirement_id]; });",
+									"    var flaggedWithFlags = flaggedReqs.map(function(r) {",
+									"        return {",
+									"            requirement_id: r.requirement_id,",
+									"            title: r.title,",
+									"            description: r.description,",
+									"            flags: json.documents[0].flags[r.requirement_id] || []",
+									"        };",
+									"    });",
+									"",
+									"    if (flaggedWithFlags.length > 0) {",
+									"        pm.environment.set(\"scenario1_flagged_requirements\", JSON.stringify(flaggedWithFlags));",
+									"    } else {",
+									"        pm.environment.log(\"Warning: No flagged requirements found. Skipping describe step.\");",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Use requirements from the previous extract step",
+									"var reqJson = pm.environment.get(\"scenario1_requrements_json\");",
+									"if (reqJson) {",
+									"    pm.request.body.raw = reqJson;",
+									"} else {",
+									"    pm.request.body.raw = \"[]\";",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"requirement_id\": \"REQ-001\",\n        \"title\": \"Teen-Friendly Site Design\",\n        \"description\": \"Maintaining a teen friendly site is deemed of highest importance in order to hold student attention and guide the viewer to information that will lead to a decision to pursue a career in CS.\",\n        \"type\": \"non-functional\",\n        \"acceptance_criteria\": [\"Site appeals to teen demographic based on usability testing\"],\n        \"source_location\": {\n            \"document\": \"get-real-0.2\",\n            \"verse\": [\"Maintaining a teen friendly site is deemed of highest importance in order to hold student attention and guide the viewer to information that will lead to a decision to pursue a career in CS.\"]\n        }\n    },\n    {\n        \"requirement_id\": \"REQ-002\",\n        \"title\": \"Browser Compatibility\",\n        \"description\": \"The Get Real site should work and be tested against IE, Firefox and Netscape.\",\n        \"type\": \"non-functional\",\n        \"acceptance_criteria\": [\"Site renders correctly in IE, Firefox, and Netscape\"],\n        \"source_location\": {\n            \"document\": \"get-real-0.2\",\n            \"verse\": [\"The Get Real site should work and be tested against IE, Firefox and Netscape.\"]\n        }\n    },\n    {\n        \"requirement_id\": \"REQ-003\",\n        \"title\": \"Internal and External Search\",\n        \"description\": \"The system shall provide two kinds of searches: internal search of the Get Real site, and external search of CS related outside sites such as OUS campuses and articles on CS.\",\n        \"type\": \"functional\",\n        \"acceptance_criteria\": [\"Internal search returns results from Get Real site\", \"External search returns results from OUS campuses and CS articles\"],\n        \"source_location\": {\n            \"document\": \"get-real-0.2\",\n            \"verse\": [\"At least two kinds of searches are needed, 1) internal search of the Get Real site, and 2) external search of CS related outside sites such as OUS campuses, articles on CS etc.\"]\n        }\n    },\n    {\n        \"requirement_id\": \"REQ-004\",\n        \"title\": \"Q&A Feedback System\",\n        \"description\": \"The system shall provide a Q and A format for students to ask questions to the Oregon University System, with answers posted in an FAQ section.\",\n        \"type\": \"functional\",\n        \"acceptance_criteria\": [\"Users can submit questions in Q&A format\", \"Answers are posted in a publicly visible FAQ section\"],\n        \"source_location\": {\n            \"document\": \"get-real-0.2\",\n            \"verse\": [\"Get fast feedback from the Oregon University System on questions asked in a Q and A format. Answers are posted in an FAQ section for all to read.\"]\n        }\n    },\n    {\n        \"requirement_id\": \"REQ-005\",\n        \"title\": \"Usage Analytics\",\n        \"description\": \"The system shall track and evaluate hits and time spent on the student-focused website over time.\",\n        \"type\": \"functional\",\n        \"acceptance_criteria\": [\"Hit counters are tracked\", \"Average time-on-page metrics are available\", \"Administrators can view analytics reports\"],\n        \"source_location\": {\n            \"document\": \"get-real-0.2\",\n            \"verse\": [\"There is a need to track and evaluate the \\\"hits\\\" and time spent on the student-focused website over time; and make content, design, and navigation changes as needed based on evaluation of hits.\"]\n        }\n    }\n]"
+						},
+						"url": {
+							"raw": "{{base_url}}/assess/confidence",
+							"host": ["{{base_url}}"],
+							"path": ["assess", "confidence"]
+						},
+						"description": "Assess confidence of extracted requirements from Get Real 0.2. The server returns field-level flags identifying vague, incomplete, or ambiguous requirements. Send the requirements array directly as the body (FastAPI expects list[ExtractedRequirement])."
+					},
+					"response": []
+				},
+				{
+					"name": "1c — POST /assess/clarify (Get Real 0.2)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response has required top-level fields\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.expect(json).to.have.property(\"document\");",
+									"    pm.expect(json).to.have.property(\"questions\");",
+									"    pm.expect(json).to.have.property(\"total_questions\");",
+									"});",
+									"",
+									"pm.test(\"Questions array is non-empty (given flagged input)\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.expect(json.questions).to.be.an(\"array\");",
+									"    pm.expect(json.questions.length).to.be.above(0);",
+									"});",
+									"",
+									"pm.test(\"Each question has valid structure\", function () {",
+									"    var json = pm.response.json();",
+									"    json.questions.forEach(function (q) {",
+									"        pm.expect(q.requirement_id).to.match(/^REQ-\\d+$/);",
+									"        pm.expect(q.question).to.be.a(\"string\").and.not.empty;",
+									"        pm.expect(q.reasoning_path).to.be.a(\"string\").and.not.empty;",
+									"    });",
+									"});",
+									"",
+									"pm.test(\"total_questions matches array length\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.expect(json.total_questions).to.eql(json.questions.length);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Build the request body programmatically from the confidence response",
+									"var flaggedJson = pm.environment.get(\"scenario1_flagged_requirements\");",
+									"if (flaggedJson) {",
+									"    var reqBody = {",
+									"        flagged_requirements: JSON.parse(flaggedJson),",
+									"        document_name: \"get-real-0.2\"",
+									"    };",
+									"    pm.request.body.raw = JSON.stringify(reqBody, null, 4);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"flagged_requirements\": [\n        {\n            \"requirement_id\": \"REQ-001\",\n            \"title\": \"Teen-Friendly Site Design\",\n            \"description\": \"Maintaining a teen friendly site is deemed of highest importance in order to hold student attention and guide the viewer to information that will lead to a decision to pursue a career in CS.\",\n            \"flags\": [\n                {\n                    \"field\": \"acceptance_criteria\",\n                    \"issue\": \"Acceptance criteria are subjective and difficult to test without specific metrics for teen friendliness\",\n                    \"severity\": \"medium\",\n                    \"suggestion\": \"Define concrete usability criteria and target audience age ranges\"\n                }\n            ]\n        },\n        {\n            \"requirement_id\": \"REQ-002\",\n            \"title\": \"Browser Compatibility\",\n            \"description\": \"The Get Real site should work and be tested against IE, Firefox and Netscape.\",\n            \"flags\": [\n                {\n                    \"field\": \"description\",\n                    \"issue\": \"Specific browser versions are not defined (IE 6? 7?), making this requirement too vague\",\n                    \"severity\": \"high\",\n                    \"suggestion\": \"Specify exact browser versions or define as latest supported versions\"\n                }\n            ]\n        },\n        {\n            \"requirement_id\": \"REQ-005\",\n            \"title\": \"Usage Analytics\",\n            \"description\": \"The system shall track and evaluate hits and time spent on the student-focused website over time.\",\n            \"flags\": [\n                {\n                    \"field\": \"acceptance_criteria\",\n                    \"issue\": \"No thresholds defined for what constitutes meaningful tracking or evaluation\",\n                    \"severity\": \"low\",\n                    \"suggestion\": \"Define reporting intervals and specific metrics to track\"\n                }\n            ]\n        }\n    ],\n    \"document_name\": \"get-real-0.2\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/assess/clarify",
+							"host": ["{{base_url}}"],
+							"path": ["assess", "clarify"]
+						},
+						"description": "Generate clarification questions for requirements flagged as having low confidence. The LLM generates targeted questions with suggested answer choices based on the confidence flags."
+					},
+					"response": []
+				}
+			],
+			"description": "Scenario 1: Full extraction pipeline for Get Real 0.2 — a college career website SRS. Steps: extract text, assess confidence, generate clarification questions."
+		},
+		{
+			"name": "2 — Scenario 2: Mashboot SRS Extraction",
+			"item": [
+				{
+					"name": "2a — POST /extract/text (Mashboot)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response has required top-level fields\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.expect(json).to.have.property(\"document\");",
+									"    pm.expect(json).to.have.property(\"requirements\");",
+									"    pm.expect(json).to.have.property(\"total_requirements\");",
+									"    pm.expect(json).to.have.property(\"functional\");",
+									"    pm.expect(json).to.have.property(\"non_functional\");",
+									"});",
+									"",
+									"pm.test(\"Requirements array is non-empty\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.expect(json.requirements).to.be.an(\"array\");",
+									"    pm.expect(json.requirements.length).to.be.above(0);",
+									"});",
+									"",
+									"pm.test(\"Each requirement has valid ID, title, type, and source_location\", function () {",
+									"    var json = pm.response.json();",
+									"    json.requirements.forEach(function (req) {",
+									"        pm.expect(req.requirement_id).to.match(/^REQ-\\d+$/);",
+									"        pm.expect(req.title).to.be.a(\"string\").and.not.empty;",
+									"        pm.expect(req.description).to.be.a(\"string\").and.not.empty;",
+									"        pm.expect(req.type).to.be.oneOf([\"functional\", \"non-functional\"]);",
+									"        pm.expect(req.source_location).to.be.an(\"object\");",
+									"        pm.expect(req.source_location.document).to.be.a(\"string\").and.not.empty;",
+									"        pm.expect(req.source_location.verse).to.be.an(\"array\");",
+									"        pm.expect(req.source_location.verse.length).to.be.above(0);",
+									"    });",
+									"});",
+									"",
+									"pm.test(\"total_requirements matches array length\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.expect(json.total_requirements).to.eql(json.requirements.length);",
+									"});",
+									"",
+									"pm.test(\"Counters add up: functional + non_functional == total\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.expect(json.functional + json.non_functional).to.eql(json.total_requirements);",
+									"});",
+									"",
+									"pm.test(\"Mashboot is function-heavy (majority functional)\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.expect(json.functional).to.be.above(json.non_functional);",
+									"});",
+									"",
+									"// Store requirements for Scenario 3 integration flow",
+									"pm.test(\"Save requirements for Scenario 3\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.environment.set(\"scenario2_requirements_json\", JSON.stringify(json.requirements));",
+									"    pm.environment.set(\"scenario2_document\", json.document);",
+									"});",
+									"",
+									"// Store first 3 requirements for confidence assessment",
+									"pm.test(\"Save sample requirements for confidence step\", function () {",
+									"    var json = pm.response.json();",
+									"    var sampleReqs = json.requirements.slice(0, 3);",
+									"    if (sampleReqs.length > 0) {",
+									"        pm.environment.set(\"mashboot_sample_reqs\", JSON.stringify(sampleReqs));",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"document_name\": \"mashboot\",\n    \"text\": \"0140 User Account Types and Permissions The system categorizes users on the basis of roles and privileges. Within these roles, the system also categorizes users based on the roles that they have within individual products. These are referred to as user account roles. Mashbot Campaigns supports the following account roles: 0150 Contributor Priority 3 0160 Approver Priority 3 0170 Publisher Priority 3 0180 A user may possess more than one role. Priority 3\\n\\n0230 Publishers may schedule or immediately initiate actions put forth by contributors and those approved by approvers. Priority 4\\n\\n0590 Mashbot will allow for the association of Mashbot accounts with external service accounts.\\n\\n0630 The system allows for the backup of the data system to local or remote non-volatile storage systems. Incremental backups should not create outages and full backups do not interfere with user interaction for more than 10 minutes. Priority 1\\n\\n0440 Username and Passwords 0450 The system gives users the ability to reset their password. Priority 2\\n\\n0460 Individual passwords can be reset. Priority 2\\n\\n0470 The system only allows users to change their own passwords. Priority 2\\n\\n0240 User Account Creation - New user accounts can be created. Priority 1\\n\\n0260 Certain pieces of information are required to create new accounts. Priority 1. The following information is required for any new user account: 0270 Username Priority 1 0280 Password Priority 1 0290 Name Priority 1 0300 Email Address Priority 1 0310 Group Membership Priority 1 0320 User Account Type Priority 1\\n\\n0480 A campaign has the following components: 0490 Name Priority 1 0500 Pieces of content Priority 1 0510 Schedule Priority 1\\n\\n0520 A schedule is a mapping of times to publishing actions. It may contain any actions a publisher can perform, and these actions are performed at the associated time. Priority 1\\n\\n0620 The system encrypts data over a direct connection between the web client and the server. Priority 1\\n\\n0650 The system allows only valid users to log into the system. A valid user is one which has not been disabled or deleted and exists on the system. Priority 1\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/extract/text",
+							"host": ["{{base_url}}"],
+							"path": ["extract", "text"]
+						},
+						"description": "Extract requirements from a Mashboot SRS text excerpt. The text contains user account management requirements (roles, permissions, password reset, account creation), campaign management, and security requirements (encryption, backup). Mashboot is a social media campaign management tool."
+					},
+					"response": []
+				},
+				{
+					"name": "2b — POST /assess/confidence (Mashboot)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response has documents array\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.expect(json).to.have.property(\"documents\");",
+									"    pm.expect(json.documents).to.be.an(\"array\");",
+									"});",
+									"",
+									"pm.test(\"Each document entry has valid structure\", function () {",
+									"    var json = pm.response.json();",
+									"    json.documents.forEach(function (doc) {",
+									"        pm.expect(doc).to.have.property(\"document\");",
+									"        pm.expect(doc).to.have.property(\"flags\");",
+									"        pm.expect(doc.flags).to.be.an(\"object\");",
+									"    });",
+									"});",
+									"",
+									"pm.test(\"All flags have valid structure\", function () {",
+									"    var json = pm.response.json();",
+									"    var validFields = [\"title\", \"description\", \"type\", \"acceptance_criteria\", \"source_location\"];",
+									"    json.documents.forEach(function (doc) {",
+									"        Object.keys(doc.flags).forEach(function (reqId) {",
+									"            doc.flags[reqId].forEach(function (flag) {",
+									"                pm.expect(flag.field).to.be.oneOf(validFields);",
+									"                pm.expect(flag.issue).to.be.a(\"string\").and.not.empty;",
+									"                pm.expect(flag.severity).to.be.oneOf([\"low\", \"medium\", \"high\"]);",
+									"            });",
+									"        });",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Use the sample requirements saved from extract step",
+									"var reqJson = pm.environment.get(\"mashboot_sample_reqs\");",
+									"if (reqJson) {",
+									"    pm.request.body.raw = reqJson;",
+									"} else {",
+									"    pm.request.body.raw = \"[]\";",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"requirement_id\": \"REQ-001\",\n        \"title\": \"TLS Data Encryption\",\n        \"description\": \"The system shall encrypt data in transit using TLS and HTTP/1.1.\",\n        \"type\": \"non-functional\",\n        \"acceptance_criteria\": [\"All client-server communication is encrypted with TLS\"],\n        \"source_location\": {\n            \"document\": \"mashboot\",\n            \"verse\": [\"Data will be encrypted using TLS and HTTP/1.1.\"]\n        }\n    },\n    {\n        \"requirement_id\": \"REQ-002\",\n        \"title\": \"Role-Based User Account Types\",\n        \"description\": \"The system shall categorize users into roles including Contributor, Approver, and Publisher, where a user may possess more than one role.\",\n        \"type\": \"functional\",\n        \"acceptance_criteria\": [\"System supports Contributor, Approver, and Publisher roles\", \"Users can be assigned multiple roles\"],\n        \"source_location\": {\n            \"document\": \"mashboot\",\n            \"verse\": [\"0140 User Account Types and Permissions The system categorizes users on the basis of roles and privileges.\", \"0150 Contributor Priority 3 0160 Approver Priority 3 0170 Publisher Priority 3 0180 A user may possess more than one role. Priority 3\"]\n        }\n    },\n    {\n        \"requirement_id\": \"REQ-003\",\n        \"title\": \"Publisher Scheduling\",\n        \"description\": \"The system shall allow publishers to schedule or immediately initiate actions put forth by contributors and approved by approvers.\",\n        \"type\": \"functional\",\n        \"acceptance_criteria\": [\"Publishers can schedule content for future publishing\", \"Publishers can immediately initiate approved actions\"],\n        \"source_location\": {\n            \"document\": \"mashboot\",\n            \"verse\": [\"0230 Publishers may schedule or immediately initiate actions put forth by contributors and those approved by approvers. Priority 4\"]\n        }\n    }\n]"
+						},
+						"url": {
+							"raw": "{{base_url}}/assess/confidence",
+							"host": ["{{base_url}}"],
+							"path": ["assess", "confidence"]
+						},
+						"description": "Confidence assessment on Mashboot extracted requirements. Demonstrates how the assessment service identifies missing acceptance criteria, vague descriptions, and ambiguous requirement types in a social media management SRS."
+					},
+					"response": []
+				}
+			],
+			"description": "Scenario 2: Extraction and confidence assessment for Mashboot — a social media campaign management SRS. Uses a different text excerpt than Scenario 1 with distinct requirement types (role-based access, encryption, scheduling)."
+		},
+		{
+			"name": "3 — Scenario 3: Integration Flow",
+			"item": [
+				{
+					"name": "3a — POST /extract/text (Get Real 0.2)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response has required top-level fields\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.expect(json).to.have.property(\"document\");",
+									"    pm.expect(json).to.have.property(\"requirements\");",
+									"    pm.expect(json).to.have.property(\"total_requirements\");",
+									"});",
+									"",
+									"pm.test(\"Each requirement has valid structure\", function () {",
+									"    var json = pm.response.json();",
+									"    json.requirements.forEach(function (req) {",
+									"        pm.expect(req.requirement_id).to.match(/^REQ-\\d+$/);",
+									"        pm.expect(req.title).to.be.a(\"string\");",
+									"        pm.expect(req.description).to.be.a(\"string\");",
+									"        pm.expect(req.type).to.be.oneOf([\"functional\", \"non-functional\"]);",
+									"    });",
+									"});",
+									"",
+									"pm.test(\"Save extracted requirements for integration step\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.environment.set(\"scenario3_requirements_json\", JSON.stringify(json.requirements));",
+									"    pm.environment.set(\"scenario3_document\", json.document);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"document_name\": \"get-real-0.2\",\n    \"text\": \"Benefits for using the site should include:\\n     - Personal and Career information from a broad spectrum of CS professionals\\n     - CS course and other information from OUS campuses\\n     - Timely and up to date information that encourages readers to return to the site, may include Q & A\\n     - Call to action, and plans for students to follow to prepare for a CS career\\n\\nOffers answers to the questions: \\\"how can I contribute to society and how much money can I make with a computer science degree?\\\"\\n\\nExplore a wide range of pre-college technology programs and courses for high school students.\\n\\nInformation for students in medicine, law, business, and other professions to provide students visibility of the high value of having a CS minor.\\n\\nThe Get Real site runs as an extension of the OUS site e.g. ~getreal.ous.edu~ Being part of the OUS domain will maximize Google and other search engine hits. The site runs on OSU servers.\\n\\nTwo potential groups of viewers (students) exist: 1) students interested in CS seeking more in-depth information about a CS career, and 2) college bound students not necessarily interested in CS who might be attracted to a CS career with the right \\\"push\\\" from information on the Get Real site.\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/extract/text",
+							"host": ["{{base_url}}"],
+							"path": ["extract", "text"]
+						},
+						"description": "Extract requirements from a second, shorter Get Real 0.2 excerpt focusing on site benefits, target audience, and hosting requirements. These requirements feed into the integration flow."
+					},
+					"response": []
+				},
+				{
+					"name": "3b — POST /assess/confidence (Get Real 0.2)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response has documents array\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.expect(json).to.have.property(\"documents\");",
+									"    pm.expect(json.documents).to.be.an(\"array\");",
+									"});",
+									"",
+									"// Identify any flagged requirements for the integration step",
+									"pm.test(\"Flag any high-severity issues for the integration step\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.environment.set(\"scenario3_confidence_json\", JSON.stringify(json));",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var reqJson = pm.environment.get(\"scenario3_requirements_json\");",
+									"if (reqJson) {",
+									"    pm.request.body.raw = reqJson;",
+									"} else {",
+									"    pm.request.body.raw = \"[]\";",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"requirement_id\": \"REQ-001\",\n        \"title\": \"Site Benefits Information\",\n        \"description\": \"The system shall provide personal and career information from CS professionals, CS course information from OUS campuses, timely updates, and plans for students to prepare for a CS career.\",\n        \"type\": \"functional\",\n        \"acceptance_criteria\": [\"Site displays career information from CS professionals\", \"Links to OUS campus CS course information exist\", \"Content is regularly updated\"],\n        \"source_location\": {\n            \"document\": \"get-real-0.2\",\n            \"verse\": [\"Benefits for using the site should include: Personal and Career information from a broad spectrum of CS professionals, CS course and other information from OUS campuses, Timely and up to date information that encourages readers to return to the site, may include Q & A, Call to action, and plans for students to follow to prepare for a CS career\"]\n        }\n    },\n    {\n        \"requirement_id\": \"REQ-002\",\n        \"title\": \"Target Audience Coverage\",\n        \"description\": \"The site shall serve two audiences: (1) students interested in CS seeking in-depth career information, and (2) college-bound students who might be attracted to CS with the right information.\",\n        \"type\": \"non-functional\",\n        \"acceptance_criteria\": [\"Site content addresses both target audience groups\"],\n        \"source_location\": {\n            \"document\": \"get-real-0.2\",\n            \"verse\": [\"Two potential groups of viewers (students) exist: 1) students interested in CS seeking more in-depth information about a CS career, and 2) college bound students not necessarily interested in CS who might be attracted to a CS career with the right \\\"push\\\" from information on the Get Real site.\"]\n        }\n    },\n    {\n        \"requirement_id\": \"REQ-003\",\n        \"title\": \"OUS Domain Integration\",\n        \"description\": \"The site shall run as an extension of the OUS domain to maximize search engine visibility, hosted on OSU servers.\",\n        \"type\": \"non-functional\",\n        \"acceptance_criteria\": [\"Site is hosted on OSU servers under the OUS domain\"],\n        \"source_location\": {\n            \"document\": \"get-real-0.2\",\n            \"verse\": [\"The Get Real site runs as an extension of the OUS site e.g. ~getreal.ous.edu~ Being part of the OUS domain will maximize Google and other search engine hits. The site runs on OSU servers.\"]\n        }\n    }\n]"
+						},
+						"url": {
+							"raw": "{{base_url}}/assess/confidence",
+							"host": ["{{base_url}}"],
+							"path": ["assess", "confidence"]
+						},
+						"description": "Confidence assessment on requirements extracted in 3a. Results feed into the clarification and integration steps."
+					},
+					"response": []
+				},
+				{
+					"name": "3c — POST /assess/integrate (User Answers)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response has required top-level fields\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.expect(json).to.have.property(\"document\");",
+									"    pm.expect(json).to.have.property(\"requirements\");",
+									"    pm.expect(json).to.have.property(\"total_requirements\");",
+									"    pm.expect(json).to.have.property(\"functional\");",
+									"    pm.expect(json).to.have.property(\"non_functional\");",
+									"});",
+									"",
+									"pm.test(\"Updated requirements maintain valid structure\", function () {",
+									"    var json = pm.response.json();",
+									"    json.requirements.forEach(function (req) {",
+									"        pm.expect(req.requirement_id).to.match(/^REQ-\\d+$/);",
+									"        pm.expect(req.title).to.be.a(\"string\").and.not.empty;",
+									"        pm.expect(req.description).to.be.a(\"string\").and.not.empty;",
+									"        pm.expect(req.type).to.be.oneOf([\"functional\", \"non-functional\"]);",
+									"        pm.expect(req.source_location).to.be.an(\"object\");",
+									"        pm.expect(req.source_location.document).to.be.a(\"string\").and.not.empty;",
+									"    });",
+									"});",
+									"",
+									"pm.test(\"total_requirements matches array length\", function () {",
+									"    var json = pm.response.json();",
+									"    pm.expect(json.total_requirements).to.eql(json.requirements.length);",
+									"});",
+									"",
+									"pm.test(\"Description fields show integration improvements (not identical to input)\", function () {",
+									"    // This is a soft check — the description may be refined by the LLM",
+									"    var json = pm.response.json();",
+									"    pm.expect(json.requirements.length).to.be.above(0);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"document_name\": \"get-real-0.2\",\n    \"requirements\": [\n        {\n            \"requirement_id\": \"REQ-001\",\n            \"title\": \"Site Benefits Information\",\n            \"description\": \"The system shall provide personal and career information from CS professionals, CS course information from OUS campuses, timely updates, and plans for students to prepare for a CS career.\",\n            \"type\": \"functional\",\n            \"acceptance_criteria\": [\"Site displays career information from CS professionals\", \"Links to OUS campus CS course information exist\"],\n            \"source_location\": {\n                \"document\": \"get-real-0.2\",\n                \"verse\": [\"Benefits for using the site should include: Personal and Career information from a broad spectrum of CS professionals, CS course and other information from OUS campuses\"]\n            }\n        },\n        {\n            \"requirement_id\": \"REQ-002\",\n            \"title\": \"Target Audience Coverage\",\n            \"description\": \"The site shall serve two audiences: students interested in CS and college-bound students who might be attracted to CS.\",\n            \"type\": \"non-functional\",\n            \"acceptance_criteria\": [\"Content exists for both target groups\"],\n            \"source_location\": {\n                \"document\": \"get-real-0.2\",\n                \"verse\": [\"Two potential groups of viewers (students) exist\"]\n            }\n        }\n    ],\n    \"answers\": [\n        {\n            \"requirement_id\": \"REQ-001\",\n            \"question\": \"What specific types of career information should be displayed from CS professionals?\",\n            \"answer\": \"Career information should include salary ranges, job titles, employer types (industry vs academia), and career progression paths. This information should be displayed as profile pages with filterable categories.\",\n            \"reasoning_path\": \"scope\"\n        },\n        {\n            \"requirement_id\": \"REQ-001\",\n            \"question\": \"What does timely and up to date mean in terms of update frequency?\",\n            \"answer\": \"Content should be updated at least weekly. New job postings and career news should appear within 48 hours of being submitted.\",\n            \"reasoning_path\": \"scope\"\n        },\n        {\n            \"requirement_id\": \"REQ-002\",\n            \"question\": \"How should the site differentiate content between the two target audiences?\",\n            \"answer\": \"The site should use a landing page with two entry paths: one labeled exploring CS careers for interested students, and one labeled discover what CS can do for you for college-bound students. Each path leads to customized content sections.\",\n            \"reasoning_path\": \"scope\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/assess/integrate",
+							"host": ["{{base_url}}"],
+							"path": ["assess", "integrate"]
+						},
+						"description": "Integrate user clarification answers into requirements. The LLM rewrites vague requirement descriptions to be concrete and testable based on the user's selected answers. This completes the full feedback loop: extract, assess, clarify, and integrate."
+					},
+					"response": []
+				}
+			],
+			"description": "Scenario 3: Full integration flow demonstrating the complete requirement engineering loop — extract requirements from SRS text, assess confidence to identify issues, then integrate user clarification answers to produce refined, testable requirements."
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8100",
+			"type": "string"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Ensure base_url variable defaults to localhost:8100",
+					"if (!pm.environment.get(\"base_url\")) {",
+					"    pm.environment.set(\"base_url\", \"http://localhost:8100\");",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,13 @@
+artifact_path: musee_extraction
+flavors:
+  python_function:
+    code: code
+    loader_module: mlflow.pyfunc.model
+    model_path: model.pkl
+    python_version: 3.12.0
+    env: conda.yaml
+run_id: b7de1a3c5f8e4d9a2b6c0e7f1d3a5b9c
+model_uuid: 7f3a9c1e4b8d2f5a6d0e1c9b3a7f4d2e
+utc_time_created: "2026-05-13 00:32:00.000000"
+mlflow_version: 2.20.0
+experiment_id: "1"

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReqTracer — Dashboard</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f6f8; color: #1a1a2e; display: flex; min-height: 100vh; }
+  .sidebar { width: 220px; background: #1a1a2e; color: #fff; padding: 0; display: flex; flex-direction: column; position: fixed; top: 0; left: 0; height: 100vh; }
+  .sidebar-logo { padding: 24px 20px 20px; border-bottom: 1px solid #2a2a4a; }
+  .sidebar-logo h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.5px; }
+  .sidebar-logo span { font-size: 11px; color: #8888aa; display: block; margin-top: 4px; }
+  .sidebar-nav { padding: 16px 0; flex: 1; }
+  .sidebar-nav a { display: flex; align-items: center; padding: 10px 20px; color: #8888aa; text-decoration: none; font-size: 13px; transition: all 0.15s; border-left: 3px solid transparent; }
+  .sidebar-nav a:hover { background: #2a2a4a; color: #fff; }
+  .sidebar-nav a.active { background: #2a2a4a; color: #fff; border-left-color: #6c63ff; }
+  .sidebar-nav a .icon { margin-right: 10px; width: 18px; text-align: center; }
+  .main { margin-left: 220px; flex: 1; padding: 32px 40px; }
+  .page-title { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+  .page-subtitle { color: #666; font-size: 14px; margin-bottom: 32px; }
+  .upload-zone { border: 2px dashed #ccc; border-radius: 12px; padding: 48px 32px; text-align: center; background: #fff; margin-bottom: 24px; cursor: pointer; transition: border-color 0.2s; }
+  .upload-zone:hover { border-color: #6c63ff; }
+  .upload-icon { font-size: 40px; margin-bottom: 12px; }
+  .upload-zone h3 { font-size: 16px; margin-bottom: 8px; }
+  .upload-zone p { color: #888; font-size: 13px; }
+  .upload-zone .btn-choose { display: inline-block; margin-top: 16px; padding: 10px 24px; background: #6c63ff; color: #fff; border-radius: 6px; font-size: 14px; font-weight: 500; }
+  .progress-card { background: #fff; border-radius: 10px; padding: 24px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .progress-card h3 { font-size: 15px; margin-bottom: 16px; color: #333; }
+  .progress-bar-container { background: #e8e8ee; border-radius: 8px; height: 12px; overflow: hidden; margin-bottom: 12px; }
+  .progress-bar { height: 100%; border-radius: 8px; transition: width 0.4s; }
+  .progress-step { display: flex; align-items: center; padding: 8px 0; font-size: 13px; border-bottom: 1px solid #f0f0f5; }
+  .progress-step:last-child { border-bottom: none; }
+  .step-dot { width: 10px; height: 10px; border-radius: 50%; margin-right: 10px; }
+  .step-dot.done { background: #34c759; }
+  .step-dot.active { background: #6c63ff; animation: pulse 1.5s infinite; }
+  .step-dot.pending { background: #ccc; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 24px; }
+  .stat-card { background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .stat-card .stat-value { font-size: 28px; font-weight: 700; color: #6c63ff; }
+  .stat-card .stat-label { font-size: 12px; color: #888; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .btn-extract { padding: 12px 32px; background: #6c63ff; color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; }
+  .btn-extract:disabled { background: #b8b3ff; cursor: not-allowed; }
+  .file-info { display: flex; align-items: center; gap: 16px; background: #fff; padding: 16px 20px; border-radius: 10px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .file-icon { font-size: 28px; }
+  .file-name { font-weight: 600; font-size: 14px; }
+  .file-size { color: #888; font-size: 12px; }
+  .status-badge { padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+  .status-badge.processing { background: #e8e0ff; color: #6c63ff; }
+  .status-badge.complete { background: #e0f8e8; color: #2d9e4f; }
+</style>
+</head>
+<body>
+<div class="sidebar">
+  <div class="sidebar-logo">
+    <h1>ReqTracer</h1>
+    <span>Requirements Intelligence</span>
+  </div>
+  <nav class="sidebar-nav">
+    <a href="#" class="active"><span class="icon">&#9632;</span> Dashboard</a>
+    <a href="#"><span class="icon">&#9776;</span> Extraction Results</a>
+    <a href="#"><span class="icon">&#9888;</span> Confidence</a>
+    <a href="#"><span class="icon">?</span> Clarification</a>
+    <a href="#"><span class="icon">&#10004;</span> Integration</a>
+   </nav>
+</div>
+<div class="main">
+  <h2 class="page-title">Dashboard</h2>
+  <p class="page-subtitle">Upload your SRS document and begin requirement extraction.</p>
+
+  <!-- Upload Zone -->
+  <div class="upload-zone">
+    <div class="upload-icon">&#128196;</div>
+    <h3>Upload SRS Document</h3>
+    <p>Drag and drop your SRS PDF here, or click to browse</p>
+    <div class="btn-choose">Choose File</div>
+  </div>
+
+  <!-- Selected File -->
+  <div class="file-info">
+    <span class="file-icon">&#128196;</span>
+    <div>
+      <div class="file-name">SRS_Online_Banking_System_v2.3.pdf</div>
+      <div class="file-size">2.4 MB &bull; 42 pages &bull; Uploaded just now</div>
+    </div>
+    <span class="status-badge processing">Processing</span>
+  </div>
+
+  <!-- Extraction Progress -->
+  <div class="progress-card">
+    <h3>Extraction Progress</h3>
+    <div class="progress-bar-container">
+      <div class="progress-bar" style="width: 65%; background: linear-gradient(90deg, #6c63ff, #8b83ff);"></div>
+    </div>
+    <div style="font-size: 13px; color: #555; margin-bottom: 16px;">Step 3 of 5 &mdash; Extracting functional requirements...</div>
+    <div class="progress-step">
+      <span class="step-dot done"></span>
+      <span style="flex:1;">Parse PDF document</span>
+      <span style="color:#34c759; font-size:12px;">Complete</span>
+    </div>
+    <div class="progress-step">
+      <span class="step-dot done"></span>
+      <span style="flex:1;">Classify requirement types</span>
+      <span style="color:#34c759; font-size:12px;">Complete</span>
+    </div>
+    <div class="progress-step">
+      <span class="step-dot active"></span>
+      <span style="flex:1;">Extract functional requirements</span>
+      <span style="color:#6c63ff; font-size:12px;">In progress...</span>
+    </div>
+    <div class="progress-step">
+      <span class="step-dot pending"></span>
+      <span style="flex:1;">Extract non-functional requirements</span>
+      <span style="color:#aaa; font-size:12px;">Pending</span>
+    </div>
+    <div class="progress-step">
+      <span class="step-dot pending"></span>
+      <span style="flex:1;">Generate traceability matrix</span>
+      <span style="color:#aaa; font-size:12px;">Pending</span>
+    </div>
+  </div>
+
+  <!-- Stats (placeholder) -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-value">37</div>
+      <div class="stat-label">Requirements</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">12</div>
+      <div class="stat-label">Functional</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">8</div>
+      <div class="stat-label">Non-Func.</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">5</div>
+      <div class="stat-label">Flagged</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

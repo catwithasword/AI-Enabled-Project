@@ -1,0 +1,67 @@
+{
+  "model_name": "google/gemma-4-26b-a4b-it",
+  "LLM_BASE_URL": "https://inference-api.nousresearch.com/v1",
+  "LLM_MODEL": "google/gemma-4-26b-a4b-it",
+  "CHUNK_SIZE": 16000,
+  "merge_strategy": "jaccard",
+  "match_weights": {"verse": 1.0, "ac": 0.7, "description": 0.5},
+  "match_threshold": 0.35,
+  "passes": 1,
+  "extraction_version": "single-stage-v1",
+  "pipeline": "single-stage",
+  "constrained_decoding": true,
+  "response_format": "json_schema",
+  "service_port": 8100,
+  "service_version": "0.1.0",
+  "cors_allow_origins": ["*"],
+  "endpoints": {
+    "extract_pdf_to_txt": {"method": "POST", "path": "/extract/pdf-to-txt", "response_model": "dict"},
+    "extract_text": {"method": "POST", "path": "/extract/text", "response_model": "ExtractionResult"},
+    "extract_pdf": {"method": "POST", "path": "/extract/pdf", "response_model": "ExtractionResult"},
+    "assess_confidence": {"method": "POST", "path": "/assess/confidence", "response_model": "ConfidenceResult"},
+    "assess_clarify": {"method": "POST", "path": "/assess/clarify", "response_model": "ClarificationResult"},
+    "assess_integrate": {"method": "POST", "path": "/assess/integrate", "response_model": "IntegrateResult"},
+    "health": {"method": "GET", "path": "/health"}
+  },
+  "schemas": [
+    "ExtractionRequest",
+    "ExtractionResult",
+    "ExtractedRequirement",
+    "SourceLocation",
+    "RequirementType",
+    "ConfidenceResult",
+    "DocumentConfidence",
+    "ConfidenceFlag",
+    "ClarifyRequest",
+    "ClarificationResult",
+    "ClarificationQuestion",
+    "FlaggedRequirement",
+    "IntegrateRequest",
+    "IntegrateResult",
+    "ClarificationAnswer",
+    "RequirementField"
+  ],
+  "scalability": {
+    "workers": "4 (production)",
+    "caching": "Redis with SHA256 hash keys, TTL 3600s",
+    "rate_limiting": "slowapi: 10/min default, 2/min for extraction endpoints",
+    "batching": "16K char chunks with weighted combination deduplication"
+  },
+  "test_datasets": {
+    "get_real_0.2": {"count": 29, "functional": 17, "non_functional": 12, "f1": 0.74, "type_accuracy": 0.92},
+    "mashboot": {"count": 75, "functional": 66, "non_functional": 9, "f1": 0.74, "type_accuracy": 0.98},
+    "space_fractions": {"count": 27, "f1": 0.57, "type_accuracy": 0.81},
+    "inventory": {"count": 23, "f1": 0.58, "type_accuracy": 0.77},
+    "gamma_j": {"count": 35, "f1": 0.34, "type_accuracy": 0.96}
+  },
+  "dependencies": {
+    "fastapi": ">=0.115.0",
+    "uvicorn": ">=0.30.0",
+    "pydantic": ">=2.0",
+    "openai": ">=1.0",
+    "pdfplumber": ">=0.11.0",
+    "httpx": ">=0.27.0",
+    "python-dotenv": ">=1.0",
+    "mlflow": ">=2.20.0"
+  }
+}

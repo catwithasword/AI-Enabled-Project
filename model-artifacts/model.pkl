@@ -1,0 +1,19 @@
+{
+  "_meta": "Model artifact placeholder",
+  "_note": "This LLM-based requirement extraction service does not use a local serialized model file. The model (google/gemma-4-26b-a4b-it) lives on the Nous Inference API at https://inference-api.nousresearch.com/v1. This placeholder represents the equivalent of model.pkl in a traditional MLflow pyfunc workflow.",
+  "model_type": "remote_llm",
+  "model_name": "google/gemma-4-26b-a4b-it",
+  "model_provider": "Nous Research Inference API",
+  "model_location": "https://inference-api.nousresearch.com/v1",
+  "pipeline": "MuSEE + Constrained Decoding (single-stage extraction)",
+  "extraction_version": "musee-constrained-v1",
+  "artifacts_included": [
+    "app/models/schemas.py (Pydantic schemas for constrained decoding)",
+    "app/services/extraction.py (MuSEE extraction pipeline)",
+    "app/services/confidence.py (Confidence assessment)",
+    "app/services/clarification.py (Tree-of-Thought clarification)",
+    "app/services/integrate.py (Answer integration)"
+  ],
+  "serialization_note": "The 'model' is the combination of pipeline code + prompt templates + remote LLM. No local weights exist. In a traditional ML workflow this file would contain serialized model weights; here it documents the remote model configuration.",
+  "mlflow_pyfunc_compatibility": "This artifact is referenced in the MLmodel descriptor so that mlflow.pyfunc.load_model can reconstruct the service. The actual model weights are fetched at inference time via the OpenAI-compatible API."
+}

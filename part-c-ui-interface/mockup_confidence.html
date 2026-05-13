@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReqTracer — Confidence Assessment</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f6f8; color: #1a1a2e; display: flex; min-height: 100vh; }
+  .sidebar { width: 220px; background: #1a1a2e; color: #fff; padding: 0; display: flex; flex-direction: column; position: fixed; top: 0; left: 0; height: 100vh; }
+  .sidebar-logo { padding: 24px 20px 20px; border-bottom: 1px solid #2a2a4a; }
+  .sidebar-logo h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.5px; }
+  .sidebar-logo span { font-size: 11px; color: #8888aa; display: block; margin-top: 4px; }
+  .sidebar-nav { padding: 16px 0; flex: 1; }
+  .sidebar-nav a { display: flex; align-items: center; padding: 10px 20px; color: #8888aa; text-decoration: none; font-size: 13px; border-left: 3px solid transparent; }
+  .sidebar-nav a:hover { background: #2a2a4a; color: #fff; }
+  .sidebar-nav a.active { background: #2a2a4a; color: #fff; border-left-color: #6c63ff; }
+  .sidebar-nav a .icon { margin-right: 10px; width: 18px; text-align: center; }
+  .main { margin-left: 220px; flex: 1; padding: 32px 40px; max-width: 1200px; }
+  .page-title { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+  .page-subtitle { color: #666; font-size: 14px; margin-bottom: 24px; }
+
+  /* Confidence scale legend */
+  .legend { display: flex; gap: 24px; margin-bottom: 24px; padding: 16px 20px; background: #fff; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+  .legend-bar { width: 60px; height: 8px; border-radius: 4px; }
+  .legend-bar.high { background: #34c759; }
+  .legend-bar.medium { background: #ff9500; }
+  .legend-bar.low { background: #ff3b30; }
+
+  /* Flag cards */
+  .flag-card { background: #fff; border-radius: 10px; padding: 0; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); overflow: hidden; }
+  .flag-card-header { padding: 16px 20px; display: flex; align-items: center; gap: 12px; }
+  .flag-card-header.high { border-left: 4px solid #ff3b30; background: #fff5f5; }
+  .flag-card-header.medium { border-left: 4px solid #ff9500; background: #fffaf0; }
+  .flag-card-header.low { border-left: 4px solid #ffcc00; background: #fffff0; }
+  .severity-badge { padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+  .severity-badge.high { background: #ff3b30; color: #fff; }
+  .severity-badge.medium { background: #ff9500; color: #fff; }
+  .severity-badge.low { background: #ffcc00; color: #333; }
+  .flag-card-header .req-id { font-weight: 700; color: #6c63ff; font-size: 14px; }
+  .flag-card-header .req-title-text { font-weight: 600; font-size: 14px; flex: 1; }
+  .overall-confidence { font-size: 14px; font-weight: 700; }
+
+  /* Field confidence bars */
+  .flag-card-body { padding: 0 20px 16px; }
+  .field-row { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid #f0f0f5; }
+  .field-row:last-child { border-bottom: none; }
+  .field-name { width: 140px; font-size: 12px; font-weight: 600; color: #444; text-transform: uppercase; letter-spacing: 0.3px; }
+  .field-bar-container { flex: 1; background: #e8e8ee; height: 8px; border-radius: 4px; overflow: hidden; margin: 0 16px; }
+  .field-bar { height: 100%; border-radius: 4px; }
+  .field-bar.high { background: #34c759; }
+  .field-bar.medium { background: #ff9500; }
+  .field-bar.low { background: #ff3b30; }
+  .field-score { width: 40px; font-size: 13px; font-weight: 700; text-align: right; }
+  .field-score.high { color: #2d9e4f; }
+  .field-score.medium { color: #e67e22; }
+  .field-score.low { color: #c0392b; }
+  .field-flag { margin-left: 12px; font-size: 11px; color: #888; font-style: italic; max-width: 220px; }
+
+  /* Suggestion box */
+  .suggestion-box { background: #f0f4ff; border-radius: 8px; padding: 14px 16px; margin-top: 12px; }
+  .suggestion-box h4 { font-size: 12px; text-transform: uppercase; color: #6c63ff; margin-bottom: 8px; letter-spacing: 0.5px; }
+  .suggestion-box p { font-size: 13px; color: #333; line-height: 1.5; }
+  .suggestion-box .apply-btn { display: inline-block; margin-top: 10px; padding: 6px 16px; background: #6c63ff; color: #fff; border: none; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; }
+
+  /* Distribution chart (simple CSS bar chart) */
+  .dist-chart { display: flex; gap: 4px; align-items: flex-end; height: 60px; margin-top: 8px; }
+  .dist-bin { flex: 1; border-radius: 3px 3px 0 0; min-height: 4px; }
+  .dist-labels { display: flex; justify-content: space-between; font-size: 10px; color: #888; margin-top: 4px; }
+</style>
+</head>
+<body>
+<div class="sidebar">
+  <div class="sidebar-logo">
+    <h1>ReqTracer</h1>
+    <span>Requirements Intelligence</span>
+  </div>
+  <nav class="sidebar-nav">
+    <a href="#"><span class="icon">&#9632;</span> Dashboard</a>
+    <a href="#"><span class="icon">&#9776;</span> Extraction Results</a>
+    <a href="#" class="active"><span class="icon">&#9888;</span> Confidence</a>
+    <a href="#"><span class="icon">?</span> Clarification</a>
+    <a href="#"><span class="icon">&#10004;</span> Integration</a>
+  </nav>
+</div>
+<div class="main">
+  <h2 class="page-title">Confidence Assessment</h2>
+  <p class="page-subtitle">AI confidence levels for each extracted requirement field. Items below 70% need your review.</p>
+
+  <!-- Legend -->
+  <div class="legend">
+    <div class="legend-item"><span class="legend-bar high"></span> HIGH (&gt;90%) &mdash; Very confident</div>
+    <div class="legend-item"><span class="legend-bar medium"></span> MEDIUM (70&ndash;90%) &mdash; Some uncertainty</div>
+    <div class="legend-item"><span class="legend-bar low"></span> LOW (&lt;70%) &mdash; Needs review</div>
+    <div style="margin-left:auto; font-size: 12px; color: #888;">Distribution:</div>
+    <div>
+      <div class="dist-chart">
+        <div class="dist-bin" style="height:6px; background:#ff3b30;"></div>
+        <div class="dist-bin" style="height:12px; background:#ff3b30;"></div>
+        <div class="dist-bin" style="height:20px; background:#ff9500;"></div>
+        <div class="dist-bin" style="height:24px; background:#ff9500;"></div>
+        <div class="dist-bin" style="height:32px; background:#34c759;"></div>
+        <div class="dist-bin" style="height:45px; background:#34c759;"></div>
+        <div class="dist-bin" style="height:60px; background:#34c759;"></div>
+        <div class="dist-bin" style="height:50px; background:#34c759;"></div>
+        <div class="dist-bin" style="height:35px; background:#34c759;"></div>
+        <div class="dist-bin" style="height:15px; background:#ff9500;"></div>
+      </div>
+      <div class="dist-labels"><span>0%</span><span>100%</span></div>
+    </div>
+  </div>
+
+  <!-- Flagged Item 1: HIGH severity -->
+  <div class="flag-card">
+    <div class="flag-card-header high">
+      <span class="severity-badge high">HIGH</span>
+      <span class="req-id">NFR-005</span>
+      <span class="req-title-text">Data Encryption</span>
+      <span class="overall-confidence" style="color:#c0392b;">52%</span>
+    </div>
+    <div class="flag-card-body">
+      <div class="field-row">
+        <span class="field-name">Title</span>
+        <div class="field-bar-container"><div class="field-bar high" style="width:92%;"></div></div>
+        <span class="field-score high">92%</span>
+        <span class="field-flag">Well-defined concept</span>
+      </div>
+      <div class="field-row">
+        <span class="field-name">Description</span>
+        <div class="field-bar-container"><div class="field-bar low" style="width:45%;"></div></div>
+        <span class="field-score low">45%</span>
+        <span class="field-flag">&#9888; "latest industry-standard" is ambiguous</span>
+      </div>
+      <div class="field-row">
+        <span class="field-name">Type</span>
+        <div class="field-bar-container"><div class="field-bar high" style="width:97%;"></div></div>
+        <span class="field-score high">97%</span>
+        <span class="field-flag">Clear NFR</span>
+      </div>
+      <div class="field-row">
+        <span class="field-name">Acceptance Criteria</span>
+        <div class="field-bar-container"><div class="field-bar low" style="width:30%;"></div></div>
+        <span class="field-score low">30%</span>
+        <span class="field-flag">&#9888; Cannot be measured without specifics</span>
+      </div>
+      <div class="field-row">
+        <span class="field-name">Source Verse</span>
+        <div class="field-bar-container"><div class="field-bar high" style="width:99%;"></div></div>
+        <span class="field-score high">99%</span>
+        <span class="field-flag">Directly mapped</span>
+      </div>
+
+      <div class="suggestion-box">
+        <h4>&#10148; AI Improvement Suggestion</h4>
+        <p>"Latest industry-standard encryption" is vague. Based on current standards, suggest replacing with "TLS 1.3 for data in transit and AES-256 for data at rest" per NIST guidelines. This would make the requirement testable.</p>
+        <button class="apply-btn">Apply Suggestion</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flagged Item 2: MEDIUM severity -->
+  <div class="flag-card">
+    <div class="flag-card-header medium">
+      <span class="severity-badge medium">MEDIUM</span>
+      <span class="req-id">NFR-003</span>
+      <span class="req-title-text">Response Time</span>
+      <span class="overall-confidence" style="color:#e67e22;">78%</span>
+    </div>
+    <div class="flag-card-body">
+      <div class="field-row">
+        <span class="field-name">Title</span>
+        <div class="field-bar-container"><div class="field-bar high" style="width:95%;"></div></div>
+        <span class="field-score high">95%</span>
+        <span class="field-flag"></span>
+      </div>
+      <div class="field-row">
+        <span class="field-name">Description</span>
+        <div class="field-bar-container"><div class="field-bar medium" style="width:72%;"></div></div>
+        <span class="field-score medium">72%</span>
+        <span class="field-flag">&#9888; "approximately" is imprecise</span>
+      </div>
+      <div class="field-row">
+        <span class="field-name">Type</span>
+        <div class="field-bar-container"><div class="field-bar high" style="width:96%;"></div></div>
+        <span class="field-score high">96%</span>
+        <span class="field-flag">Clear NFR (Performance)</span>
+      </div>
+      <div class="field-row">
+        <span class="field-name">Acceptance Criteria</span>
+        <div class="field-bar-container"><div class="field-bar medium" style="width:70%;"></div></div>
+        <span class="field-score medium">70%</span>
+        <span class="field-flag">&#9888; "Normal load" undefined</span>
+      </div>
+      <div class="field-row">
+        <span class="field-name">Source Verse</span>
+        <div class="field-bar-container"><div class="field-bar high" style="width:98%;"></div></div>
+        <span class="field-score high">98%</span>
+        <span class="field-flag">Directly mapped</span>
+      </div>
+
+      <div class="suggestion-box">
+        <h4>&#10148; AI Improvement Suggestion</h4>
+        <p>Replace "approximately 2 seconds" with a quantified threshold: "95th percentile response time &le; 2 seconds under load of up to 1000 concurrent users." This enables performance testing with clear pass/fail criteria.</p>
+        <button class="apply-btn">Apply Suggestion</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flagged Item 3: LOW severity -->
+  <div class="flag-card">
+    <div class="flag-card-header low">
+      <span class="severity-badge low">LOW</span>
+      <span class="req-id">FR-012</span>
+      <span class="req-title-text">Transaction History</span>
+      <span class="overall-confidence" style="color:#b8860b;">84%</span>
+    </div>
+    <div class="flag-card-body">
+      <div class="field-row">
+        <span class="field-name">Title</span>
+        <div class="field-bar-container"><div class="field-bar high" style="width:90%;"></div></div>
+        <span class="field-score high">90%</span>
+        <span class="field-flag"></span>
+      </div>
+      <div class="field-row">
+        <span class="field-name">Description</span>
+        <div class="field-bar-container"><div class="field-bar medium" style="width:82%;"></div></div>
+        <span class="field-score medium">82%</span>
+        <span class="field-flag">&#9888; Time range for history not specified</span>
+      </div>
+      <div class="field-row">
+        <span class="field-name">Type</span>
+        <div class="field-bar-container"><div class="field-bar high" style="width:93%;"></div></div>
+        <span class="field-score high">93%</span>
+        <span class="field-flag"></span>
+      </div>
+      <div class="field-row">
+        <span class="field-name">Acceptance Criteria</span>
+        <div class="field-bar-container"><div class="field-bar medium" style="width:78%;"></div></div>
+        <span class="field-score medium">78%</span>
+        <span class="field-flag">&#9888; Search/filter criteria unspecified</span>
+      </div>
+      <div class="field-row">
+        <span class="field-name">Source Verse</span>
+        <div class="field-bar-container"><div class="field-bar high" style="width:97%;"></div></div>
+        <span class="field-score high">97%</span>
+        <span class="field-flag">Directly mapped</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
