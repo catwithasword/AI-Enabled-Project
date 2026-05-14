@@ -1,0 +1,244 @@
+[
+  {
+    "requirement_id": "REQ-001",
+    "title": "Task Creation - Title",
+    "description": "The system shall allow users to create tasks with a title.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Verify a task can be saved with a non-empty title string.",
+      "Verify the title is correctly displayed in the task list."
+    ],
+    "source_location": {
+      "document": "taskmanager-pro",
+      "verse": [
+        "FR-01: The system shall allow users to create tasks with a title, description, due date, and priority level (low, medium, high)."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-002",
+    "title": "Task Creation - Description",
+    "description": "The system shall allow users to create tasks with a description.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Verify a task can be saved with a description field.",
+      "Verify the description is correctly displayed in the task details view."
+    ],
+    "source_location": {
+      "document": "taskmanager-pro",
+      "verse": [
+        "FR-01: The system shall allow users to create tasks with a title, description, due date, and priority level (low, medium, high)."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-003",
+    "title": "Task Creation - Due Date",
+    "description": "The system shall allow users to create tasks with a due date.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Verify a task can be saved with a valid date value.",
+      "Verify the due date is correctly stored and displayed."
+    ],
+    "source_location": {
+      "document": "taskmanager-pro",
+      "verse": [
+        "FR-01: The system shall allow users to create tasks with a title, description, due date, and priority level (low, medium, high)."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-004",
+    "title": "Task Creation - Priority Level",
+    "description": "The system shall allow users to create tasks with a priority level (low, medium, high).",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Verify the system accepts 'low', 'medium', and 'high' as valid priority levels.",
+      "Verify the system rejects priority levels outside of the specified set."
+    ],
+    "source_location": {
+      "document": "taskmanager-pro",
+      "verse": [
+        "FR-01: The system shall allow users to create tasks with a title, description, due date, and priority level (low, medium, high)."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-005",
+    "title": "Task Assignment",
+    "description": "The system shall allow users to assign tasks to team members.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Verify a user can select a team member from a list and assign them to a task.",
+      "Verify the assigned team member is correctly associated with the task in the database."
+    ],
+    "source_location": {
+      "document": "taskmanager-pro",
+      "verse": [
+        "FR-02: The system shall allow users to assign tasks to team members."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-006",
+    "title": "Email Notification - Task Assignment",
+    "description": "The system shall send email notifications when a task is assigned.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Verify an email is triggered immediately upon task assignment.",
+      "Verify the email recipient is the assigned team member."
+    ],
+    "source_location": {
+      "document": "taskmanager-pro",
+      "verse": [
+        "FR-03: The system shall send email notifications when a task is assigned or when a due date is within 24 hours."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-007",
+    "title": "Email Notification - Due Date Proximity",
+    "description": "The system shall send email notifications when a due date is within 24 hours.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Verify an email is sent when the current time is <= 24 hours from the task due date.",
+      "Verify no notification is sent if the due date is > 24 hours away."
+    ],
+    "source_location": {
+      "document": "taskmanager-pro",
+      "verse": [
+        "FR-03: The system shall send email notifications when a task is assigned or when a due date is within 24 hours."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-008",
+    "title": "Task Filtering - Status",
+    "description": "The system shall allow users to filter tasks by status (todo, in-progress, done).",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Verify selecting 'todo' returns only tasks with 'todo' status.",
+      "Verify selecting 'in-progress' returns only tasks with 'in-progress' status.",
+      "Verify selecting 'done' returns only tasks with 'done' status."
+    ],
+    "source_location": {
+      "document": "taskmanager-pro",
+      "verse": [
+        "FR-04: The system shall allow users to filter tasks by status (todo, in-progress, done) and priority."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-009",
+    "title": "Task Filtering - Priority",
+    "description": "The system shall allow users to filter tasks by priority.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Verify selecting a specific priority level returns only tasks matching that level.",
+      "Verify multiple filters (status and priority) can be applied simultaneously."
+    ],
+    "source_location": {
+      "document": "taskmanager-pro",
+      "verse": [
+        "FR-04: The system shall allow users to filter tasks by status (todo, in-progress, done) and priority."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-010",
+    "title": "Dashboard - Weekly Statistics",
+    "description": "The system shall provide a dashboard showing task completion statistics for the current week.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Verify the dashboard displays statistics (e.g., count of completed tasks).",
+      "Verify the data displayed is strictly limited to the current calendar week."
+    ],
+    "source_location": {
+      "document": "taskmanager-pro",
+      "verse": [
+        "FR-05: The system shall provide a dashboard showing task completion statistics for the current week."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-011",
+    "title": "API Response Latency",
+    "description": "The system shall respond to API requests within 500ms under normal load.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Verify 95th percentile of API response times is <= 500ms during normal load testing.",
+      "Verify response time is measured from request receipt to response transmission."
+    ],
+    "source_location": {
+      "document": "taskmanager-pro",
+      "verse": [
+        "NFR-01: The system shall respond to API requests within 500ms under normal load."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-012",
+    "title": "Concurrent User Capacity",
+    "description": "The system shall support up to 100 concurrent users.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Verify system stability and performance when 100 users are performing simultaneous actions.",
+      "Verify no service degradation or errors occur at the 100-user threshold."
+    ],
+    "source_location": {
+      "document": "taskmanager-pro",
+      "verse": [
+        "NFR-02: The system shall support up to 100 concurrent users."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-013",
+    "title": "System Availability",
+    "description": "The system shall be available 99.9% of the time.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Verify uptime percentage over a 30-day period is >= 99.9%.",
+      "Verify total downtime does not exceed 43.2 minutes per month."
+    ],
+    "source_location": {
+      "document": "taskmanager-pro",
+      "verse": [
+        "NFR-03: The system shall be available 99.9% of the time."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-014",
+    "title": "Password Security - Hashing",
+    "description": "User passwords shall be stored using bcrypt hashing.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Verify that the database does not contain plain-text passwords.",
+      "Verify that the stored password string follows the bcrypt format/prefix."
+    ],
+    "source_location": {
+      "document": "taskmanager-pro",
+      "verse": [
+        "NFR-04: User passwords shall be stored using bcrypt hashing."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-015",
+    "title": "GDPR Compliance",
+    "description": "The system shall comply with GDPR data protection requirements.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Verify existence of data deletion (Right to be Forgotten) functionality.",
+      "Verify existence of data export (Data Portability) functionality.",
+      "Verify user consent mechanisms are implemented for data processing."
+    ],
+    "source_location": {
+      "document": "taskmanager-pro",
+      "verse": [
+        "NFR-05: The system shall comply with GDPR data protection requirements."
+      ]
+    }
+  }
+]

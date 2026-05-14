@@ -1,0 +1,1251 @@
+[
+  {
+    "requirement_id": "REQ-001",
+    "title": "Transport encryption",
+    "description": "All data transmitted between the Mashbot web client and server shall be encrypted using TLS over HTTP/1.1. This applies to direct client-server communication only, not to data backup (see backup requirements).",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "TLS encryption verified on all client-server endpoints",
+      "HTTP/1.1 protocol used for communication"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "Data will be encrypted using TLS and HTTP/1.1."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-002",
+    "title": "Account role hierarchy",
+    "description": "Mashbot Campaigns shall support account roles with defined privileges: Contributor (Priority 3), Approver (Priority 3), and Publisher (Priority 2).",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Three campaign roles available: Contributor, Approver, Publisher",
+      "Role permissions are hierarchical by priority level",
+      "A user may possess more than one role",
+      "Roles can be assigned per individual product"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "0140 User Account Types and Permissions The system categorizes users on the basis of roles and privileges. Within these roles, the system also categorizes users based on the roles that they have within individual products. These are referred to as user account roles. Mashbot Campaigns supports the following account roles: 0150 Contributor Priority 3 0160 Approver Priority 3 0170 Publisher Priority 3 0180 A user may possess more than one role. Priority 3"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-003",
+    "title": "Publisher action scheduling",
+    "description": "Publishers (Priority 4) shall be able to schedule or immediately initiate actions put forth by contributors and approved by approvers.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Publishers can schedule approved actions",
+      "Publishers can immediately initiate approved actions"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "0230 Publishers may schedule or immediately initiate actions put forth by contributors and those approved by approvers. Priority 4"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-004",
+    "title": "External service account linking",
+    "description": "Mashbot shall allow the association of Mashbot accounts with external service accounts such as Twitter, Facebook, and YouTube.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Accounts can be linked to Twitter",
+      "Accounts can be linked to Facebook",
+      "Accounts can be linked to YouTube"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "0590 Mashbot will allow for the association of Mashbot accounts with external service accounts."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-005",
+    "title": "Backup non-interference",
+    "description": "Incremental backups shall not create outages, and full backups shall not interfere with user interaction for more than 10 minutes.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Backup can be directed to local or remote non-volatile storage",
+      "Incremental backups cause no outages",
+      "Full backups do not interfere with user interaction for more than 10 minutes"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "0630 The system allows for the backup of the data system to local or remote non-volatile storage systems. Incremental backups should not create outages and full backups do not interfere with user interaction for more than 10 minutes. Priority 1"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-006",
+    "title": "User registration",
+    "description": "A user shall be able to register a new account on Mashbot.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Registration form available",
+      "Account created upon valid submission"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "1. A user should be able to register a new account"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-007",
+    "title": "User login",
+    "description": "A user shall be able to log in to their Mashbot account by providing a valid username and password.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Login form available",
+      "Authenticated users access their dashboard",
+      "Login requires valid username and password credentials"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "2. A user should be able to log in"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-008",
+    "title": "Member logout",
+    "description": "A member shall be able to log out of their Mashbot account.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Logout option available",
+      "Session terminated on logout"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "3. A member should be able to log out"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-009",
+    "title": "Member profile",
+    "description": "A member shall have a profile page displaying their account information.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Profile page displays member information",
+      "Profile accessible from dashboard"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "4. A member should have a profile"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-010",
+    "title": "Profile modification",
+    "description": "A member shall be able to modify their Password, Email Address, and Name.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Password is modifiable by the account holder",
+      "Email Address is modifiable by the account holder",
+      "Name is modifiable by the account holder",
+      "Only Password, Email Address, and Name are modifiable by all user types"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "5. A member should be able to modify their profile"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-011",
+    "title": "Email verification",
+    "description": "A user's email shall be verified when registering a new account.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Verification email sent on registration",
+      "Account activated after email verification"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "6. A user's email should be verified when registering a new account."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-012",
+    "title": "Admin account modification",
+    "description": "An admin shall be able to modify user accounts.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Admin can edit user account details",
+      "Changes take effect immediately"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "7. An admin should be able to modify accounts"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-013",
+    "title": "Admin account suspension",
+    "description": "An admin shall be able to suspend user accounts.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Admin can suspend any user account",
+      "Suspended users cannot log in"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "8. An admin should be able to suspend accounts"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-014",
+    "title": "Admin account deletion",
+    "description": "An admin shall be able to delete user accounts.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Admin can delete any user account",
+      "Deleted accounts are removed from the system"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "9. An admin should be able to delete accounts"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-015",
+    "title": "Campaign trending topics monitoring",
+    "description": "A member shall be able to monitor trending topics related to their campaign.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Trending topics displayed for active campaigns",
+      "Topics updated periodically"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "10. A member should be able to monitor trending topics regarding their campaign"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-016",
+    "title": "Facebook group monitoring",
+    "description": "A member shall be able to monitor Facebook groups related to their campaigns.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Facebook groups linked to campaigns",
+      "Activity from groups displayed"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "11. A member should be able to monitor facebook groups related to campaigns"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-017",
+    "title": "Twitter @replies viewing",
+    "description": "A member shall be able to view @replies to tweets related to their campaigns.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "@replies displayed for campaign tweets",
+      "Replies updated in real-time or near real-time"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "12. A member should be able to view @replies to tweets related to their campaigns"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-018",
+    "title": "Blog response viewing",
+    "description": "A member shall be able to see responses to blog posts related to their campaign.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Blog responses linked to campaigns",
+      "Responses displayed in dashboard"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "13. A member should be able to see responses to blog posts related to the campaign."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-019",
+    "title": "Bulk user account actions",
+    "description": "An admin shall be able to perform user account actions in bulk.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Bulk action interface available",
+      "Multiple accounts can be modified simultaneously"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "14. An admin should be able to perform user account actions in bulk"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-020",
+    "title": "Admin campaign overview",
+    "description": "An admin shall be able to see all campaigns in the system.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "All campaigns listed for admin view",
+      "Campaign details accessible from list"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "15. An admin should be able to see all campaigns"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-021",
+    "title": "Admin campaign deletion",
+    "description": "An admin shall be able to delete any campaign.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Admin can delete any campaign",
+      "Deleted campaigns are removed from the system"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "16. An admin should be able to delete any campaign"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-022",
+    "title": "Admin campaign editing",
+    "description": "An admin shall be able to edit all campaigns.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Admin can modify any campaign",
+      "Changes saved and reflected immediately"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "17. An admin should be able to edit all campaigns"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-023",
+    "title": "Multi-user campaign collaboration",
+    "description": "Mashbot campaigns shall allow multiple users to collaborate on a single campaign.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Multiple users can be assigned to a campaign",
+      "Collaborative editing supported"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "18. Mashbot campaigns! campaigns should allow multiple users to collaborate on a campaign"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-024",
+    "title": "Multi-user support",
+    "description": "Mashbot campaigns shall support multiple concurrent users.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Multiple users can work simultaneously",
+      "No data conflicts during concurrent edits"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "19. Mashbot campaigns! should support multiple users"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-025",
+    "title": "Service authentication storage",
+    "description": "A member shall be able to store authentication credentials for supported external services.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Credentials stored securely",
+      "Stored credentials used for service integration"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "20. A member should be able to store authentication for supported services"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-026",
+    "title": "Additional service integration",
+    "description": "A member shall be able to add additional services to an existing campaign.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "New services can be added to existing campaigns",
+      "Service integration works without campaign disruption"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "21. A member should be able to add additional services to an existing campaign"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-027",
+    "title": "Campaign element deletion",
+    "description": "A member shall be able to delete individual campaign elements.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Individual elements can be deleted",
+      "Campaign remains consistent after deletion"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "22. A member should be able to delete individual campaign elements"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-028",
+    "title": "Hierarchical permissions",
+    "description": "Members shall have hierarchical permissions within campaigns.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Permission levels defined",
+      "Higher-level users can manage lower-level users"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "23. Members should have hierarchical permissions"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-029",
+    "title": "Workflow approval process",
+    "description": "A campaign shall have a workflow approval process for content publishing.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Content requires approval before publishing",
+      "Approvers can approve or reject content"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "24. A campaign should have workflow approval process"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-030",
+    "title": "Campaign unpublishing",
+    "description": "A member shall be able to unpublish a campaign.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Unpublish option available",
+      "Unpublished campaigns hidden from public view"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "25. A member should be able to unpublish a campaign"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-031",
+    "title": "Campaign deletion",
+    "description": "A member shall be able to delete their own campaigns.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Delete option available for campaign owners",
+      "Deleted campaigns removed from system"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "26. A member should be able to delete a campaign"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-032",
+    "title": "Bulk event scheduling",
+    "description": "A member shall be able to schedule events in bulk across supported services.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Bulk scheduling interface available",
+      "Events scheduled across multiple services"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "27. A member should be able to schedule events in bulk"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-033",
+    "title": "Live date scheduling",
+    "description": "A member shall be able to schedule live dates for individual campaign events.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Individual events can have scheduled live dates",
+      "Events published at scheduled times"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "28. A member should be able to schedule \"live dates\" for individual events."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-034",
+    "title": "Content deletion from services",
+    "description": "A member shall be able to delete existing content from supported services.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Content deletable from individual services",
+      "Deletion confirmed before execution"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "29. A member should be able to delete existing content from supported services"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-035",
+    "title": "Published content overview",
+    "description": "A member shall be able to see the content they have published across all supported services.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Published content listed by service",
+      "Content status visible (published, scheduled, draft)"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "30. A member should be able to see the content they have published in all supported services"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-036",
+    "title": "Facebook campaign publishing",
+    "description": "A member shall be able to push content to Facebook within a campaign.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Content can be posted to Facebook",
+      "Post linked to campaign for tracking"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "31. A member should be able to push to Facebook in a campaign"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-037",
+    "title": "Blog campaign publishing",
+    "description": "A member shall be able to post content to a blog within a campaign.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Content can be posted to blog",
+      "Post linked to campaign for tracking"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "32. A member should be able to post to a blog in a campaign"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-038",
+    "title": "Twitter campaign publishing",
+    "description": "A member shall be able to post content to Twitter within a campaign.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Content can be posted to Twitter",
+      "Tweet linked to campaign for tracking"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "33. A member should be able to post to Twitter in a campaign"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-039",
+    "title": "Campaign creation",
+    "description": "A member shall be able to create a new campaign.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Campaign creation form available",
+      "New campaign appears in member's dashboard"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "34. A member should be able to create a new campaign"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-040",
+    "title": "Campaign activity notifications",
+    "description": "A member shall receive notifications when activity occurs in a campaign they are working on.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Notifications sent for campaign activity",
+      "Member can configure notification preferences"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "35. A member should get notified when activity occurs in a campaign they're working on"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-041",
+    "title": "Social message viewing",
+    "description": "Users shall be able to view social networking messages directed at them and perform data mining tasks on social networks.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Social messages displayed to users",
+      "Data mining on social networks supported"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "Users will be able to view social networking messages directed at them, as well as perform data mining tasks on the social networks to provide more intelligent heuristics regarding brands' strength amongst particular markets."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-042",
+    "title": "Advance content scheduling",
+    "description": "Users shall be able to prepare content far in advance of its distribution, or queue updates to be spread out over a certain period.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Content can be prepared in advance",
+      "Updates can be queued for scheduled distribution"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "users will be able to prepare a press release far in advance of its distribution, or queue a number of updates to be spread out over a certain time period."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-043",
+    "title": "Email system",
+    "description": "Mashbot shall provide an external email system that sends messages from Mashbot to users via SMTP. The email input is generated automatically using settings configurable by the System Administrator, and no return message to Mashbot is expected.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "System sends emails to users via SMTP protocol",
+      "Email settings are configurable by the System Administrator",
+      "No return message is expected from email recipients",
+      "Email delivery uses SMTP format"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "0100 Purpose The external email system is to provide a messaging service from Mashbot to the Mashbot users. Priority 2 0110 Input The input is generated automatically by the Mashbot system using settings configurable by the System Administrator. Priority 2 0120 Output The output is in the form of an e-mail to an e-mail account, but it does not return any sort of message to Mashbot. Priority 2 0130 Data Format The format uses SMTP protocol. Priority 2"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-044",
+    "title": "Account registration required fields",
+    "description": "The following information shall be required when creating a new user account: Username, Password, Name, Email Address, Group Membership, and User Account Type.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Username is a required field",
+      "Password is a required field",
+      "Name is a required field",
+      "Email Address is a required field",
+      "Group Membership is a required field",
+      "User Account Type is a required field"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "0260 Certain pieces of information are required to create new accounts. Priority 1 The following information is required for any new user account: 0270 Username Priority 1 0280 Password Priority 1 0290 Name Priority 1 0300 Email Address Priority 1 0310 Group Membership Priority 1 0320 User Account Type Priority 1"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-045",
+    "title": "Login required for account modification",
+    "description": "The system shall require that a user have logged in before any account modifications can be made.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Unauthenticated users cannot modify any account information",
+      "User must be logged in to access account modification functions"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "0340 The system requires that a user have logged in before modifications can be made. Priority 1"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-046",
+    "title": "Account deactivation rules",
+    "description": "The system shall enforce the following deactivation rules: accounts with associated history can only be deactivated (not deleted). Accounts with no history can be fully deleted from the system. Deactivated accounts can be re-enabled. Deactivated users are denied access to the system.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Accounts with history can only be deactivated, not deleted",
+      "Accounts with no history can be fully deleted from the system",
+      "Deactivated accounts can be re-enabled",
+      "Deactivated users are denied access to the system"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "0380 User Account Deactivation The system allows user accounts to be deactivated. Priority 3 0390 The system denies user who have been deactivated from accessing the system. Priority 3 0400 If an account has any history associated with it, it can only be deactivated and not deleted. Priority 3 0410 If an account has no history associated with it, it can be deleted from the system. Priority 3 0420 A disable account can be undisabled Priority 3"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-047",
+    "title": "Password reset",
+    "description": "The system shall give users the ability to reset their password. Individual passwords can be reset, but users can only change their own passwords.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Users can initiate a password reset",
+      "Individual passwords can be reset",
+      "Users can only change their own passwords"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "0450 The system gives users the ability to reset their password. Priority 2 0460 Individual passwords can be reset. Priority 2 0470 The system only allows users to change their own passwords. Priority 2"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-048",
+    "title": "Campaign required components",
+    "description": "A campaign shall consist of the following required components: Name (Priority 1), Pieces of content (Priority 1), and Schedule (Priority 1). A schedule is a mapping of times to publishing actions.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Every campaign has a Name",
+      "Every campaign contains Pieces of content",
+      "Every campaign has a Schedule defined as a time-to-action mapping"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "0480 A campaign has the following components: 0490 Name Priority 1 0500 Pieces of content Priority 1 0510 Schedule Priority 1"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-049",
+    "title": "Content types",
+    "description": "A piece of content within a campaign may take the following forms: Text (Priority 1), Image (Priority 1), Audio (Priority 3), and Video (Priority 3).",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Text content type is supported (Priority 1)",
+      "Image content type is supported (Priority 1)",
+      "Audio content type is supported (Priority 3)",
+      "Video content type is supported (Priority 3)"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "0540 A piece of content may take the following forms: 0550 Text Priority 1 0560 Image Priority 1 0570 Audio Priority 3 0580 Video Priority 3"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-050",
+    "title": "Failed login warning emails",
+    "description": "The system shall be configurable to email the System Administrator warnings about multiple failed login attempts from the same user.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "System can be configured to send email warnings for failed login attempts",
+      "Warnings are sent to the System Administrator",
+      "Warnings are triggered by multiple failed attempts from the same user"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "0640 The system is configurable to e-mail warnings about multiple failed login attempts from the same user. These warnings are sent to the System Administrator. Other security risks of this type are the responsibility of the System Administrator. Priority 3"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-051",
+    "title": "Valid user login restriction",
+    "description": "The system shall allow only valid users to log in. A valid user is one which has not been disabled or deleted and exists on the system.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Disabled users cannot log in",
+      "Deleted users cannot log in",
+      "Non-existent users cannot log in",
+      "Only valid (active, existing) users can authenticate"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "0650 The system allows only valid users to log into the system. A valid user is one which has not been disabled or deleted and exists on the system. Priority 1"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-052",
+    "title": "Configurable authentication module",
+    "description": "The system shall use the configured authentication module. The authentication method shall be configurable by the System Administrator.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "System uses the currently configured authentication module",
+      "System Administrator can configure the authentication method"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "0670 The system uses the configured authentication module. The authentication method is configurable by the System Administrator. Priority 1"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-053",
+    "title": "Session timeout",
+    "description": "The system shall allow the System Administrator to configure a timeout after which a user is automatically logged out of Mashbot.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "System Administrator can set a session timeout value",
+      "Users are automatically logged out after the configured timeout period"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "0680 The system allows the System Administrator to configure a timeout after which a user is automatically logged out of Mashbot. Priority 1"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-054",
+    "title": "Historical metrics comparison",
+    "description": "Users shall be able to view and compare historical metrics of campaigns.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Historical campaign metrics are available for viewing",
+      "Users can compare metrics across different time periods or campaigns"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "2. View and Compare historical metrics of campaigns"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-055",
+    "title": "Keyword alerts",
+    "description": "Users shall be able to set up keyword alerts for watched services.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Users can configure keyword-based alerts",
+      "Alerts monitor specified keywords across watched services"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "5. Set up keyword alerts for \"watched\" services"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-056",
+    "title": "Campaign user and group permissions",
+    "description": "A campaign shall support User/Group Permissions as a component (Priority 2).",
+    "type": "functional",
+    "acceptance_criteria": [
+      "User/Group Permissions can be assigned to individual campaigns",
+      "Permission assignment is a Priority 2 feature"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "0520 User/Group Permissions Priority 2"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-057",
+    "title": "Tabbed interface",
+    "description": "The user interface shall consist of a tabbed navigation bar that unifies sitewide navigation. The interface shall include four tabs: Dashboard, Create, Schedule, and Explore.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Tabbed navigation bar present across all pages",
+      "Dashboard tab available",
+      "Create tab available",
+      "Schedule tab available",
+      "Explore tab available"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "The user interface will consist of a tabbed navigation bar that unifies the sitewide navigation, as well as module specific navigation as needed. Tabs: Dashboard, Create, Schedule, Explore"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-058",
+    "title": "Dashboard metrics",
+    "description": "The dashboard shall consist of graphs and charts giving the user a view on campaign performance. Default metrics include clickthrough rate, page views, and number of comments. Service plugins may define additional specialized metrics.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Dashboard displays graphs and charts for campaign performance",
+      "Clickthrough rate metric available",
+      "Page views metric available",
+      "Number of comments metric available",
+      "Service plugins can define additional metrics",
+      "Panel available for detailed metric information"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "The dashboard consists of graphs and charts to give the user a quick view on how their campaigns are performing. Metrics include: Clickthrough rate, Page Views, Number of Comments. Service plugins can define additional specialized metrics to track, as well, for instance \"retweets\" for Twitter. A panel is available to give more information on each metric as it is selected."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-059",
+    "title": "Content creation view",
+    "description": "The Create view shall allow users to create campaigns and fill them with content, and to edit existing campaigns. Users can add content by selecting the content type and scheduling individual items.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Users can create new campaigns in the Create view",
+      "Users can edit existing campaigns in the Create view",
+      "Add content button available for adding content items",
+      "Content type selection available based on connected services",
+      "Each content item can be individually scheduled, edited, or deleted"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "This view allows users to create campaigns and fill them with content. This view is also used when users need to edit an existing campaign."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-060",
+    "title": "Calendar scheduling view",
+    "description": "The Schedule view shall provide a calendar tool for scheduling content. Users can drag content items to the calendar to schedule them. Content receives a default go-live time of 12am on the assigned day. Users can click scheduled content to assign a specific time. The calendar provides a visual representation of content actions and supports month-to-month navigation.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Content items can be dragged to the calendar to schedule",
+      "Default go-live time is 12am on the assigned day",
+      "Users can click scheduled content to set a specific time",
+      "Calendar shows visual representation of content go-live and deletion",
+      "Month-to-month navigation available"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "Scheduling content Users can drag items from the left hand bucket of content to the calendar to schedule content. The content will receive a default golive time of 12am on the day the content is dragged to. If the user desires a different time, he may click the content in the schedule and assign the proper time."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-061",
+    "title": "Explore view",
+    "description": "The Explore view shall allow users to monitor social media topics. It supports setting up monitored searches for services that support keyword search via API, and aggregates data from comments on content published as part of campaigns.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Users can set up monitored keyword searches for supported services",
+      "Aggregated comment data from published campaign content is available",
+      "Services that support keyword search via API are searchable"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "This view allows users to get a pulse on what information social media contains. This includes the ability to set up monitored searches for services that support keyword search via api. This also will aggregate data gathered from comments on content that has been published as part of a given campaign"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-062",
+    "title": "Memory constraints",
+    "description": "The Mashbot server shall require no greater than 1 gigabyte of RAM. The web client shall require no more than approximately 256 megabytes of RAM.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Server operates within 1 GB of RAM",
+      "Client operates within 256 MB of RAM"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "The Mashbot server requires no greater than 1 gigabyte of RAM memory. The web client requires no more than the minimum memory a modern desktop computer commonly has, approximately 256 megabytes of RAM."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-063",
+    "title": "Hardware interface constraints",
+    "description": "The Mashbot web client shall run on hardware capable of connecting to the Internet, running a modern HTTP 1.1 web browser, and including a keyboard, pointing device, and writable volatile storage. The server shall run on hardware capable of connecting to the Internet as a server, interfacing with database software, and running networking software.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Client hardware supports Internet connectivity and HTTP 1.1 browser",
+      "Client hardware includes keyboard and pointing device",
+      "Server hardware supports Internet server connectivity",
+      "Server hardware interfaces with database software"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "The Mashbot web client runs on any computer hardware meeting the following criteria: Capable of connecting to the Internet, Capable of running a modern HTTP 1.1 web browser, Includes a keyboard and a pointing device, Includes writable volatile storage. The Mashbot server runs on any computer hardware meeting the following criteria: Capable of connecting to the Internet as a server. Capable of interfacing with modern database software. Capable of running a modern suite of networking software."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-064",
+    "title": "Software interface constraints",
+    "description": "Mashbot shall interface with an internal user database for authentication, expect the web client to support HTTP 1.1 and HTML 4.0, interface with existing database software, provide a publishing and aggregation platform interface for content distribution and social network data collection, and run on an operating system capable of serving encrypted dynamic web pages with Internet connectivity.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Authentication uses internal user database",
+      "Web client supports HTTP 1.1 and HTML 4.0",
+      "Server interfaces with existing database software",
+      "Publishing and aggregation platform interface available",
+      "Server OS supports encrypted dynamic web page serving"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "Authentication Mashbot authenticates users against it's internal user database. Campaign Manager Web Client Mashbot interfaces with the users web browser and expects that it is capable of HTTP 1.1 and HTML 4.0. Database Mashbot software interfaces with an existing database software."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-065",
+    "title": "Communication protocol constraints",
+    "description": "Communication between the Mashbot web client and server shall use TCP/IP network stacks. Data shall be encrypted using TLS and HTTP/1.1. The system shall send emails using SMTP.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "TCP/IP network stacks used for client-server communication",
+      "TLS encryption over HTTP/1.1 for data transmission",
+      "SMTP protocol used for email"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "Communication between the web client and the server software is facilitated by common network protocols. Data will be encrypted using TLS and HTTP/1.1. The use of these protocols requires the ability for the systems to communicate using TCP/IP network stacks. The Mashbot system sends emails using SMTP."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-066",
+    "title": "Standardized service interaction",
+    "description": "Mashbot shall provide a standardized method of interacting with external service accounts.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Standardized interface for interacting with all connected external services",
+      "Common operations abstracted across service types"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "0610 Mashbot will provide a standardized method of interacting with external service accounts Priority 1"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-067",
+    "title": "Reply creation",
+    "description": "Users shall be able to create replies to content published through Mashbot.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Users can compose replies to content",
+      "Replies can be sent through connected services"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "3. View/Create replies to content"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-068",
+    "title": "External authentication support",
+    "description": "Mashbot shall allow the use of external authentication modules for user login. An internal authentication mechanism shall be provided as a fallback when an external module is unavailable.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "External authentication modules can be used for login",
+      "Internal authentication available as fallback",
+      "Authentication method is selectable"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "Authentication Mashbot will allow the use of external authentication modules for user login. Mashbot will also provide an internal authentication mechanism in case an external module is unavailable."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-069",
+    "title": "Contributor Permissions",
+    "description": "Contributors may create new content, import existing content into the system, edit content, and delete it. They may also submit these actions for approval.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Contributors can create new content",
+      "Contributors can import existing content into the system",
+      "Contributors can edit content",
+      "Contributors can delete content",
+      "Contributors can submit actions for approval"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "0210 Contributors may create new content, import existing content into the system, edit content, and delete it. They may also submit these actions for approval. Priority 3"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-070",
+    "title": "Approver Permissions",
+    "description": "Approvers can approve actions performed by contributors.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Approvers can review actions submitted by contributors",
+      "Approvers can approve or reject contributor actions"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "0220 Approvers can approve actions performed by contributors. Priority 3"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-071",
+    "title": "External Authentication Interface",
+    "description": "Mashbot will provide an interface for authenticating a user account to an external service account.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Authentication interface available for linking user accounts to external services",
+      "Interface supports authentication workflow for all supported external services",
+      "Priority 1 implementation requirement"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "0600 Mashbot will provide an interface for authenticating a user account to an external service account Priority 1"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-072",
+    "title": "Unlimited User Accounts",
+    "description": "The system may contain any number of user accounts.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "No hard limit on the number of user accounts in the system",
+      "System scales to accommodate growing account counts"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "0250 The system may contain any number of user accounts. Priority 1"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-073",
+    "title": "Concurrent Cross-Service Scheduling",
+    "description": "Members shall be able to schedule content for various services to be published concurrently.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Content can be scheduled to publish across multiple services simultaneously",
+      "Single scheduling action targets multiple external services at once",
+      "Concurrent publication timing is consistent across all targeted services"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "1. Schedule content for various services to be published concurrently"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-074",
+    "title": "Database Interface",
+    "description": "Mashbot shall have an interface to a database for storage and retrieval of data related to accounts and campaigns.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Database interface supports storage and retrieval of account data",
+      "Database interface supports storage and retrieval of campaign data",
+      "Data persistence is reliable and performant"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "Database Mashbot has an interface to a database which allows for the storage and retrieval of data related to accounts and campaigns."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-075",
+    "title": "System Administrator Account Protection",
+    "description": "It is possible to disable all accounts except for the System Administrator account. (Priority 4 \u2014 deferred from initial release)",
+    "type": "functional",
+    "acceptance_criteria": [
+      "System Administrator account cannot be disabled",
+      "All other accounts can be disabled as needed"
+    ],
+    "source_location": {
+      "document": "mashboot",
+      "verse": [
+        "0430 It is possible to disable all accounts except for the System Administrator account. Priority 4"
+      ]
+    }
+  }
+]

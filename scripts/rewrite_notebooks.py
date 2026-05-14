@@ -477,7 +477,7 @@ b4 = nb(
     ("code", code(
         "import json, os, glob",
         "",
-        "opt_dir = '/Users/xd/Final_Project/Requirement-extraction/scripts/optimization_results'",
+        "opt_dir = os.path.join(BASE_DIR, 'optimization-results')",
         "files = sorted(glob.glob(os.path.join(opt_dir, 'auto_run_*.json')))",
         "print(f'Found {len(files)} auto-run result files')",
         "",
@@ -654,7 +654,7 @@ b5 = nb(
     ("code", code(
         "import json, os",
         "",
-        "FIXTURE_DIR = '/Users/xd/Final_Project/Requirement-extraction/tests/fixtures/pipeline_test'",
+        "FIXTURE_DIR = os.path.join(BASE_DIR, 'datasets', 'pipeline-test')",
         "",
         "with open(os.path.join(FIXTURE_DIR, 'confidence_input.json')) as f:",
         "    conf_in = json.load(f)",

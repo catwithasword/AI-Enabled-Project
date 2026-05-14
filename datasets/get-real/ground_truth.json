@@ -1,0 +1,510 @@
+[
+  {
+    "requirement_id": "REQ-001",
+    "title": "Teen-friendly site design",
+    "description": "The Get Real website shall maintain a teen-friendly design to hold student attention and guide viewers toward information that leads to pursuing a CS career. Content shall avoid walls of text by using bullets, charts, visuals, and white space to accommodate faster reading and shorter attention spans.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Site layout and content presentation appeal to a teen audience",
+      "Key CS career information is easily discoverable from the landing page",
+      "Text broken into readable chunks using bullets and charts",
+      "Visuals, photos, and diagrams used to break up text",
+      "Adequate white space used throughout pages",
+      "Popular v1 elements like the spinning globe and satellite menu maintained or enhanced",
+      "All existing pages updated to shorten paragraphs, add bullets and charts to accommodate faster reading",
+      "Design decisions grounded in student user feedback from Oregon high schools (version 1 testing)"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "Maintaining a teen friendly site is deemed of highest importance in order to hold student attention and guide the viewer to information that will lead to a decision to pursue a career in CS."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-002",
+    "title": "High School Courses page",
+    "description": "The site shall provide a High School Courses page showing recommended curricula for high school students interested in computer science, including pointers to curricula recommendations from OUS campuses, other university sources, and the ACM.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Recommended curricula for high school CS students listed",
+      "Curricula recommendations sourced from OUS campuses",
+      "Curricula recommendations sourced from other university sources",
+      "ACM recommended curricula for HS CS students included",
+      "Content acknowledges UO is currently developing HS course recommendations; other campuses may have limited availability"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "The intent of this section is to show recommended curricula for high school students interested in CS and related careers. This page should provide pointers to curricula recommendations from OUS campuses and other university sources. The ACM has recommended curricula for HS CS students."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-003",
+    "title": "Browser compatibility",
+    "description": "The Get Real site shall work correctly and be tested against Internet Explorer, Firefox, and Netscape browsers.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Site renders correctly in Internet Explorer",
+      "Site renders correctly in Firefox",
+      "Site renders correctly in Netscape"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "The Get Real site should work and be tested against IE, Firefox and Netscape."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-004",
+    "title": "Server performance",
+    "description": "The Get Real site shall be hosted on a server that provides adequate response time, as high school students tend to have short attention spans and a slow server would reduce engagement.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Adequate response time for high school student audience",
+      "Response time comparable to current OUS site (www.ous.edu) as benchmark example",
+      "No perceptible delay that would reduce student engagement"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "The Get Real site should be hosted on a server that can provide adequate response time. High school students tend to have short attentions spans, so a slow server would not be satisfactory for this application. The current OUS (www.ous.edu) site is a good example of rapid response time."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-005",
+    "title": "Security compliance",
+    "description": "Copyright and other security measures for the Get Real site shall match the standards used on the OUS site.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Security measures match OUS site standards",
+      "Copyright notices are displayed appropriately"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "Copyright and other security measures for Get Real should be the same as the OUS site."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-006",
+    "title": "Design consistency",
+    "description": "Web design conventions on the Get Real site shall be consistent with the standards and conventions used on the OUS site.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Visual style matches OUS site conventions",
+      "Navigation patterns follow OUS standards"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "Web design conventions should be consistent with the standards and conventions used on the OUS site."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-007",
+    "title": "Internal and external search",
+    "description": "The site shall provide at least two kinds of search: an internal search of the Get Real site, and an external search of CS-related sites such as OUS campuses.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Internal site search functional",
+      "External search of CS-related sites available",
+      "Both search types accessible from the site",
+      "Search implementation may use established tools such as Google for both internal and external search",
+      "Prototype index page (getreal.ous.edu/protoindex.html) provides search engine examples for reference"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "At least two kinds of searches are needed, 1) internal search of the Get Real site, and 2) external search of CS related outside sites such as OUS campuses, articles on CS etc. Google, for example provides tools for internal and external searches. The Get Real prototype index page ~getreal.ous.edu/protoindex.html has examples of various search engines."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-008",
+    "title": "Video and audio content",
+    "description": "The site shall support video or audio content to convey personal messages from CS professionals that encourage students to pursue a CS degree.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Video or audio content from CS professionals supported",
+      "Content conveys personal messages encouraging CS degree pursuit",
+      "Example video profile themes (not exhaustive): 'a day in the life of', 'power to change the world', 'Pathways in computer science'",
+      "UW CS videos (cs.washington.edu) referenced as example format for profile structure"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "The use of video or audio could help convey a personal message that could \"push\" some students to pursue a CS degree."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-009",
+    "title": "RSS feed distribution",
+    "description": "The site shall provide RSS feeds of current CS information, distributing selected articles from the chancellor's office daily communications to subscribers.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "RSS feed available for subscription on the Get Real site",
+      "Articles sourced from chancellor's office daily communications distribution",
+      "Feed content managed via DSS feed URL editing",
+      "Manual URL editing of DSS feed requires dedicated web design resource hours weekly"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "Selected articles from the chancellor's office daily communications distribution, fed to RSS subscribers on the Get Real site. This feature requires X hours per week of web design resource for editing the URLs to the DSS feed."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-010",
+    "title": "Ask a Grad or Prof Q&A",
+    "description": "The site shall provide an Ask an Engineer, Ask a Grad or Prof \u2013 FAQ section where students can get fast feedback from the Oregon University System on questions about CS careers.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Q&A format with answers posted in an FAQ section for all to read",
+      "Students can submit questions about CS careers",
+      "Fast feedback provided from the Oregon University System",
+      "Supports 'Ask an Engineer' and 'Ask a Grad or Prof' personas"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "Get fast feedback from the Oregon University System on questions asked in a Q and A format. Answers are posted in an FAQ section for all to read. A Grad or Prof BLOG on CS careers would also work here."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-011",
+    "title": "Website analytics tracking",
+    "description": "The site shall track and evaluate hits and time spent on the student-focused website over time, and support making content, design, and navigation changes as needed based on evaluation of hits.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Hit counts tracked per page and per section on student-focused pages",
+      "Time-on-page metrics recorded and reportable",
+      "Navigation path data captured to identify user flow patterns",
+      "Periodic evaluation reports generated from collected data",
+      "Content, design, and navigation changes made based on evaluation of hits and engagement data"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "There is a need to track and evaluate the \"hits\" and time spent on the student-focused website over time; and make content, design, and navigation changes as needed based on evaluation of hits."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-012",
+    "title": "CS career benefits overview",
+    "description": "The site shall provide personal and career information from a broad spectrum of CS professionals, CS course and other information from OUS campuses, timely and up-to-date information that encourages readers to return, and actionable plans for students to follow to prepare for a CS career.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Career profiles from diverse CS professionals available",
+      "CS course and other information from OUS campuses included",
+      "Timely content that encourages return visits",
+      "Call to action for students to pursue CS careers",
+      "Actionable plans for students to follow to prepare for a CS career"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "Benefits for using the site should include:\n     \u2022 Personal and Career information from a broad spectrum of CS professionals\n     \u2022 CS course and other information from OUS campuses\n     \u2022 Timely and up to date information that encourages readers to return to the site, may include Q & A\n     \u2022 Call to action, and plans for students to follow to prepare for a CS career"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-013",
+    "title": "Jobs and money information",
+    "description": "The site shall answer the questions 'how can I contribute to society' and 'how much money can I make' with a computer science degree.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Societal contribution information available",
+      "Salary/career earning information available",
+      "Information linked to CS career paths"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "Offers answers to the questions: \"how can I contribute to society and how much money can I make with a computer science degree?\""
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-014",
+    "title": "Pre-college technology resources",
+    "description": "The site shall provide a Resources page exploring a wide range of pre-college technology programs and courses available to high school students.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Resources page listing pre-college technology programs and courses",
+      "Programs categorized or filterable",
+      "Links to program details",
+      "Broad range of pre-college tech programs covered"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "Explore a wide range of pre-college technology programs and courses for high school students."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-015",
+    "title": "CS minor visibility",
+    "description": "The site shall provide information for students in medicine, law, business, protein research, weather prediction, neurobotics, and other professions showing the value of having a CS minor.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Information for students in medicine, law, business, protein research, weather prediction, neurobotics, and other professions on CS minor value",
+      "Content highlights the value of having a CS minor in diverse career paths",
+      "References video 'Pathways in Computer Science' as example of CS majors in diverse fields"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "Information for students in medicine, law, business, and other professions to provide students visibility of the high value of having a CS minor."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-016",
+    "title": "Video streaming bandwidth",
+    "description": "The site shall have sufficient bandwidth for video streaming.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Videos stream without buffering",
+      "Multiple concurrent video users supported"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "Bandwidth for video streaming"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-017",
+    "title": "Exploring College page",
+    "description": "The site shall provide an Exploring College page listing computer science offerings from all seven Oregon University System campuses and other Oregon colleges.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Listing of CS offerings from all seven OUS campuses included",
+      "Other Oregon colleges with CS programs included",
+      "Offerings presented in a comparable, browsable format",
+      "College comparison chart from version 1 retained, as it scored positive marks from students"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "A listing of the computer science offerings from Oregon university System campuses and other Oregon colleges."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-018",
+    "title": "Women in Computer Science page",
+    "description": "The site shall provide a Women in Computer Science page profiling women CS professionals as people who balance careers, community involvement, and hobbies. The page shall show women solving problems and making the world better through CS, and include a contact resource list for students wishing to reach out to women CS professionals or recent graduates.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Profiles show women CS professionals as people who solve problems and contribute to society",
+      "Profiles show women balancing careers, community involvement, and hobbies",
+      "Contact resource list available for students wishing to reach out to women in CS or recent grads",
+      "Contact resources include examples such as WICS UO and UPenn women in CS architecture group",
+      "Content inspired by engineergirl.org youth-oriented style with good use of white space"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "The intent is to profile women computer scientists and engineers as people who work every day to solve problems and make the world a better, cleaner, safer place."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-019",
+    "title": "I'm Looking For page",
+    "description": "The site shall provide an 'I'm Looking For\u2026' page containing a list of focused questions and answers with links inside the Get Real site, covering topics such as money, people, and colleges.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Focused questions and answers organized by topic (money, people, colleges)",
+      "Links within answers point to relevant Get Real site sections",
+      "Navigation from Q&A to detailed pages is intuitive"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "A list of focused questions and answers with links inside the Get Real site. topics include: money, people, and colleges."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-020",
+    "title": "Articles page",
+    "description": "The site shall provide an Articles page linking to external articles relevant to CS careers, such as '50 best jobs in America' and similar content.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Links to external articles relevant to CS careers",
+      "Articles include career-focused content such as '50 best jobs in America'",
+      "Links verified and maintained over time"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "A list of articles outside the Get Real site including \"50 best jobs in America, Dream Jobs 2007, etc."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-021",
+    "title": "Real People page",
+    "description": "The site shall provide a Real People page profiling recent CS graduates and experienced professionals in CS and related careers. Profiles shall show real people using CS knowledge in diverse fields, emphasizing that CS careers are not limited to cubicle work. The section shall support motivational storytelling through personal career narratives.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Profiles of recent CS graduates included",
+      "Profiles of experienced CS professionals included",
+      "Profiles show real people using CS knowledge in diverse fields, not limited to traditional CS roles",
+      "Video or audio content used to convey personal messages where possible"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "A people section outlining recent CS graduates and more experienced professionals in CS and related careers. A key point is to show real people using their CS knowledge in diverse fields, and not cooped up in a cubicle."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-022",
+    "title": "Professional Organizations page",
+    "description": "The site shall provide a Professional Organizations page with links to ACM, IEEE, and key subgroups such as SIGGRAPH, showing students the national and international strength of CS organizations. Links shall lead to student sections of these organizations.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Page lists ACM, IEEE, and relevant subgroups",
+      "Links to student sections of organizations provided",
+      "Page conveys strength of national and international CS organizations"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "A listing with links to ACM, IEEE, and key sub groups such as SIGGRAPH, to show students the national and international strength of CS organizations. Pointers should lead to student sections of these organizations."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-023",
+    "title": "Hosting location",
+    "description": "The Get Real site shall run as an extension of the OUS site on OSU servers to maximize Google and other search engine hits.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Site hosted on OSU servers",
+      "Site runs as extension of OUS domain (getreal.ous.edu)",
+      "OUS domain association maximizes Google and other search engine hits"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "The Get Real site runs as an extension of the OUS site e.g. ~getreal.ous.edu~ Being part of the OUS domain will maximize Google and other search engine hits. The site runs on OSU servers."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-024",
+    "title": "Storage constraints",
+    "description": "The site design shall account for limited available storage space as a design and implementation constraint.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Site content and media sized within available storage limits",
+      "Storage usage monitored and managed"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "Space"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-025",
+    "title": "Development process controls",
+    "description": "Page development shall use the Dreamweaver check-in/out feature to prevent simultaneous modifications by multiple contributors.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Dreamweaver check-in/out used for all page edits",
+      "Concurrent modification conflicts prevented"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "Be cautious of others modifying pages on the site. Always use Dreamweaver check in/out feature."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-026",
+    "title": "Resource limitations",
+    "description": "The site design shall account for limited availability of Chancellor's Office resources, which impacts the feasibility of features requiring ongoing maintenance such as RSS feeds.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Feature scope accounts for limited Chancellor's Office resources",
+      "Maintenance-intensive features sized to available resource hours"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "Limited availability of Chancellor's Office resources"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-027",
+    "title": "CSS and Style Conventions from Version 1",
+    "description": "Page development shall adhere to the CSS and other style conventions established in the Get Real version 1 site.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "CSS conventions from Get Real version 1 maintained",
+      "Style conventions from version 1 site followed in all new page development"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "Adhere to CSS and other style conventions established in Get Real version 1."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-028",
+    "title": "Dreamweaver Development File Path",
+    "description": "Web page development at the Capital Center shall use the local site files for Dreamweaver on ~cn-capctr/share/Get_Real_website/~.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Dreamweaver development uses local site files at the specified Capital Center path",
+      "Development path: ~cn-capctr/share/Get_Real_website/~"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "For web page development at the Capital Center, use the local site files for Dreamweaver on ~cn-capctr/share/Get_Real_website/~"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-029",
+    "title": "Target Audience Scope",
+    "description": "The site shall be designed for Oregon high school students grades 9\u201312 across all Oregon high schools, targeting both students interested in CS seeking in-depth career information and college-bound students not necessarily interested in CS who might be attracted to CS with the right information.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Content accessible to all Oregon high school students grades 9-12",
+      "Content serves CS-interested students seeking detailed career information, course listings, and in-depth resources",
+      "Content serves college-bound non-CS students with visual, bite-sized, approachable content that attracts them to CS",
+      "Design and navigation appropriate for a broad teen audience across all Oregon high schools",
+      "Site breaks content into readable chunks with visuals to serve students with shorter attention spans"
+    ],
+    "source_location": {
+      "document": "get-real",
+      "verse": [
+        "Two potential groups of viewers (students) exist: 1) students interested in CS seeking more in-depth information about a CS career, and 2) college bound students not necessarily interested in CS who might be attracted to a CS career with the right \"push\" from information on the Get Real site."
+      ]
+    }
+  }
+]

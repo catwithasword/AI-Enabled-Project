@@ -1,0 +1,1113 @@
+[
+  {
+    "requirement_id": "REQ-001",
+    "title": "Provide a web-based interactive fraction game for sixth-grade students",
+    "description": "The system shall provide a web-based interactive game to help sixth-grade students improve fraction-solving skills.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "The product is accessible as a web-based game.",
+      "The game is intended for sixth-grade students.",
+      "The game's purpose is to help improve fraction-solving skills."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "The Space Fractions project is a learning tool created to help improve fraction-solving skills for sixth-grade students.",
+        "The product will be a web-based, interactive game."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-002",
+    "title": "Provide score-based feedback at the end of the game",
+    "description": "The system shall give students feedback based on their game scores at the end of the game.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "When a student finishes the game, the system displays feedback.",
+      "The feedback is based on the student's game score.",
+      "The feedback is presented at the end of the game."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "At the end of the game, students will be given feedback based on their game scores."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-003",
+    "title": "Allow game administrator to change questions",
+    "description": "The system shall allow the game administrator to use the question updater to change any of the questions.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "A teacher acting as administrator can access a question updater component.",
+      "The question updater allows existing fraction questions to be changed.",
+      "Updated questions are used by the game."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "As the game administrator, Claire can use the question updater to change any of the questions"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-004",
+    "title": "Run on Internet-accessible computers with a compatible browser",
+    "description": "The program shall run on any Internet-accessible computer with a web browser that supports JavaScript and Macromedia Flash 5.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The program is accessible from a computer connected to the Internet.",
+      "The program runs in a web browser with JavaScript enabled.",
+      "The program runs in a web browser that supports Macromedia Flash 5."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "This program will run on any Internet-accessible computer with a web browser that supports JavaScript and Macromedia Flash 5."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-005",
+    "title": "Require a web browser capable of running Flash movies",
+    "description": "The program shall require a web browser capable of running Flash movies.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The product does not operate without a browser capable of running Flash content.",
+      "The required client software environment is a web browser with Flash plug-in support.",
+      "No non-browser runtime is required by this requirement statement."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "This program requires a web browser capable of running Flash movies.",
+        "This product requires a web browser capable of running the Flash plug-in, which has the system requirements specified here under the section \"Playback.\""
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-006",
+    "title": "Use web-based delivery with Flash and HTML and no explicit hardware interaction",
+    "description": "The product shall be delivered as a web-based interactive game developed in Macromedia Flash and HTML, with no explicit interaction with the client's hardware and no requirement for new hardware.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The delivered product is accessible as a web-based interactive game.",
+      "The implementation technology uses Macromedia Flash and HTML.",
+      "The product requires no new hardware and performs no explicit client hardware interaction."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "The product will be a web-based, interactive game.",
+        "This software will be developed in Macromedia Flash and HTML.",
+        "There is no explicit interaction with the client's hardware.",
+        "This program does not require any new hardware."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-007",
+    "title": "Provide a web-based menu system for past games",
+    "description": "The system shall provide a web-based menu system allowing the user to choose between the past games created.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "The umbrella is accessible through the web.",
+      "The umbrella presents a menu of available past games.",
+      "A user can select one of the listed games from the menu."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "We are also providing an umbrella for the past games created.",
+        "The umbrella will be a web-based menu system allowing the user to choose between the games."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-008",
+    "title": "Provide links to projects relating to fractions, decimals, and percents",
+    "description": "The umbrella will be a singular component, providing links to projects relating to fractions, decimals, and percents in a format accessible over the World Wide Web.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "The umbrella includes links to fraction-related projects.",
+      "The umbrella includes links to decimal-related projects.",
+      "The umbrella includes links to percent-related projects.",
+      "The links are accessible over the World Wide Web."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "The umbrella will be a singular component, providing links to projects relating to fractions, decimals, and percents in a format accessible over the World Wide Web."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-009",
+    "title": "Play introductory movie at program start",
+    "description": "The system shall take the user through a brief introductory movie upon starting the program.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "When the program starts, the introductory movie component begins playing automatically.",
+      "The introductory movie is displayed on the screen.",
+      "The movie presents background story and information related to helping the user complete fraction questions."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "Upon starting the program, the user is taken through a brief introductory movie to provide background story and information that will help them complete the fraction questions.",
+        "Upon entrance to the movie component, the introductory movie will begin playing."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-010",
+    "title": "Allow skipping the introductory movie by mouse click",
+    "description": "The system shall allow the user to skip the introductory movie by clicking a mouse button, and no other input shall be recognized in this component.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "During the introductory movie, a mouse click causes the movie to be skipped.",
+      "During the introductory movie, the system does not recognize non-mouse input for this component.",
+      "After the skip input is received, the movie component terminates."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "There is an option to skip the introduction, if desired.",
+        "If the user clicks a mouse button while in this component, they will skip the movie and proceed to the main menu. No other input is recognized.",
+        "No portion of the interface will require the keyboard; all input will be accomplished via mouse clicks."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-011",
+    "title": "Proceed to main menu after intro completion or skip",
+    "description": "The system shall move the user to the main menu after the introductory movie completes or is skipped.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "If the user clicks the mouse during the introductory movie, the next screen is the main menu.",
+      "If the introductory movie reaches completion without a click, the next screen is the main menu.",
+      "The system does not leave the user in the movie component after either skip or completion."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "If a mouse click is received, this component will terminate the movie and forward the user to the main menu component.",
+        "Otherwise, the movie will continue to its completion and the user will be moved to the main menu.",
+        "Otherwise, they will watch the movie to its completion and be taken to the main screen."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-012",
+    "title": "Main title screen shall provide help, team summary, and website link",
+    "description": "The system shall provide, at the main title screen, access to a general help screen with basic instructions on game play, a short summary of the team, and a link to the team's website.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "When the main title screen is displayed, a help option is available to the user.",
+      "When the main title screen is displayed, team summary information is available to the user.",
+      "When the main title screen is displayed, a website link is available to the user."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "At the main title screen, the user will be able to view a general help screen to reveal basic instructions on game play.",
+        "Also, a short summary of our team and a link to our website will be provided."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-013",
+    "title": "Menu shall provide a link to the main game component",
+    "description": "A menu shall provide a link to the main game component.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "A menu provides a link to the main game component."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "To start the game, the user will click on the corresponding button.",
+        "A menu that displays a brief section offering help on playing the game, and provides a link to the main game component and the Denominators' web page."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-014",
+    "title": "User shall be able to click the corresponding button to begin the game or follow the link to the Denominators' web page",
+    "description": "The system shall allow the user to click the corresponding button to begin the game or follow the link to the Denominators' web page.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "A mouse click on the game button begins the game.",
+      "A mouse click on the website link follows the link to the Denominators' web page.",
+      "The main menu recognizes mouse-click input for these selections."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "The user can click on the corresponding button to begin the game or follow the link to the Denominators' web page."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-015",
+    "title": "Present multiple-choice fraction questions in a storyline sequence",
+    "description": "The system shall present a series of multiple-choice fraction questions that sequentially form a storyline related to the introduction.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "The game sequence displays fraction questions as multiple-choice items.",
+      "Questions are presented as part of a sequential storyline.",
+      "The questions cover fraction content within the game sequence component."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "A series of fraction questions (testing arithmetic, equivalence, graphical interpretation, and improper versus proper fraction skills) that sequentially form a storyline related to the introduction.",
+        "A series of multiple-choice fraction questions, which sequentially form a storyline related to the introduction."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-016",
+    "title": "Accept answer selection and evaluate correctness",
+    "description": "The system shall allow the user to answer each question by clicking a choice, display whether the answer is correct or incorrect, and advance or retry accordingly.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "The user can select an answer by clicking one of the presented choices.",
+      "When the selected answer is correct, the system displays a correct-answer message and proceeds to the next question.",
+      "When the selected answer is incorrect, the system informs the user and allows another attempt.",
+      "An incorrectly answered question is not counted as answered correctly in the score."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "The user will be given a problem and then must click the correct solution.",
+        "The user will respond to questions by clicking on the desired answer from a set of choices.",
+        "If the user selects the correct answer, a message to this effect will be displayed and the component will move to the next question.",
+        "If the incorrect answer is selected, this component will inform the user of this and give them another chance to answer the question."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-017",
+    "title": "Branch plot at critical points and end after a set number of questions",
+    "description": "The system shall vary plot direction based on correctness at certain critical questions and direct the user to the ending scene after a set number of questions.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "At designated critical questions, the game sequence changes plot direction based on whether the question was answered correctly.",
+      "The game sequence continues through a defined set number of questions.",
+      "After the set number of questions is completed, the system transfers the user to the ending scene component."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "The gameplay will be dynamic and adaptive to provide different storylines based on the user's progress.",
+        "At certain \"critical points,\" this component will choose different directions in the plot based on whether the question at the critical point was answered correctly.",
+        "After the user has proceeded through a set number of questions, they will be directed to the ending scene component."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-018",
+    "title": "Branch plot at critical questions based on answer correctness",
+    "description": "The game sequence shall choose different directions in the plot at certain critical points based on whether the question at the critical point was answered correctly.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Given a designated critical-point question answered correctly, the subsequent plot direction differs from the direction for an incorrect answer.",
+      "Given the same critical-point question answered incorrectly, the system selects the alternate plot direction.",
+      "Branching occurs only at the stated critical points in the game sequence."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "At certain \"critical points,\" this component will choose different directions in the plot based on whether the question at the critical point was answered correctly."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-019",
+    "title": "Provide adaptive gameplay with different storylines based on user progress",
+    "description": "The gameplay shall be dynamic and adaptive to provide different storylines based on the user's progress.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "The system supports more than one possible storyline outcome during gameplay.",
+      "A user's progress can affect which storyline is presented.",
+      "Different playthroughs can result in different storylines when user progress differs."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "The gameplay will be dynamic and adaptive to provide different storylines based on the user's progress."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-020",
+    "title": "Determine last scene from user response to critical questions",
+    "description": "The last scene shall be determined by the user's response on certain critical questions that impact the story's plot.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "After the final question, the system presents an ending scene tied to responses at certain critical questions.",
+      "Different responses at the specified critical questions can produce different plot conclusions.",
+      "The displayed conclusion is obviously related to the story in certain key questions."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "The last scene will be determined by the user's response on certain critical questions that impact the story's plot.",
+        "A screen offering a conclusion to the game's plot based on performance at certain critical points in the game sequence..."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-021",
+    "title": "Display final score and plot conclusion in ending scene",
+    "description": "The system shall display the user's overall score and a plot conclusion in the ending scene. The final scene shall be determined by the user's responses on certain critical questions that impact the story's plot.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "After the last question, the ending scene is shown.",
+      "The ending scene displays the user's overall or exact score.",
+      "The ending scene displays a plot conclusion/final scene based on the user's responses to certain critical questions that impact the story's plot."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "After the last question, the main character's adventure will come to an end.",
+        "The last scene will be determined by the user's response on certain critical questions that impact the story's plot, and an option to try again will be presented.",
+        "In addition, the player's exact score will be given with a customized message."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-022",
+    "title": "Provide end-game and return-to-main-menu options in ending scene",
+    "description": "The system shall allow the user in the ending scene to either end the game or return to the main menu via mouse clicks.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "In the ending scene, the user can select an option to end the game via mouse click.",
+      "In the ending scene, the user can select an option to return to the main menu via mouse click."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "The user can select either to end the game or return to the main menu via mouse clicks.",
+        "After the last question, the main character's adventure will come to an end... an option to try again will be presented."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-023",
+    "title": "Wait for user selection and act accordingly",
+    "description": "The component shall wait until the user selects either to return to the main menu or to exit the game. After receiving the user's input, the component shall act accordingly.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "If no selection is made, the ending scene remains active and waits for user input.",
+      "If the user selects return to the main menu, the system performs that navigation.",
+      "If the user selects exit the game, the system performs the exit action."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "This component will wait until the user selects either to return to the main menu or to exit the game.",
+        "After receiving the user's input, the component will act accordingly."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-024",
+    "title": "Administrator can update any game question through the question updater",
+    "description": "The system shall allow the game administrator to change any of the questions in the game using the question updater.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "A game administrator can access the question updater and select game-sequence questions for editing.",
+      "The updater permits modification of any question in the game sequence.",
+      "Updated question data can be submitted through the updater interface."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "As the game administrator, Claire can use the question updater to change any of the questions in the game.",
+        "A web-accessible tool to allow questions in the game sequence to be updated by a game administrator."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-025",
+    "title": "Question updater requires password submission",
+    "description": "The system shall require the administrator to submit the correct password before using the updater page.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "When the updater page is opened, the system prompts for a password.",
+      "The updater interface is not usable until a password is submitted.",
+      "After correct password submission, the administrator is allowed to use the updater interface."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "She navigates to the updater page, which asks for a password.",
+        "Upon correct submission of her password, she uses an intuitive web forms interface to update the game to her desiring."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-026",
+    "title": "Updater accepts question data via pulldown menus and text fields and validates it before page progression",
+    "description": "The system shall accept new question data via pulldown menus and text fields. Each question shall be updated on a separate page, with a button used to progress between pages. After the button is clicked, the component shall check that the inputted data is complete and makes sense in the context of the updated question.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "The system accepts new question data via pulldown menus and text fields.",
+      "Each question is updated on a separate page.",
+      "The user progresses between question pages by clicking a button.",
+      "After the button is clicked, the component checks that the inputted data is complete.",
+      "After the button is clicked, the component checks that the inputted data makes sense in the context of the updated question."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "The user will input new data via pulldown menus and text fields.",
+        "Each question will be updated on a separate page, and the user will click a button to progress between these pages.",
+        "After the button is clicked, the component will check that the inputted data is complete and makes sense in the context of the updated question."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-027",
+    "title": "Save question data in a file on the web server",
+    "description": "The system shall save question data in a text file on the web server where the game is hosted.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "When an administrator updates question data, the system stores the updated data on the game server.",
+      "The stored question data is saved as a file on the web server.",
+      "The game sequence can dynamically load question data from the server-generated file."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "This information must be saved in a file on the web server where the game is hosted... The component will generate a text file on the game server, which is used by the game sequence to dynamically load question data."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-028",
+    "title": "Allow game administrator to update game data through simplified administrative screens",
+    "description": "The system shall allow a game administrator to update the game through simplified administrative screens. Upon correct submission of her password, she shall use an intuitive web forms interface to input new data via pulldown menus and text fields.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "An administrator can access a web-based question updater interface.",
+      "The interface accepts question updates through pulldown menus and text fields.",
+      "Each question can be updated on a separate page through the administrative screens."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "This information must be saved in a file on the web server where the game is hosted and will be easily edited through simplified administrative screens... Upon correct submission of her password, she uses an intuitive web forms interface to update the game to her desiring... The user will input new data via pulldown menus and text fields."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-029",
+    "title": "Keep user's score as local data within the game for end-of-game results",
+    "description": "The system shall keep the user's score as local data within the game so that the results may be given at the end of the game.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "The user's score is kept as local data within the game.",
+      "The user's score is available so that results may be given at the end of the game."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "The user's score must be kept as local data within the game so that the results may be given at the end of the game... The user's overall score is displayed"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-030",
+    "title": "Simple graphical interface for sixth-grade users",
+    "description": "The program shall provide a relatively simple user interface that is as graphically oriented and appealing as possible for sixth-grade users.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The user interface is relatively simple in structure.",
+      "The interface uses graphical presentation intended to appeal to sixth-grade users.",
+      "The interface design targets sixth-grade students as primary users."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "The interface for this program will be relatively simple.",
+        "As the target users are in the sixth grade, this product will be as graphically oriented and appealing as possible."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-031",
+    "title": "Mouse-only student input",
+    "description": "No portion of the interface shall require keyboard input, and all user input shall be accomplished via mouse clicks.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "A user can complete interface interactions without using the keyboard.",
+      "Answer selection is performed via mouse clicks.",
+      "Preference-setting input is performed via mouse clicks."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "No portion of the interface will require the keyboard; all input will be accomplished via mouse clicks.",
+        "Input will consist entirely of mouse clicks for the user to choose answer options and to set preferences."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-032",
+    "title": "Main title screen shall provide help and start-game access",
+    "description": "At the main title screen, the user shall be able to view a general help screen that reveals basic instructions on game play and start the game by clicking the corresponding button. The information and interface shall be effective so that Bobby can easily recognize what to do to start the game immediately and Alice can navigate through the help section to understand the rules and gameplay.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The main title screen includes access to a general help screen.",
+      "The help screen presents basic instructions on game play.",
+      "The main title screen includes a button the user can click to start the game.",
+      "Users can navigate from the main title screen to the help section and understand how to begin the game."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "At the main title screen, the user will be able to view a general help screen to reveal basic instructions on game play.",
+        "To start the game, the user will click on the corresponding button.",
+        "The information and interface will be effective so that Bobby will easily recognize what to do to start the game immediately and Alice will have no problems navigating through the help section to understand the rules and gameplay."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-033",
+    "title": "Keyboard-free user interface",
+    "description": "No portion of the interface will require the keyboard; all input will be accomplished via mouse clicks.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "A user can complete all defined in-game interactions without pressing any keyboard key.",
+      "All required input actions are invokable by mouse click.",
+      "Testing shows no screen or workflow blocks progress when only mouse input is used."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "No portion of the interface will require the keyboard; all input will be accomplished via mouse clicks.",
+        "Input will consist entirely of mouse clicks for the user to choose answer options and to set preferences."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-034",
+    "title": "Mouse-click input for answering questions and specified menu actions",
+    "description": "The game shall support mouse clicks to select answers from a set of choices, skip the movie and proceed to the main menu, begin the game or follow the Denominators' web page link, and end the game or return to the main menu.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Users can respond to questions by clicking the desired answer from a set of choices.",
+      "Users can click to begin the game or follow the link to the Denominators' web page.",
+      "Users can click to end the game or return to the main menu.",
+      "In the referenced component, a mouse click skips the movie and proceeds to the main menu, and no other input is recognized."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "If the user clicks a mouse button while in this component, they will skip the movie and proceed to the main menu. No other input is recognized.",
+        "The user can click on the corresponding button to begin the game or follow the link to the Denominators' web page.",
+        "The user will respond to questions by clicking on the desired answer from a set of choices.",
+        "The user can select either to end the game or return to the main menu via mouse clicks."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-035",
+    "title": "Question updater data entry and page progression",
+    "description": "The user will input new data via pulldown menus and text fields. Each question will be updated on a separate page, and the user will click a button to progress between these pages.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The updater presents editable inputs using pulldown menus and text fields.",
+      "Each question is updated on a separate page.",
+      "Users can move between updater pages by clicking a button.",
+      "Each question submission is initiated by clicking a submission button."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "Upon correct submission of her password, she uses an intuitive web forms interface to update the game to her desiring.",
+        "The user will input new data via pulldown menus and text fields. Each question will be updated on a separate page, and the user will click a button to progress between these pages.",
+        "The component will wait for the user to click a submission button for each question."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-036",
+    "title": "Provide feedback through Flash sounds and animations",
+    "description": "The system shall output sounds and animations through Flash movies to acknowledge success or failure in answering the fraction questions.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "When a user answers a fraction question correctly or incorrectly, the system produces corresponding output.",
+      "The acknowledgement output is delivered as sounds and animations.",
+      "The sounds and animations are presented through Flash movies."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "Output will be sounds and animations through Flash movies to acknowledge success or failure in answering the fraction questions."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-037",
+    "title": "Display the introductory movie automatically",
+    "description": "The system shall begin playing the introductory movie upon entering the introductory movie component and display the movie on the screen.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "When the introductory movie component is opened, movie playback starts automatically.",
+      "The introductory component displays a movie on the screen.",
+      "If no mouse click is received, the movie continues until completion."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "Upon entrance to the movie component, the introductory movie will begin playing.",
+        "A movie is displayed on the screen."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-038",
+    "title": "Display answer feedback after answer selection",
+    "description": "The system shall display a message indicating whether the selected answer is correct or incorrect.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "If the user selects the correct answer, a message to this effect is displayed.",
+      "If the user selects an incorrect answer, the component informs the user."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "If the user selects the correct answer, a message to this effect will be displayed and the component will move to the next question.",
+        "If the incorrect answer is selected, this component will inform the user"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-039",
+    "title": "Provide simplified administrative screens for editing saved information",
+    "description": "The system shall provide simplified administrative screens to easily edit the saved information.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Administrative question-editing screens are accessible over the web.",
+      "The screens allow an administrator to edit custom fraction question information.",
+      "The screens are presented as simplified administrative screens for editing."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "This information must be saved in a file on the web server where the game is hosted and will be easily edited through simplified administrative screens."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-040",
+    "title": "Use pulldown menus and text fields for question updates",
+    "description": "The question updater interface shall accept new data through pulldown menus and text fields, with each question updated on a separate page and a button used to progress between pages.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The updater provides pulldown menus and text fields for entering question data.",
+      "Each question is edited on a separate page.",
+      "A button is provided to move from one question page to the next."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "The user will input new data via pulldown menus and text fields. Each question will be updated on a separate page, and the user will click a button to progress between these pages."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-041",
+    "title": "Provide an intuitive web forms interface after correct password submission",
+    "description": "The updater page asks for a password. Upon correct submission of the password, the user uses an intuitive web forms interface to update the game.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The updater page asks for a password.",
+      "Upon correct submission of the password, the user can use a web forms interface to update the game.",
+      "The web forms interface is described as intuitive."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "She navigates to the updater page, which asks for a password. Upon correct submission of her password, she uses an intuitive web forms interface to update the game to her desiring."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-042",
+    "title": "No new hardware required",
+    "description": "The program shall not require any new hardware.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The documented deployment prerequisites do not include purchasing or installing any new hardware.",
+      "The program can be used on supported client computers without attaching specialized devices.",
+      "Hardware dependency review confirms no additional hardware beyond the client platform is required."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "This program does not require any new hardware."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-043",
+    "title": "No explicit client hardware interaction",
+    "description": "The software shall have no explicit interaction with the client's hardware.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The software does not directly access or control client hardware devices.",
+      "No feature requires explicit hardware-level integration with the client platform.",
+      "Testing confirms normal operation without direct hardware interaction beyond standard platform support."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "There is no explicit interaction with the client's hardware."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-044",
+    "title": "No other hardware requirements are needed",
+    "description": "This software will be developed in Macromedia Flash and HTML. These technologies require a minimum hardware configuration, but no other hardware requirements are needed.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The stated hardware prerequisites are limited to the minimum configuration needed to run Flash and HTML.",
+      "No hardware requirements are specified beyond those imposed by the Flash/HTML runtime environment.",
+      "Installation and operation succeed on client platforms meeting the minimum Flash/HTML hardware baseline."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "This software will be developed in Macromedia Flash and HTML. These technologies require a minimum hardware configuration, but no other hardware requirements are needed."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-045",
+    "title": "Require web browser capable of running Flash movies or the Flash plug-in",
+    "description": "The program/product requires a web browser capable of running Flash movies or the Flash plug-in.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The product is accessed through a web browser.",
+      "The browser can run Flash movies or the Flash plug-in.",
+      "If the browser cannot run the Flash plug-in, the product cannot be used as specified."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "This program requires a web browser capable of running Flash movies.",
+        "This product requires a web browser capable of running the Flash plug-in, which has the system requirements specified here under the section \"Playback.\""
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-046",
+    "title": "Run on Internet-accessible computer with browser supporting JavaScript and Macromedia Flash 5",
+    "description": "The program shall run on any Internet-accessible computer with a web browser that supports JavaScript and Macromedia Flash 5.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The host computer is Internet-accessible.",
+      "A web browser is installed on the host computer.",
+      "The installed browser supports JavaScript.",
+      "The installed browser supports Macromedia Flash 5."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "This program will run on any Internet-accessible computer with a web browser that supports JavaScript and Macromedia Flash 5."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-047",
+    "title": "Depend external interface on browser configuration",
+    "description": "The external interface shall depend on the configuration of the Flash-supporting browser, and different environments may yield different interfaces while preserving program behavior.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The user interface rendering may vary across browser configurations or environments.",
+      "The variation is attributable to browser configuration.",
+      "Program behavior remains the same across those environments."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "Since the product requires a Flash-supporting browser, the external interface will depend on the configuration of the browser. Therefore, various environments may yield different interfaces, but the behavior of the program will be the same."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-048",
+    "title": "Browser and Internet accessibility",
+    "description": "The product shall run on an Internet-accessible computer using a web browser that supports JavaScript and Macromedia Flash 5.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The product is accessible from a computer connected to the Internet.",
+      "The product runs in a web browser environment.",
+      "The browser used supports JavaScript.",
+      "The browser used supports Macromedia Flash 5."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "This program will run on any Internet-accessible computer with a web browser that supports JavaScript and Macromedia Flash 5."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-049",
+    "title": "Internet availability via S2S website",
+    "description": "The product shall be available over the Internet via the S2S website.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Users can access the product through the Internet.",
+      "The access point is the S2S website.",
+      "The product is not limited to local-only execution.",
+      "The product is reachable over the Internet.",
+      "The product is made available through the S2S website.",
+      "Users can access the product without requiring local installation from offline media."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "The product will be available over the Internet via the S2S website."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-050",
+    "title": "Math Umbrella opens specified S2S product in separate window",
+    "description": "The component opens the specified S2S product in a separate window.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The Math Umbrella presents clickable links to World Wide Web documents.",
+      "When a user clicks a link, the component follows that link.",
+      "The selected S2S product opens in a separate window."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "Inputs The user will follow a number of links to World Wide Web documents... Outputs The component opens the specified S2S product in a separate window."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-051",
+    "title": "Single-user use per product instance",
+    "description": "Only one person can use a single instance of the product.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "A single instance of the product supports use by only one person at a time."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "Only one person can use a single instance of the product."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-052",
+    "title": "Internet-hosted access for multiple users",
+    "description": "The product shall reside on the Internet so that more than one user can access the product and download its content for use on their computer.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The product is deployed in an Internet-accessible location.",
+      "More than one user can access the product from separate computers.",
+      "Users can download the product content for use on their computer."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "However, the product will reside on the Internet so more than one user can access the product and download its content for use on their computer."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-053",
+    "title": "Main game playable within a few minutes on a regular modem connection",
+    "description": "The main game can be played within a few minutes with a regular modem connection to the Internet.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Using a regular modem Internet connection, a user can begin playing the main game within a few minutes.",
+      "Full download completion is not required before gameplay starts.",
+      "Observed startup behavior matches the stated progressive-play capability of the Flash movie."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "Because Flash movies do not have to be fully downloaded to play, the main game can be played within a few minutes with a regular modem connection to the Internet."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-054",
+    "title": "Introductory and main menu movies can be downloaded in approximately one minute with a modem connection",
+    "description": "The introductory and main menu movies can be downloaded in approximately one minute with a modem connection due to their relatively small size.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The introductory movie size is approximately 200KB.",
+      "The main menu movie size is approximately 100KB.",
+      "Over a modem connection, the introductory and main menu movies download in approximately one minute."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "Due to the relatively small size of the introductory and main menu movies, they can be downloaded in approximately one minute with a modem connection."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-055",
+    "title": "Main game can be played within a few minutes over a regular modem connection",
+    "description": "The main game can be played within a few minutes with a regular modem connection to the Internet.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The main game does not require full download before play begins.",
+      "With a regular modem Internet connection, the main game becomes playable within a few minutes.",
+      "The behavior is supported by the use of Flash movies for game delivery."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "Because Flash movies do not have to be fully downloaded to play, the main game can be played within a few minutes with a regular modem connection to the Internet."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-056",
+    "title": "Provide a small introductory movie (~200KB)",
+    "description": "There will be a small introductory movie (~200KB).",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "A small introductory movie (~200KB) is provided."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "there will be a small introductory movie (~200KB)"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-057",
+    "title": "Main menu movie shall be approximately 100KB",
+    "description": "Provide a main menu movie of approximately 100KB.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "A main menu movie is provided.",
+      "The main menu movie size is approximately 100KB."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "a main menu movie (~100KB)"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-058",
+    "title": "Main game movie size shall be 1-2MB",
+    "description": "The product shall provide a main game movie with a size of 1-2MB.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The main game movie asset size is no less than 1MB and no greater than 2MB.",
+      "The main game is implemented as a separate movie asset.",
+      "The shipped main game movie matches the size range stated in the SRS."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "and a main game movie (1-2MB)"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-059",
+    "title": "Password prompt on updater page",
+    "description": "The updater page asks for a password. Upon correct submission of the password, the user can use the web forms interface to update the game.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Given a user navigates to the updater page, the page asks for a password.",
+      "Given the correct password is submitted, the user can use the web forms interface to update the game."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "She navigates to the updater page, which asks for a password. Upon correct submission of her password, she uses an intuitive web forms interface to update the game to her desiring."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-060",
+    "title": "Reliability shall be ensured by extensive testing by team members and mentors, if available",
+    "description": "Reliability shall be ensured by extensive testing by team members and mentors, if available.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The project includes testing activities performed by team members.",
+      "If mentors are available, mentors participate in testing activities.",
+      "Testing is used as the stated means of ensuring product reliability."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "Reliability will be ensured by extensive testing by the team members and mentors, if available."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-061",
+    "title": "Maintainability as a primary project goal",
+    "description": "The product shall treat maintainability as a primary goal for the project.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The SRS identifies maintainability as a primary goal for the product.",
+      "Project artifacts for the product reflect maintainability as a stated quality attribute."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "Maintainability is a primary goal for this project."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-062",
+    "title": "Use sub-scenes to split code in the main Flash game",
+    "description": "The main Flash game shall use appropriate sub-scenes to split up the code.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The main Flash game is organized into sub-scenes.",
+      "The sub-scenes are used to divide the game's code rather than keeping it in one undivided scene.",
+      "The sub-scene structure is present within the main Flash game."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "using appropriate sub-scenes in the main Flash game to split up the code"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-063",
+    "title": "Use appropriate sub-scenes to split up the code for easier later alteration",
+    "description": "Using appropriate sub-scenes in the main Flash game shall split up the code to allow easier alteration at a later date.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The main Flash game uses appropriate sub-scenes to split up the code.",
+      "The code organization supports easier alteration at a later date."
+    ],
+    "source_location": {
+      "document": "space-fractions",
+      "verse": [
+        "using appropriate sub-scenes in the main Flash game to split up the code will allow for easy alteration at a later date"
+      ]
+    }
+  }
+]

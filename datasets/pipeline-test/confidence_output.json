@@ -1,0 +1,89 @@
+{
+  "documents": [
+    {
+      "document": "taskmanager-pro",
+      "flags": {
+        "REQ-001": [
+          {
+            "field": "description",
+            "issue": "vague terms (does not specify character limits or constraints for the title)",
+            "severity": "low",
+            "suggestion": "Define maximum character length and allowed characters."
+          }
+        ],
+        "REQ-002": [
+          {
+            "field": "description",
+            "issue": "vague terms (does not specify character limits or constraints for the description)",
+            "severity": "low",
+            "suggestion": "Define maximum character length for the description field."
+          }
+        ],
+        "REQ-003": [
+          {
+            "field": "acceptance_criteria",
+            "issue": "non-testable (the term 'valid date value' is subjective without defined format or range constraints)",
+            "severity": "medium",
+            "suggestion": "Specify the required date format (e.g., ISO 8601) and whether past dates are permitted."
+          }
+        ],
+        "REQ-005": [
+          {
+            "field": "description",
+            "issue": "vague terms (does not specify who 'users' are\u2014is it any user or only admins/managers?)",
+            "severity": "medium",
+            "suggestion": "Clarify the user role permitted to perform task assignment."
+          }
+        ],
+        "REQ-006": [
+          {
+            "field": "acceptance_criteria",
+            "issue": "vague terms (the term 'immediately' is not a measurable technical metric)",
+            "severity": "medium",
+            "suggestion": "Replace 'immediately' with a measurable threshold, e.g., 'within 30 seconds of assignment'."
+          }
+        ],
+        "REQ-009": [
+          {
+            "field": "acceptance_criteria",
+            "issue": "non-testable (the second criterion 'Verify multiple filters... can be applied' is a functional test, but the requirement itself is a subset of REQ-008; it lacks specific expected outcomes for the combination)",
+            "severity": "low",
+            "suggestion": "Provide a specific test case scenario for combined filtering."
+          }
+        ],
+        "REQ-010": [
+          {
+            "field": "acceptance_criteria",
+            "issue": "vague terms (the term 'statistics' is too broad; it doesn't define exactly which metrics must be present)",
+            "severity": "medium",
+            "suggestion": "Explicitly list the required statistics (e.g., total completed, total pending, completion rate)."
+          }
+        ],
+        "REQ-011": [
+          {
+            "field": "description",
+            "issue": "vague terms (the term 'normal load' is undefined and cannot be tested without a specific baseline)",
+            "severity": "high",
+            "suggestion": "Define 'normal load' in terms of Requests Per Second (RPS) or concurrent user count."
+          }
+        ],
+        "REQ-012": [
+          {
+            "field": "description",
+            "issue": "vague terms (does not define what 'support' means\u2014is it stability, response time, or error rate?)",
+            "severity": "medium",
+            "suggestion": "Define the performance parameters that must be maintained while supporting 100 concurrent users."
+          }
+        ],
+        "REQ-015": [
+          {
+            "field": "description",
+            "issue": "vague terms (GDPR is a massive legal framework; 'comply with' is too broad for a single technical requirement)",
+            "severity": "high",
+            "suggestion": "Break this down into specific technical requirements (e.g., Data Encryption, Data Deletion, Access Logs)."
+          }
+        ]
+      }
+    }
+  ]
+}

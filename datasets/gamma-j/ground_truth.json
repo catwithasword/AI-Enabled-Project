@@ -1,0 +1,1089 @@
+[
+  {
+    "requirement_id": "REQ-001",
+    "title": "Customer account creation",
+    "description": "The system shall allow customers to create accounts to store customer profiles, configure contact information, view purchase history, and confirm orders.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "The system provides a customer account creation capability.",
+      "A created customer account stores customer profile information.",
+      "A created customer account supports configured contact information.",
+      "A created customer account enables viewing purchase history and confirming orders."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "Customers will be able to create accounts to store their customer profiles, configure contact information, view their purchase history, and confirm orders."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-002",
+    "title": "Customer registration data collection, validation, and account creation",
+    "description": "The system shall prompt a registering customer to provide first name, last name, billing address, shipping address, email address, and password, validate the customer's information, and create a new account for the customer.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "During registration, the system prompts for first name, last name, billing address, shipping address, email address, and password.",
+      "The system validates the entered customer information before account creation.",
+      "Upon successful validation, the system creates a new customer account.",
+      "After account creation, the system displays an account home page to the customer."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "System prompts the customer to fill out his/her first name, last name, billing address, shipping address, email address, and their password.",
+        "System validates the customer's information.",
+        "System creates a new account for the Customer."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-003",
+    "title": "Customer account detail editing",
+    "description": "The system shall verify changes and store new account information for a customer who is logged in on the system.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Only a logged-in customer can initiate the Edit Account process.",
+      "When editing account details, the system verifies the submitted changes.",
+      "After verification, the system stores the new account information.",
+      "Upon successful completion, the customer account details are changed."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "Customer must be logged-in on the system.",
+        "System verifies the changes.",
+        "System stores new account information."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-004",
+    "title": "Authenticate user with email and password",
+    "description": "The system shall prompt the customer for email and password, verify the information, create a session cookie, and display the account home page to the customer.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "When a user initiates login, the system prompts for email and password.",
+      "When valid login information is submitted, the system verifies the information.",
+      "After successful verification, the system creates a session cookie.",
+      "After the session cookie is created, the system displays the user's account home page."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "System prompts the customer for his/her email and password.",
+        "System verifies the information.",
+        "System creates session cookie.",
+        "System displays account home page to the Customer."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-005",
+    "title": "Recognize customer's cookie and go to Step 5",
+    "description": "The system shall recognize the Customer's cookie and go to Step 5 of the Basic Scenario.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "If the system recognizes the user's cookie, it does not prompt again for login credentials in that flow.",
+      "When a recognized cookie is present, the system proceeds to the account home page.",
+      "The recognized-cookie behavior is defined as an alternative login scenario."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "System recognizes Customer's cookie.",
+        "Go to Step 5 (Basic Scenario)."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-006",
+    "title": "Terminate session cookie on logout",
+    "description": "The system shall terminate the session cookie when a logged-in user initiates logout and then display the home page.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Logout is available only when the user is logged in.",
+      "When the user initiates logout, the system terminates the session cookie.",
+      "After terminating the session cookie, the system displays the home page.",
+      "After logout completes, the user is logged out of the system."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "System terminates the session cookie.",
+        "System displays the home page."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-007",
+    "title": "Customer can view purchase history",
+    "description": "The system shall allow customers to view their purchase history within their accounts.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "A customer account provides access to purchase history.",
+      "The purchase history is available as part of the customer account functionality.",
+      "A logged-in customer can navigate within the account to view purchase history."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "Customers will be able to create accounts to store their customer profiles, configure contact information, view their purchase history, and confirm orders."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-008",
+    "title": "System stores order confirmation and order details after checkout",
+    "description": "The system shall store order confirmation and order details.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "System stores order confirmation and order details.",
+      "The system sends an email confirmation to the customer."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "System stores order confirmation and order details."
+      ]
+    },
+    "notes": "merged with REQ-021"
+  },
+  {
+    "requirement_id": "REQ-009",
+    "title": "Customer receives order confirmation email with order details",
+    "description": "The system shall send the customer a confirmation email containing the specific order details after order confirmation.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "After the customer confirms an order, the system sends a confirmation email to the customer.",
+      "The confirmation email includes the specific order details.",
+      "The confirmation email is sent as part of the checkout and order confirmation flow."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "The customer will then receive a confirmation email with the specific order details.",
+        "System sends email confirmation to the Customer."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-010",
+    "title": "Store products in multi-tiered categories",
+    "description": "The system shall store products in multi-tiered categories where a category can contain subcategories or products.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "The system stores products within categories.",
+      "The system supports categories containing subcategories.",
+      "The system supports categories containing products directly."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "Products will be stored in multi-tiered categories; a category can contain sub categories or products."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-011",
+    "title": "Allow administrators to update categories and product placement",
+    "description": "The system shall allow administrators to update categories and the products placed in categories.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "An administrator can modify category information.",
+      "An administrator can change which products are placed in categories.",
+      "The system saves administrator updates to categories and product placement."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "The inventory management will allow for administrators to update the categories, the products placed in categories, and the specific product details."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-012",
+    "title": "Allow sales personnel to add, delete, and change product descriptions, pictures, and prices, and flag items for customers to buy",
+    "description": "The system shall allow sales personnel to add, delete, and change descriptions, pictures, and prices, and when ready flag items for customers to buy.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Sales personnel can add descriptions, pictures, and prices.",
+      "Sales personnel can delete descriptions, pictures, and prices.",
+      "Sales personnel can change descriptions, pictures, and prices.",
+      "Sales personnel can flag items as ready for customers to buy."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "Sales Personnel: Is generally the owner of the Web Store tasked with updating inventory and product line descriptions. Once added, sales personnel can add, delete and change descriptions, pictures, prices, and when ready flag items for customers to buy."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-013",
+    "title": "Present unambiguous interface for browsing categories and products",
+    "description": "The system shall present customers with an unambiguous interface to assist in browsing the categories and products.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "The customer-facing interface includes navigation for browsing categories.",
+      "The customer-facing interface includes navigation for browsing products.",
+      "The browsing interface is presented in a way described as unambiguous in the implemented UI review.",
+      "Customers can browse categories through the interface.",
+      "Customers can browse products through the interface.",
+      "The interface presented for browsing categories and products is unambiguous."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "Customers will be presented with an unambiguous interface to assist in browsing the categories and products.",
+        "Have an unambiguous interface to assist in browsing the categories and products"
+      ]
+    },
+    "notes": "merged duplicate with differing type/category: non-functional / ; merged with REQ-034"
+  },
+  {
+    "requirement_id": "REQ-014",
+    "title": "Support product search by search criteria",
+    "description": "The system shall allow customers to search for products matching their search criteria.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "A customer can enter search criteria through the interface.",
+      "The system accepts the submitted search criteria.",
+      "The system returns products that match the submitted search criteria."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "Customers will be able to search for products matching their search criteria."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-015",
+    "title": "Receive search criteria and return search results",
+    "description": "The search engine can receive search criteria and return the results of the search.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "The search engine accepts user-provided search criteria as input.",
+      "The search engine searches the database for the requested item or criteria.",
+      "The search engine returns a set of search results to the requesting interface."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "SE is the tool that assists the user in finding a specific item in the database.",
+        "It can receive search criteria, find search criteria, and return the results of the search."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-016",
+    "title": "Add products to shopping cart",
+    "description": "The system shall allow customers to add products into the shopping cart.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "When a customer selects Add To Cart, the system adds the selected item(s) to the shopping cart.",
+      "The add-to-cart flow supports a specified quantity.",
+      "After a successful add, the cart contains the added item(s)."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "Customers will also be able to add products into the shopping cart.",
+        "System adds the item(s) to the cart."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-017",
+    "title": "Allow cart product addition/removal and prompt quantity edit or item removal before checkout",
+    "description": "The system shall allow the customer to add to or remove products from the shopping cart prior to checkout and order confirmation. The system shall prompt the customer to edit the quantity or remove the item from the cart.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Before checkout, the customer can increase or otherwise edit the quantity of an item in the cart.",
+      "Before checkout, the customer can remove an item from the cart.",
+      "The system presents the customer with options to edit quantity or remove items from the cart after items are added."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "The customer will also be able to add to or remove products from the shopping cart prior to checkout and order confirmation.",
+        "System prompts the Customer to edit the quantity or remove the item from cart."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-018",
+    "title": "Display cart item count and total cost",
+    "description": "The shopping cart shall clearly display the number of items in the cart and the total cost.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "The shopping cart view shows the total number of items currently in the cart.",
+      "The shopping cart view shows the total cost for the cart.",
+      "The item count and total cost are clearly visible in the shopping cart display.",
+      "When a customer views the shopping cart, the number of items is shown.",
+      "When a customer views the shopping cart, the total cost is shown.",
+      "The displayed item count and total cost correspond to the current cart contents."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "The shopping cart will clearly display the number of items in the cart, along with the total cost."
+      ]
+    },
+    "notes": "merged with REQ-022"
+  },
+  {
+    "requirement_id": "REQ-019",
+    "title": "Allow customer to review order and confirm after checkout",
+    "description": "The system shall allow the customer to review their order after checkout prior to confirmation and to confirm the order after checkout.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Customer can review their order after checkout prior to confirmation.",
+      "Customer can confirm the order after checkout."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "Order confirmation will allow the customer to review their order after checkout prior to confirmation.",
+        "Customers will be able to confirm the order after checkout.",
+        "Customer confirms order."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-020",
+    "title": "Allow customer to revise and update incorrect order",
+    "description": "The system shall allow the customer to revise and update the order if it is incorrect.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "If the customer determines the order is incorrect, the system provides a way to revise the order.",
+      "The customer is able to update the order before confirmation.",
+      "The order is not forced to immediate confirmation when the customer indicates it is incorrect."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "If the order is incorrect, the customer will be able to revise and update their order."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-021",
+    "title": "Allow cart and order updates before checkout and confirmation",
+    "description": "The system shall allow customers to add or remove products from the shopping cart prior to checkout and order confirmation. If the order is incorrect, the customer shall be able to revise and update their order.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Before checkout, a customer can add products to the shopping cart.",
+      "Before order confirmation, a customer can remove products from the shopping cart.",
+      "If an order is incorrect after checkout review, the customer can revise and update the order before confirming it."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "The customer will also be able to add to or remove products from the shopping cart prior to checkout and order confirmation.",
+        "If the order is incorrect, the customer will be able to revise and update their order."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-022",
+    "title": "Present payment methods and send order confirmation email",
+    "description": "The system shall present the customer with the account details and payment methods, store order confirmation and order details, and send an email confirmation to the customer with the specific order details.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "During checkout, the system displays the customer's account details and available payment methods.",
+      "After the customer confirms the order, the system stores the order confirmation and order details.",
+      "After order confirmation, the system sends a confirmation email containing the specific order details to the customer."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "System presents the customer with the account details and payment methods.",
+        "System stores order confirmation and order details.",
+        "System sends email confirmation to the Customer.",
+        "The customer will then receive a confirmation email with the specific order details."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-023",
+    "title": "System prompts Administrator to enter new user details and creates account with desired privileges",
+    "description": "The system shall prompt the Administrator to fill out the new user's first name, last name, username, email address, password, and privileges, and shall create a new account for the new user with desired privileges.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "When the Administrator initiates Add User, the system requests privilege information for the new user.",
+      "The system validates the entered new user information before account creation.",
+      "After successful submission, the system creates the new account with the specified privileges."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "System prompts the Administrator to fill out first name, last name, username, email address, password, and privileges of the user. ... System creates a new account for the new user with desired privileges."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-024",
+    "title": "Change user properties",
+    "description": "The system shall alter user properties, such as passwords and privileges, for a user.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "When the Administrator initiates Change User Properties, the system allows selection of a user by search or user list.",
+      "The system displays the selected user's information before changes are made.",
+      "The Administrator can modify user properties including privileges.",
+      "After the change, the account is altered within the system."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "Change User Properties Goal: Alter properties such as passwords and privileges of the user. ... System alters the user properties."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-025",
+    "title": "System Administrator assigns account privileges",
+    "description": "The system shall support a System Administrator role that is in charge of assigning privileges of accounts, including upgrading an account from the default customer account via the administrator interface.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "The system supports a System Administrator role.",
+      "The System Administrator can assign privileges of accounts.",
+      "A newly created Web Store account defaults to a customer account.",
+      "The System Administrator can upgrade an account via the administrator interface."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "System Administrator: Is generally the owner that takes care of maintenance for the Web Store system. The administrator will be in charge of assigning privileges of accounts. ... When creating a new account on Web Store it will default as a customer account. Later if the account needs to be upgraded the administrator can accomplish this via the administrator interface."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-026",
+    "title": "Provide an application interface for plug-ins",
+    "description": "The system shall implement an application interface to allow various plug-ins to interact with the system.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "The system includes an application interface for plug-ins.",
+      "Multiple plug-ins can use the interface to interact with the system.",
+      "Plug-in interaction occurs through the implemented application interface."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "The system will implement an Application Interface to allow for various plug-ins to interact with the system."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-027",
+    "title": "Allow customers to build custom plug-ins",
+    "description": "The system shall feature an API that allows customers to build custom plug-ins to meet their needs.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "The system provides an API for custom plug-in development.",
+      "Customers can use the API to build custom plug-ins.",
+      "The API supports plug-in development for customer-specific needs."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "The system will feature an API to allow customers to build custom plug-ins to be able to meet their needs."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-028",
+    "title": "Web browser customer interface",
+    "description": "The system shall present the customer interface in a web browser.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Customer-facing screens are accessible through a web browser.",
+      "Customer workflows are performed through the browser-based interface.",
+      "No separate client application is required for the customer interface."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "The interface will be presented to the customer in a web browser."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-029",
+    "title": "Consistent and intuitive browser interface",
+    "description": "The system shall provide an interface that remains consistent among various web browsers and is intuitive to the customer.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Supported customer screens display with consistent layout and behavior across various web browsers.",
+      "Customer-facing navigation and screen interactions are understandable to the customer.",
+      "Key browsing and shopping tasks can be completed without browser-specific UI differences blocking use."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "The interface must remain consistent among various web browsers and be intuitive to the customer."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-030",
+    "title": "Unambiguous browsing and product search interface",
+    "description": "The system shall present customers with an unambiguous interface for browsing categories and products and shall allow customers to search for products matching their search criteria.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The customer interface provides browsing of product categories and products.",
+      "The customer interface provides a search function for product search criteria.",
+      "Search results are returned for entered product search criteria.",
+      "The browsing interface is presented clearly enough to support category and product navigation."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "Customers will be presented with an unambiguous interface to assist in browsing the categories and products. Customers will be able to search for products matching their search criteria."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-031",
+    "title": "Provide an intuitive interface",
+    "description": "The interface shall be intuitive to the customer.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The customer-facing interface is presented in a web browser.",
+      "Representative reviewers confirm the interface is intuitive to the customer.",
+      "The interface behavior and presentation do not vary inconsistently across supported web browsers."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "The interface must remain consistent among various web browsers and be intuitive to the customer."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-032",
+    "title": "Provide help bubbles and clear notifications",
+    "description": "The system shall utilize help bubbles to assist managers, customers, and administrators and shall utilize consistent symbols and colors for clear notifications.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Help bubbles are available to assist customers, managers, and administrators.",
+      "Notifications use symbols and colors consistently throughout the system.",
+      "Notifications are presented clearly to users."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "The system shall utilize help bubbles to assist managers, customers, and administrators",
+        "The system shall utilize consistent symbols and colors for clear notifications."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-033",
+    "title": "Support specified browser environments",
+    "description": "The Web Store shall operate with Microsoft Internet Explorer version 6 and 7 and Netscape Communicator version 4 and 5.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "System operation is verified on Microsoft Internet Explorer 6.",
+      "System operation is verified on Microsoft Internet Explorer 7.",
+      "System operation is verified on Netscape Communicator 4 and 5."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "OE-1: Web Store shall operate with the following internet browsers: Microsoft Internet Explorer version 6 and 7, Netscape Communicator Version 4 and 5."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-034",
+    "title": "Maintain consistent browser interface",
+    "description": "The interface shall remain consistent among various web browsers.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The customer-facing interface is accessible through a web browser.",
+      "Interface layout and presentation remain consistent across the browsers used for verification.",
+      "No browser-specific variation causes the interface to become inconsistent for the customer."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "The interface will be presented to the customer in a web browser.",
+        "The interface must remain consistent among various web browsers and be intuitive to the customer."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-035",
+    "title": "Be compatible with major web browsers",
+    "description": "The interface will be compatible with all major web browsers such as Internet Explorer, Mozilla Navigator, Mozilla Firefox, Opera, and Safari.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Interface functionality is verified on Internet Explorer.",
+      "Interface functionality is verified on Mozilla Navigator or Mozilla Firefox.",
+      "Interface functionality is verified on Opera and Safari."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "The interface will be compatible with all major web browsers such as Internet Explorer, Mozilla Navigator, Mozilla Firefox, Opera, and Safari."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-036",
+    "title": "Web browser initiates request to web server via HTTPS",
+    "description": "Web Browser initiates request to Web Server via HTTPS.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "A captured customer account request from the web browser to the web server uses HTTPS.",
+      "A captured plug-in API request from the web browser to the web server uses HTTPS.",
+      "The documented stimulus/response sequence identifies HTTPS as the browser-to-server request mechanism."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "Web Browser initiates request to Web Server via HTTPS"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-037",
+    "title": "Web Store shall use SSL for security",
+    "description": "The Web Store shall use Secure Socket Layer (SSL) for security.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "System security/interface documentation states that SSL is used for Web Store security.",
+      "Configured web communication for the Web Store uses SSL-secured communication.",
+      "A review of deployed communication settings shows SSL is enabled for secure web access."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "Use Secure Socket Layer (SSL) for security"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-038",
+    "title": "Sensitive information shall be encrypted via HTTPS",
+    "description": "The system shall encrypt all sensitive information via https.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Sensitive information transmitted by the system is sent over HTTPS.",
+      "Attempted transmission of sensitive information over non-HTTPS channels does not occur in normal operation.",
+      "Security verification confirms HTTPS protects sensitive information in transit.",
+      "Sensitive information is transmitted only over HTTPS.",
+      "Attempts to access sensitive information over non-HTTPS channels are not used for normal operation.",
+      "Verification of network traffic shows sensitive information is encrypted in transit."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "The system shall encrypt all sensitive information via https."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-039",
+    "title": "Encrypt customer data in the database",
+    "description": "The system shall encrypt all customer data in database.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Customer data stored in the database is encrypted.",
+      "Database inspection confirms plaintext customer data is not stored in protected fields or records.",
+      "Stored customer account and payment-related customer data are covered by database encryption."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "The system shall encrypt all customer data in database."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-040",
+    "title": "Validate credit cards against fraud; detect consecutive failed login attempts",
+    "description": "The system shall validate credit cards against fraud. The system shall detect consecutive failed login attempts.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The system shall validate credit cards against fraud.",
+      "The system shall detect consecutive failed login attempts."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "The system shall validate credit cards against fraud.",
+        "The system shall detect consecutive failed login attempts."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-041",
+    "title": "System availability shall be 99.99%",
+    "description": "The system shall have an availability of 99.99%.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The documented availability target is 99.99%.",
+      "Availability measurement includes the production system as defined in the SRS.",
+      "Verification confirms the system meets 99.99% availability."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "The system shall have an availability of 99.99%."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-042",
+    "title": "Optional mirror site shall be allowed for reliability and backups",
+    "description": "The system shall allow an optional mirror site for reliability and backups.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The solution supports an optional mirror site configuration.",
+      "The mirror site is intended for reliability support.",
+      "The mirror site is intended for backup support."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "Allow an optional mirror site for reliability and backups"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-043",
+    "title": "System shall perform periodic backups through a live internet connection",
+    "description": "The system will do periodic backups through a live internet connection.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The system performs backups on a periodic basis.",
+      "Backups are executed through a live internet connection.",
+      "Backup operation can be verified during system operation."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "The system will do periodic backups through a live internet connection."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-044",
+    "title": "Initial and expandable inventory capacity",
+    "description": "The Web Store shall support an initial inventory of 100 items and be expandable with unique codes to a minimum total inventory of 20,000 items.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The system is delivered with support for 100 inventory items initially.",
+      "The system provides an expansion mechanism based on unique codes.",
+      "After expansion, the system supports a total inventory of at least 20,000 items."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "The initial inventory will be 100 items. Expandable with unique codes, the owners can purchase to expand the inventory. The minimum total inventory will be 20,000 items."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-045",
+    "title": "SQL database for inventory storage",
+    "description": "The system shall use an SQL-based database to store inventory information.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Inventory information is stored in an SQL-based database.",
+      "Non-SQL database storage is not used as the primary inventory repository.",
+      "System design documentation identifies the SQL-based database used for inventory information.",
+      "The implemented system uses a SQL-based database technology.",
+      "Inventory information is stored in the SQL-based database.",
+      "The system can persist and retrieve inventory records from the SQL-based database."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "OE-3: The system shall use SQL based database to store inventory information."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-046",
+    "title": "Use a SQL-based database",
+    "description": "The Web Store must use a SQL-based database.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The implemented database technology is SQL-based.",
+      "Design and implementation artifacts show compliance with the SQL-only database constraint.",
+      "The system does not require a non-SQL database to operate the inventory capability.",
+      "The database selected for the system is SQL-based.",
+      "No non-SQL database is used as the system database in the implemented solution.",
+      "Design documentation identifies the system database as SQL-based.",
+      "The deployed system database product is MySQL.",
+      "System configuration identifies MySQL as the database.",
+      "Application data storage connects to a MySQL database instance."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "CO-1: Must use a SQL based database. SQL standard is the most widely used database format. Restricting to SQL allows easy of use and compatibility for Web Store."
+      ]
+    },
+    "notes": "merged with REQ-048; merged with REQ-049"
+  },
+  {
+    "requirement_id": "REQ-047",
+    "title": "Deploy on plug-and-play USB key",
+    "description": "Version 1 is planned for implementation on a \u201cplug and play\u201d USB Key.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The delivered Version 1 system is provided on a USB key.",
+      "The USB key is the implementation platform for Version 1 of the Web Store.",
+      "No alternative primary deployment medium is required for Version 1 in the source text."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "Version 1 is planned for implementation on a \u201cplug and play\u201d USB Key."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-048",
+    "title": "Require no software installation",
+    "description": "No software installation shall be necessary.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "A user can use the system without installing additional software.",
+      "System setup does not require manual software installation steps.",
+      "The delivered solution operates as a plug-and-play device as stated in the source."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "Since this will be a \u201cPlug and Play device\u201d, no software installation will be necessary."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-049",
+    "title": "Operate on Intel Slackware Linux Apache environment",
+    "description": "The Web Store shall operate on an Intel based system with Slackware Linux 2.6 and Apache Web Server.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The system runs on an Intel-based platform.",
+      "The operating environment includes Slackware Linux 2.6.",
+      "The operating environment includes Apache Web Server."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "OE-2: Web Store shall operate on an Intel based system with Slackware Linux 2.6 and Apache Web Server."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-050",
+    "title": "Use Yoggie-provided USB interface and drivers",
+    "description": "The USB interface and drivers are provided by Yoggie Corporation.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The deployed system includes a USB interface supplied by Yoggie Corporation.",
+      "System hardware integration uses the Yoggie-provided USB interface rather than an alternative USB interface.",
+      "Project build or deployment records identify the USB interface as provided by Yoggie Corporation.",
+      "The system installation includes USB drivers supplied by Yoggie Corporation.",
+      "USB-dependent operation is performed using the Yoggie-provided USB drivers.",
+      "Configuration or deployment artifacts identify the USB drivers as originating from Yoggie Corporation."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "OE-4: USB interface and divers are provided by Yoggie Corporation."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-051",
+    "title": "Interface with Yoggie USB key hardware",
+    "description": "The system shall interface with the Yoggie USB key hardware.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The hardware interface list for the system includes the USB key from Yoggie.",
+      "The system can be deployed or operated with the Yoggie USB key as the identified hardware interface.",
+      "Interface documentation identifies the Yoggie USB key as hardware interface HI-1."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "HI-1: USB key from Yoggie"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-052",
+    "title": "Compatibility is only tested and verified for specified browser versions",
+    "description": "Compatibility is only tested and verified for Microsoft Internet Explorer version 6 and 7, and Netscape Communicator Version 4 and 5.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Compatibility verification evidence exists for Internet Explorer 6 and 7.",
+      "Compatibility verification evidence exists for Netscape Communicator 4 and 5.",
+      "No additional browser versions are claimed as tested and verified in system compatibility documentation."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "CO-2: Compatibility is only tested and verified for Microsoft Internet Explorer version 6 and 7, Netscape Communicator Version 4 and 5."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-053",
+    "title": "Other versions may not be 100% compatible",
+    "description": "Other versions may not be 100% compatible.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "System documentation states that browser versions outside the tested set are not guaranteed 100% compatible.",
+      "No requirement or claim asserts full compatibility for untested browser versions.",
+      "Compatibility statements for other browser versions include the stated limitation.",
+      "System documentation identifies Mozilla as potentially not 100% compatible.",
+      "System documentation identifies Firefox as potentially not 100% compatible.",
+      "No requirement or claim asserts 100% compatibility for Mozilla or Firefox."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "Other versions may not be 100% compatible."
+      ]
+    },
+    "notes": "merged with REQ-057"
+  },
+  {
+    "requirement_id": "REQ-054",
+    "title": "Administrator documentation shall be provided",
+    "description": "Full documentation shall be provided to the Administrator to assist with this process.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Administrator documentation is delivered with the system.",
+      "The documentation includes guidance for maintenance activities.",
+      "The documentation includes guidance for assigning account privileges."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "System Administrator: Is generally the owner that takes care of maintenance for the Web Store system.",
+        "The administrator will be in charge of assigning privileges of accounts.",
+        "Full documentation will be provided to the Administrator to assist with this process."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-055",
+    "title": "No software installation shall be necessary",
+    "description": "No software installation will be necessary.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The delivered Web Store can be used without performing a software installation procedure.",
+      "System startup does not require users to install additional Web Store software before use.",
+      "Any provided user documentation does not require a software installation sequence for initial use."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "Since this will be a \u201cPlug and Play device\u201d, no software installation will be necessary."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-056",
+    "title": "Documentation products needed include user manuals and installation guides",
+    "description": "Documentation products needed include user manuals and installation guides.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The delivered documentation set includes a user manual.",
+      "The delivered documentation set includes an installation guide.",
+      "The documentation is written in simple, understandable text."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "Documentation Writers: Writers are able to take technical complexities and turn them into simple, understandable text.",
+        "They will expertly produce the documentation products needed such as user manuals, Installation guides."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-057",
+    "title": "Support plugin-based maintainability",
+    "description": "The system shall utilize interchangeable plugins.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "System architecture supports interchangeable plugins.",
+      "A plugin can be replaced without requiring a full system rewrite.",
+      "Plugin interchangeability is demonstrable in the deployed system."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "The system shall utilize interchangeable plugins."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-058",
+    "title": "Log all system changes and updates",
+    "description": "The system shall create logs of all changes, updates, or fixes that are done to the site.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "A log entry is created when a change is made to the site.",
+      "A log entry is created when an update is applied to the site.",
+      "A log entry is created when a fix or patch is applied to the site."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "The system shall create logs of all changes, updates, or fixes that are done to the site."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-059",
+    "title": "Support debug mode and test environment operations",
+    "description": "The system should be able to run under debug mode, run test credit card transactions, run test shipping orders, and create a test environment of the weborder system.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The system should be able to run under debug mode.",
+      "The system should be able to run test credit card transactions.",
+      "The system should be able to run test shipping orders.",
+      "The system should be able to create a test environment of the weborder system."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "The system should be able to run under debug mode.",
+        "The system should be able to run test credit card transactions.",
+        "The system should be able to run test shipping orders.",
+        "The system should be able to create test environment of weborder system."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-060",
+    "title": "Define glossary entries for Data Dictionary, Data flow diagram, and Flowchart",
+    "description": "The glossary shall define the terms Data Dictionary, Data flow diagram, and Flowchart.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The glossary includes an entry for Data Dictionary.",
+      "The glossary includes an entry for Data flow diagram.",
+      "The glossary includes an entry for Flowchart."
+    ],
+    "source_location": {
+      "document": "gamma-j",
+      "verse": [
+        "Data Dictionary: A collection of definitions for the data elements, structures, and attributes those are important to the problem domain.",
+        "Data flow diagram: An analysis model that depicts the processes, data collections, terminators, and flows among them that characterize the behavior of a business process or of a software system.",
+        "Flowchart: A model that shows the processing steps and decision points in the logic of a process or of a program, similar to that of an activity diagram."
+      ]
+    }
+  }
+]

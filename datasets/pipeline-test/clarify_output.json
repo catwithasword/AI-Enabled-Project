@@ -1,0 +1,136 @@
+{
+  "document": "taskmanager-pro",
+  "questions": [
+    {
+      "requirement_id": "REQ-011",
+      "question": "How should the system behave if a request exceeds the 500ms threshold?",
+      "reasoning_path": "FUNCTIONAL",
+      "choices": [
+        "Log a warning for monitoring",
+        "Trigger an automated alert/incident",
+        "Terminate the connection/timeout",
+        "Return a specific error code (e.g., 504)",
+        "Other (specify)"
+      ]
+    },
+    {
+      "requirement_id": "REQ-011",
+      "question": "What specific metric defines 'response time' for this requirement?",
+      "reasoning_path": "FUNCTIONAL",
+      "choices": [
+        "Average (Mean) response time",
+        "Median (P50) response time",
+        "95th percentile (P95) response time",
+        "99th percentile (P99) response time",
+        "Other (specify)"
+      ]
+    },
+    {
+      "requirement_id": "REQ-011",
+      "question": "Does this latency requirement include the time taken by external third-party APIs?",
+      "reasoning_path": "DEPENDENCY",
+      "choices": [
+        "Yes, total end-to-end time",
+        "No, only internal processing time",
+        "Only for specific designated dependencies",
+        "Other (specify)"
+      ]
+    },
+    {
+      "requirement_id": "REQ-011",
+      "question": "What is the quantitative definition of 'normal load'?",
+      "reasoning_path": "SCOPE",
+      "choices": [
+        "Average daily transaction volume",
+        "Peak hourly transaction volume",
+        "A specific number of concurrent users",
+        "A specific number of requests per second (RPS)",
+        "Other (specify)"
+      ]
+    },
+    {
+      "requirement_id": "REQ-011",
+      "question": "Which categories of API requests are covered by this requirement?",
+      "reasoning_path": "SCOPE",
+      "choices": [
+        "All API endpoints (GET, POST, etc.)",
+        "Only Read-only (GET) requests",
+        "Only high-priority/critical endpoints",
+        "Only lightweight metadata requests",
+        "Other (specify)"
+      ]
+    },
+    {
+      "requirement_id": "REQ-015",
+      "question": "Which specific GDPR functional capabilities must the system implement?",
+      "reasoning_path": "FUNCTIONAL",
+      "choices": [
+        "Right to erasure (Data deletion)",
+        "Data portability (Exporting data)",
+        "Subject Access Requests (Viewing data)",
+        "Consent management (Opt-in/out)",
+        "Other (specify)"
+      ]
+    },
+    {
+      "requirement_id": "REQ-015",
+      "question": "What specific data types are subject to these GDPR controls?",
+      "reasoning_path": "FUNCTIONAL",
+      "choices": [
+        "Personally Identifiable Information (PII)",
+        "Sensitive/Special category data (Health, Race)",
+        "User behavioral/tracking data",
+        "All data processed by the system",
+        "Other (specify)"
+      ]
+    },
+    {
+      "requirement_id": "REQ-015",
+      "question": "Which external systems or third-party services must be integrated for compliance?",
+      "reasoning_path": "DEPENDENCY",
+      "choices": [
+        "Identity Providers (Auth0, Okta, etc.)",
+        "Third-party analytics (Google, Mixpanel)",
+        "Cloud storage providers (AWS, Azure)",
+        "Customer Relationship Management (CRM)",
+        "Other (specify)"
+      ]
+    },
+    {
+      "requirement_id": "REQ-015",
+      "question": "Which user classes are governed by these compliance requirements?",
+      "reasoning_path": "SCOPE",
+      "choices": [
+        "End-users (Data subjects)",
+        "System Administrators (Data controllers)",
+        "Internal Staff (Data processors)",
+        "All registered users and admins",
+        "Other (specify)"
+      ]
+    },
+    {
+      "requirement_id": "REQ-015",
+      "question": "What is the geographic scope of the compliance enforcement?",
+      "reasoning_path": "SCOPE",
+      "choices": [
+        "EU residents only",
+        "Global (all users regardless of location)",
+        "Users within specific EU member states",
+        "Other (specify)"
+      ]
+    },
+    {
+      "requirement_id": "REQ-015",
+      "question": "What specific regulatory standard or audit framework must be met?",
+      "reasoning_path": "COMPLIANCE",
+      "choices": [
+        "Standard GDPR Articles/Recitals",
+        "ISO/IEC 27701 (Privacy Information)",
+        "SOC2 Privacy Criteria",
+        "Internal Corporate Privacy Policy",
+        "Other (specify)"
+      ]
+    }
+  ],
+  "total_questions": 11
+}

@@ -1,0 +1,31 @@
+{
+  "flagged_requirements": [
+    {
+      "requirement_id": "REQ-011",
+      "title": "API Response Time",
+      "description": "The system shall respond to API requests within 500ms under normal load.",
+      "flags": [
+        {
+          "field": "description",
+          "issue": "Vague language detected",
+          "severity": "medium",
+          "suggestion": "Replace with specific terms"
+        }
+      ]
+    },
+    {
+      "requirement_id": "REQ-015",
+      "title": "GDPR Compliance",
+      "description": "The system shall comply with GDPR data protection requirements.",
+      "flags": [
+        {
+          "field": "description",
+          "issue": "Vague language detected",
+          "severity": "medium",
+          "suggestion": "Replace with specific terms"
+        }
+      ]
+    }
+  ],
+  "document_name": "taskmanager-pro"
+}

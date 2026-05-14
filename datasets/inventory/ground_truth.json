@@ -1,0 +1,1144 @@
+[
+  {
+    "requirement_id": "REQ-001",
+    "title": "Provide secure external access to data",
+    "description": "The IUFA shall provide secure access to the data from outside university at any time during working hours.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Authorized users can access system data from outside the university.",
+      "Access to the data is secured.",
+      "External access is available during working hours."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "The IUFA guarantee a secure access to the data from outside university at any time during working hours"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-002",
+    "title": "Allow unauthorised users to create requests through a web-based interface",
+    "description": "The system shall allow unauthorised users to create a request to borrow an asset or reserve a space through a web-based interface.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The web interface includes a way for a user to create a request.",
+      "A user can create a request to borrow an asset.",
+      "A user can create a request to reserve a space."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "The IUFA application give the unauthorised user the possibility to use a web based interface that will available to use any time",
+        "Creating request to borrow an asset or a reserve a space"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-003",
+    "title": "Provide basic and advanced request forms",
+    "description": "The system shall provide a basic request form and an advanced request form. In the basic request form, the user can type a small request text specifying asset(s) location and submit. In the advanced request form, the user can enter asset serial number and location, enter a small text describing the operation to be done, and submit.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "User can select a basic request form.",
+      "In the basic request form, user can type a small request text specifying asset(s) location.",
+      "User can submit the basic request form.",
+      "User can select an advanced request form.",
+      "In the advanced request form, user can enter asset serial number and location.",
+      "In the advanced request form, user can enter a small text describing the operation to be done.",
+      "User can submit the advanced request form."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "User select basic request form",
+        "User type a small request text specifying asset (s) location,..",
+        "User click on submit",
+        "User select advanced request form",
+        "User enter asset serial number and location",
+        "User enter small text describing operation to be done",
+        "User click on submit"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-004",
+    "title": "Classify inventory assets into three types",
+    "description": "The system shall classify inventory assets into three types: Rooms and space, Software licences, and All other assets.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "The asset model includes exactly the three listed inventory asset types.",
+      "A user adding an asset can select an asset type.",
+      "The available types include Rooms and space, Software licences, and All other assets."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Assets in the inventory are classified in 3 types",
+        "Rooms and space",
+        "Software licences",
+        "All other assets"
+      ],
+      "quote": "Assets in the inventory are classified in 3 types Rooms and space Software licences All other assets"
+    }
+  },
+  {
+    "requirement_id": "REQ-005",
+    "title": "Support grouping of assets",
+    "description": "The system shall support grouping of assets.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Assets can be grouped."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Assets can be grouped like computer parts"
+      ],
+      "quote": "Assets can be grouped like computer parts"
+    }
+  },
+  {
+    "requirement_id": "REQ-006",
+    "title": "Administrator sends exception request to IT to add new type and common properties",
+    "description": "If the type does not exist in the list, the administrator sends an exception request to IT to add the new type and the common properties.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "When adding a new asset, if the required type is not in the list, the administrator can initiate an exception request.",
+      "The exception request is directed to IT.",
+      "The request includes adding the new type and the common properties."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Type does not exist in the list",
+        "Administrator send exception request to IT to add the new type and the common properties"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-007",
+    "title": "Represent the university organizational hierarchy",
+    "description": "The university organizational hierarchy is represented.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The hierarchy model includes a University node as the top organizational level.",
+      "The hierarchy model allows Faculty entities to be defined under the University.",
+      "The hierarchy model allows Department entities to be defined under Faculties."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "University organizational hierarchy is represented by the following"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-008",
+    "title": "Faculty administrator controls own faculty inventory; faculty members can add related departments inventory",
+    "description": "The system shall allow the faculty administrator to control his faculty inventory. The system shall allow any faculty member to add all related departments inventory.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The faculty administrator can control his faculty inventory.",
+      "Any faculty member can add all related departments inventory."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Faculty administrator have control on his faculty inventory",
+        "Any faculty member can add all related departments inventory"
+      ],
+      "quote": "Faculty administrator have control on his faculty inventory Any faculty member can add all related departments inventory"
+    }
+  },
+  {
+    "requirement_id": "REQ-009",
+    "title": "Department administrator controls department inventory; certain group member assets are department-owned",
+    "description": "The system shall ensure that a department administrator has control on his department inventory, and that any DA group member or authorised inventory group member asset is owned by the department.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "A department administrator has control over the department inventory.",
+      "Assets of any DA group member are owned by the department.",
+      "Assets of any authorised inventory group member are owned by the department."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Department administrator have control on his department inventory",
+        "Any DA group member or authorised inventory group member asset is owned by the department"
+      ],
+      "quote": "Department administrator have control on his department inventory Any DA group member or authorised inventory group member asset is owned by the department"
+    }
+  },
+  {
+    "requirement_id": "REQ-010",
+    "title": "System shall support specified user and administrative levels",
+    "description": "The system shall support the following levels: University level (level 3), Faculty level (level 2), Department level (level 1), Users\u2019 level can place inventory requests (level 0), and IT and security level to maintain the inventory (level 4). The administrative levels that can approve inventory transactions are University level (level 3), Faculty level (level 2), and Department level (level 1).",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The system defines level 0, level 1, level 2, level 3, and level 4 user levels.",
+      "Level 3 is labeled University level, level 2 Faculty level, and level 1 Department level.",
+      "Level 0 users are limited to placing inventory requests.",
+      "Level 4 is designated for IT and security inventory maintenance."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Three administrative levels that can approve inventory transactions",
+        "University level (level 3)",
+        "Faculty level (level 2)",
+        "Department level (level 1)",
+        "Users\u2019 level can place inventory requests (level 0)",
+        "IT and security level to maintain the inventory (level 4)"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-011",
+    "title": "Administrative level permissions shall be predefined",
+    "description": "Permissions for each administrative level shall be predefined: level 0 shall have permission to create requests only; level 1 shall be able to control the assets and locations the user owns; level 2 shall be able to control the assets and locations the user owns and have all level 1 permissions; level 3 shall be able to control the assets and locations the user owns and have all level 2 permissions; levels 1, 2, and 3 shall be able to delegate some or all of their permissions to any user; and level 4 shall have all possible permissions.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Level 0 users can create requests only.",
+      "Level 2 users have all level 1 permissions in addition to control over assets and locations they own.",
+      "Level 3 users have all level 2 permissions in addition to control over assets and locations they own.",
+      "Levels 1, 2, and 3 can delegate some or all of their permissions, while level 4 has all possible permissions."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Note that permissions for each administrative level are predefined",
+        "Level 0 has the permission to create requests only",
+        "Level 1 can control the assets and locations that he owns",
+        "Level 2 can control the assets and locations that owns and get all level1 permissions",
+        "Level 3 can control the assets and locations that owns and get all level2 permissions",
+        "Level 1, 2 and 3 can delegate some or all of their permission to any user",
+        "Level 4 has all possible permissions."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-012",
+    "title": "Approval request visibility shall be limited to requests the user has privileges to approve",
+    "description": "The system shall display only requests that the user has privileges to approve.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "A user viewing pending requests sees only requests waiting for approval from that user's level.",
+      "The system excludes requests outside the user's approval privileges from the pending request list.",
+      "An authorized inventory group member can view pending requests only when approval authority exists for that level."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Any administration level or authorised inventory group member can display all pending requests waiting for approval from this level and approve those requests",
+        "System display only requests that he has privileges to approve"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-013",
+    "title": "Any administrative level user can delegate another user to execute some or all authorized actions, and the delegated user acquires the role of inventory administrator",
+    "description": "Any administrative level user can delegate another user to execute some or all of the delegator's authorized actions. The delegated user acquires the role of inventory administrator.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "An authenticated administrative-level user can delegate some or all of their authorized actions to another user.",
+      "After delegation, the delegated user is assigned the inventory administrator role.",
+      "The delegated permissions may vary depending on the assigned tasks."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Inventory administrators: users that can be delegated by any administrative level",
+        "Any administrative level user can delegate another user to execute some or all his authorized actions. And this user acquires the role of inventory administrator"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-014",
+    "title": "Administrators cannot assign or modify permissions beyond their own",
+    "description": "The system shall prevent an administrator from assigning or modifying permissions to be greater than the permissions the administrator has, and display an error message if attempted.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "If an administrator attempts to assign permissions greater than the permissions the administrator already has, the system shall prevent the assignment.",
+      "If an administrator attempts to modify permissions to give permissions greater than the permissions the administrator already has, the system shall display an error message."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Administrator cannot assigne permissions more than he have",
+        "Administrator modify permissions he give permissions more than he have",
+        "An error message is displayed"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-015",
+    "title": "Permissions shall be predefined and grouped by administrative role",
+    "description": "The system shall use predefined permissions for each administrative level, grouped by role as follows: department administrators have control of their department inventory; faculty administrators have control of their faculty inventory; university administrators and IT administrators have control of the entire inventory.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Permissions are configured as predefined role-based groupings.",
+      "A department administrator can access only department inventory functions within the department scope.",
+      "A faculty administrator can access only faculty inventory functions within the faculty scope.",
+      "A university administrator or IT administrator can access inventory functions across the entire inventory."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Permission are should be grouped by role in the following way:",
+        "Department administrator have control on his department inventory",
+        "Faculty administrator have control on his faculty inventory",
+        "University administrator and IT Administrators have the control on the entire inventory",
+        "Note that permissions for each administrative level are predefined"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-016",
+    "title": "The permission list shall include request, asset, location, university, search, reports, user actions, and audit permissions",
+    "description": "The permission list shall include: request related permissions, asset related permissions, location related permissions, university related permissions, search permission, reports related permission, user actions related permission, and audit related permissions.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The permission model includes request:create, request:list, request:show, request:edit, and request:aproval or rejection.",
+      "The permission model includes asset:create, asset:list, asset:show, and asset:edit and modify; location:create, location:list, location:show, location:edit, and location:delete; and universityPart:create, universityPart:list, universityPart:show, universityPart:edit, and universityPart:delete.",
+      "The permission model includes search:simple and search:advanced; report:list and report:show; user:list, user:show, and user:edit and change permissions; and audit:list and audit:show."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "This list resume all permission that a user can have",
+        "1. Request related permissions",
+        "2. Asset related permissions",
+        "3. Location related permissions",
+        "4. University related permissions",
+        "5. search permission",
+        "6. reports related permission",
+        "7. User actions related permission",
+        "8. Audit related permissions"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-017",
+    "title": "Administrative users shall only delegate permissions within their authorized actions",
+    "description": "The system shall allow administrative users to delegate some or all of their permissions to any user, and shall prevent an administrator from assigning permissions greater than the administrator's own authorized actions.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Administrative users can delegate some or all of their permissions to another user.",
+      "An administrator cannot assign permissions greater than the administrator's own authorized actions."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Level 1, 2 and 3 can delegate some or all of their permission to any user",
+        "Any administrative level user can delegate another user to execute some or all his authorized actions.",
+        "Administrator cannot assigne permissions more than he have"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-018",
+    "title": "Permissions shall be predefined by administrative level",
+    "description": "The system shall use predefined permissions for each administrative level.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The system defines permissions separately for Levels 0 through 4.",
+      "A configured administrative level is associated with its predefined permission set.",
+      "Permission assignment by level is based on the predefined definitions in the system."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Note that permissions for each administrative level are predefined"
+      ],
+      "quote": "Note that permissions for each administrative level are predefined"
+    }
+  },
+  {
+    "requirement_id": "REQ-019",
+    "title": "Level 2 and Level 3 inherit lower-level permissions",
+    "description": "Level 2 gets all level1 permissions, and Level 3 gets all level2 permissions.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Level 2 gets all Level 1 permissions.",
+      "Level 3 gets all Level 2 permissions."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Level 2 can control the assets and locations that owns and get all level1 permissions",
+        "Level 3 can control the assets and locations that owns and get all level2 permissions"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-020",
+    "title": "Administrative level users shall be limited to delegating only their authorized permissions",
+    "description": "The system shall allow Level 1, Level 2, and Level 3 users to delegate some or all of their permissions to any user, and shall prevent an administrator from assigning permissions greater than those the administrator has.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Level 1, Level 2, and Level 3 users can delegate a subset or all of their own permissions.",
+      "If an administrator attempts to assign permissions greater than the administrator has, the system displays an error message.",
+      "Delegated actions are limited to the delegator's authorized actions."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Level 1, 2 and 3 can delegate some or all of their permission to any user",
+        "Administrator cannot assigne permissions more than he have",
+        "Any administrative level user can delegate another user to execute some or all his authorized actions"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-021",
+    "title": "Allow direct database update within the same department",
+    "description": "The data base can be updated directly without any request within the same department.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "For a transfer within the same department, the system allows the database to be updated without creating a request.",
+      "No request approval step is required for a same-department transfer.",
+      "The resulting transfer information is stored in the database."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "5.1.1. Within the same department: data base can be updated directly without any request"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-022",
+    "title": "Require approval for inter-department requests",
+    "description": "The system shall require an inter-department request to be approved by a DA group member and a faculty group member unless it came from a higher level group.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "When a transfer is between departments, the system treats it as a request-based transfer.",
+      "The system requires approval by a DA group member for an inter-department transfer request.",
+      "The system requires approval by a faculty group member for an inter-department transfer request unless the request came from a higher level group."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "5.1.2. Inter departments: request must be approved by a DA group member and faculty group member unless it came from a higher level group"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-023",
+    "title": "Approval rules for inter-faculty and external transfers",
+    "description": "The system shall support inter-faculty transfer requests made by any authorised user and approved by the faculty group or higher level, and transfers outside the university approved by the university group.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "For an inter-faculty transfer, the system allows any authorised user to create the request.",
+      "For an inter-faculty transfer, the system requires approval by a faculty group or a higher level.",
+      "For a transfer outside the university, the system requires approval by the university group."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "5.1.3. Inter faculties transfer: request can be made by any authorised user and approved by faculty group or higher level",
+        "5.1.4. Transfer outside university should be approved by the university group"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-024",
+    "title": "Authorized users can edit assets within their scope",
+    "description": "The system shall allow an administrative level user or inventory user to edit an asset that belongs to its department, and a faculty user or university user to edit an asset within its scope, if the user is authorized to do so.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "An authorized administrative level user or inventory user can edit an asset that belongs to its department.",
+      "A faculty user can edit an asset within the scope stated for faculty users.",
+      "A university user can edit an asset within the scope stated for university users.",
+      "If the user is not authorized, the system displays an error message when edit is attempted."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Any administrative level user or inventory user can edit an asset that belongs to its department; same thing for faculty user, or university user; in order to make modification if he is authorised to do it."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-025",
+    "title": "Asset IDs cannot be modified",
+    "description": "The system shall allow modification of all fields of an edited asset except IDs.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "When editing an asset, non-ID fields can be changed.",
+      "When a user attempts to modify an asset ID, the system does not permit the change.",
+      "After saving an edited asset, the asset ID remains unchanged.",
+      "The system updates the asset according to the permitted modifications only."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "all fields of an edited asset can be modified except Ids"
+      ],
+      "quote": "all fields of an edited asset can be modified except Ids"
+    }
+  },
+  {
+    "requirement_id": "REQ-026",
+    "title": "Bulk asset modification via bulk entry file",
+    "description": "The system shall support use of a bulk entry file.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "A bulk entry file can be used."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "a bulk entry file can be used"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-027",
+    "title": "Department ownership of DA or authorised inventory group member assets",
+    "description": "Any DA group member or authorised inventory group member asset is owned by the department.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "A DA group member can add a new inventory asset.",
+      "An authorised inventory group member can add a new inventory asset.",
+      "The added asset is recorded as owned by the department."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "5.4.1. Any DA group member or authorised inventory group member asset is owned by the department"
+      ],
+      "quote": "5.4.1. Any DA group member or authorised inventory group member asset is owned by the department"
+    }
+  },
+  {
+    "requirement_id": "REQ-028",
+    "title": "Support bulk entry to add many assets",
+    "description": "The system shall support using a bulk entry to add many assets.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "The system provides a bulk entry mechanism for asset addition.",
+      "A bulk entry file can be used as input for adding assets.",
+      "The bulk entry function supports adding multiple assets in one operation."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "5.3.2. a bulk entry file can be used",
+        "5.4.4. A bulk entry can be used to add many assets"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-029",
+    "title": "Authorized user can make a request",
+    "description": "The system shall allow any authorized user to make a request.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Any authorized user can make a request."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "5.5.1. request can be made by any authorised user"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-030",
+    "title": "Created request remains pending for approval",
+    "description": "The system shall set a newly created request to a pending state awaiting approval.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "After a user submits a new request, its status is pending.",
+      "The request remains pending until acted on by an administrative-level user with approval authority.",
+      "The created request is not immediately marked approved upon submission."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "5.5.2. After creation a request still pending waiting to be approved by an administrative level user according to that have this authority",
+        "Post conditions A new request is pending waiting approval"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-031",
+    "title": "Request forms shall provide search facilities to users levels 1, 2 and 3, support basic and advanced form selection, and display an error when an asset is unavailable",
+    "description": "Request forms provide search facilities to users levels 1, 2 and 3. Users can select a basic request form. Users can select an advanced request form. If an asset is not available to be borrowed, an error message is displayed.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Level 0 users are provided a basic request form.",
+      "Users at levels 1, 2, and 3 are provided request forms with search facilities.",
+      "A user can submit a request using the basic form or advanced form.",
+      "If a searched asset is not available to be borrowed, the system displays an error message."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Only basic request form is available for level 0",
+        "Requests forms provide search facilities to users levels 1, 2 and 3",
+        "User select basic request form",
+        "User select advanced request form",
+        "Asset not available to be borrowed",
+        "Error Message is displayed"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-032",
+    "title": "Check returned asset and update inventory",
+    "description": "An inventory user should check returned asset and update inventory.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "The system supports a return process performed by an inventory user.",
+      "During return processing, the returned asset can be checked by the inventory user.",
+      "The inventory is updated as part of the return process."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "5.6.1. An inventory user should check returned asset and update inventory"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-033",
+    "title": "Allow authenticated Inventory Admin to start asset return",
+    "description": "The system shall allow an authenticated Inventory Admin to start the returning asset use case.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "If the Inventory Admin is authenticated, the return process can be initiated.",
+      "If the user is not authenticated, the precondition for starting the return process is not met.",
+      "The returning asset function is available to the Inventory Admin actor."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Preconditions 1. The Inventory Admin is authenticated",
+        "Basic Course 1. Use case begins when Inventory Admin start returning"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-034",
+    "title": "Update inventory system after asset state selection",
+    "description": "The system shall update the inventory system after the Inventory Admin selects the asset state as available or damaged.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Given the Inventory Admin selects the asset state as available, then the inventory system is updated.",
+      "Given the Inventory Admin selects the asset state as damaged, then the inventory system is updated."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Inventory Admin select asset state to available",
+        "2. Inventory Admin select asset state to damaged",
+        "1. The inventory system is updated"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-035",
+    "title": "IT group members can create a new space and modify floor structure upon exception request",
+    "description": "The system shall allow IT group members to create a new space and modify floor structure when they receive an exception request from any administrative level.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "IT group members can create a new space in the system.",
+      "IT group members can modify floor structure in the system.",
+      "Creation or modification is performed only when an exception request has been received from an administrative level."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "5.7.1. IT group members can create a new space and modify floor structure when they receive an exception request from any administrative level"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-036",
+    "title": "Request is added to the waiting for execution list",
+    "description": "The request is added to the waiting for execution list.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "After approval processing, the request appears in the waiting for execution list.",
+      "The waiting for execution list displays the approved request as pending execution.",
+      "The request remains identifiable in the execution list until acted upon."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "5.8.3. Request is added to the waiting for execution list"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-037",
+    "title": "Users are notified by email when the request is treated",
+    "description": "The system shall notify the user by email when the request is treated.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "When a request is treated, an email notification is sent to the user.",
+      "The notification is triggered by the treated status of the request.",
+      "The email is sent for requests handled through the approval workflow.",
+      "When a request is treated, the system sends an email notification to the user.",
+      "The email notification is triggered by the request being treated.",
+      "The notification is sent as part of the request approval handling process."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "5.8.2. When request is treated user is notified by email"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-038",
+    "title": "Display pending requests the user has privileges to approve",
+    "description": "The system shall display only pending requests waiting for approval from this level that the administration-level user or authorised inventory group member has privileges to approve.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "For an administration-level user or authorised inventory group member, the system displays only pending requests waiting for approval from this level that the user has privileges to approve."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Any administration level or authorised inventory group member can display all pending requests waiting for approval from this level and approve those requests",
+        "System display only requests that he has privileges to approve"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-039",
+    "title": "Add request to waiting for execution list and update inventory on asset receipt",
+    "description": "The system shall add the request to the waiting for execution list. The system shall update inventory when the user receives the requested asset.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Request is added to the waiting for execution list.",
+      "Inventory is updated when user receive requested asset."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Request is added to the waiting for execution list",
+        "Inventory is updated when user receive requested asset"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-040",
+    "title": "Authenticate all users with username and password",
+    "description": "The system shall authenticate all users using a user name and password.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Authentication requires entry of both a user name and a password.",
+      "The same authentication method applies to all users.",
+      "A user who does not provide valid user name and password credentials is not authenticated."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "5.9.1. Authentication is made by user name and a password for all users"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-041",
+    "title": "Display an error when authentication fails",
+    "description": "Display an error message when authentication fails.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "When authentication fails, an error message is displayed."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "4. Authentication fails",
+        "5. An error message is displayed"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-042",
+    "title": "Log on to the application main page after authentication",
+    "description": "User is authenticated and logs on to the application main page.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "User is authenticated.",
+      "User logs on to the application main page."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "4. User is authenticated",
+        "5. User log on to application main page"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-043",
+    "title": "Administrative users may delegate authorized actions to another user",
+    "description": "The system shall allow any administrative level user to delegate another user to execute some or all of the delegator's authorized actions.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Given a level 1, 2, or 3 administrative user, the system allows delegation of some or all of that user's permissions to another user.",
+      "The delegation action allows selection of a subset or the full set of the delegator's authorized actions.",
+      "The delegated permissions are limited to actions the delegator is authorized to perform."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "5.10.1. Any administrative level user can delegate another user to execute some or all his authorized actions.",
+        "Level 1, 2 and 3 can delegate some or all of their permission to any user"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-044",
+    "title": "Delegated users acquire the inventory administrator role",
+    "description": "The system shall assign the inventory administrator role to a user who is delegated authorized actions by an administrative level user.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "When an administrative user delegates authorized actions to another user, the target user is assigned the inventory administrator role.",
+      "After delegation, the delegated user's permissions vary according to the assigned tasks.",
+      "The delegated user is recognized by the system as an inventory administrator after the delegation is applied."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Any administrative level user can delegate another user to execute some or all his authorized actions. And this user acquires the role of inventory administrator",
+        "Inventory administrators: users that can be delegated by any administrative level to work and on the applications assigned permission can varies from one user to another depending on its assigned tasks."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-045",
+    "title": "Attempt to grant permissions greater than the administrator has shall display an error message",
+    "description": "If an administrator modifies permissions to give permissions greater than the administrator has, an error message shall be displayed.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "If an administrator attempts to assign permissions beyond their own permissions, the system rejects the change.",
+      "When such an invalid permission change is attempted, an error message is displayed.",
+      "No excessive permissions are applied to the selected user after the rejected action."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Administrator select user",
+        "Administrator modify permissions he give permissions more than he have",
+        "An error message is displayed"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-046",
+    "title": "Assets By Location Report",
+    "description": "The system shall provide an Assets By Location Report.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "The Assets By Location Report is available as an output report.",
+      "The User is authenticated before creating the report.",
+      "The User is authorised to create reports before creating the report."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "5.11.1. Asset report by location",
+        "Preconditions 1. The User is authenticated 2. User is authorised to create reports",
+        "Three reports can be created Reports",
+        "Assets By Location Report"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-047",
+    "title": "Request report can be created",
+    "description": "The system shall allow a Request Report to be created when the user is authenticated and authorised to create reports.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "A Request Report can be created.",
+      "The user is authenticated before creating the Request Report.",
+      "The user is authorised to create reports before creating the Request Report."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "5.11.2. Request report",
+        "Preconditions 1. The User is authenticated 2. User is authorised to create reports",
+        "Three reports can be created Reports",
+        "Request Report"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-048",
+    "title": "User Permission Report",
+    "description": "The system shall provide a User Permission Report.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "The User Permission Report is available as one of the output reports.",
+      "Preconditions: the user is authenticated.",
+      "Preconditions: the user is authorised to create reports."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "5.11.3. User permission user",
+        "Preconditions 1. The User is authenticated 2. User is authorised to create reports",
+        "Three reports can be created Reports",
+        "User Permission Report"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-049",
+    "title": "Provide simple and advanced search",
+    "description": "The use case shall present search and advanced search that can be done by the User.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "When an authorized authenticated user initiates Search, a search option is available.",
+      "When an authorized authenticated user initiates Search, an advanced search option is available.",
+      "Both search modes are available within the Search use case."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "The User initiates the use case. The use case presents search and advanced search that can be done by the User."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-050",
+    "title": "Restrict search to authorized users",
+    "description": "The system shall allow search operations only when the user is authenticated and the search operation is authorised.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "Search operations are available only to authenticated users.",
+      "Search operations are available only when the search operation is authorised."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "The use case describes the search operation that only authorised users can do.",
+        "1. The User is authenticated",
+        "2. Search operation is authorised",
+        "5.1. search:simple",
+        "5.2. search:advanced"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-051",
+    "title": "Display search results or no-results message after submission",
+    "description": "The system shall display search results after the user submits a simple search or an advanced search, and shall display a no results are found message when no matches exist after the user submits a search.",
+    "type": "functional",
+    "acceptance_criteria": [
+      "When the user enters a value in the searching field and presses submit, search results are displayed.",
+      "When the user selects advanced search, fills fields, and presses submit, search results are displayed.",
+      "When a submitted simple search has no matches, a 'No results are found' message is displayed."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Use case begins when User start fill searching field",
+        "Press submit",
+        "Search results are displayed",
+        "Use case begins when User press advanced search",
+        "Fills fields",
+        "Press submit",
+        "Search results are displayed",
+        "No results are found message is displayed"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-052",
+    "title": "Learning time limit",
+    "description": "The learning time shall be between 2 to 4 hours at maximum.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Documented usability target states learning time shall not exceed 4 hours.",
+      "The specified learning time range is between 2 and 4 hours.",
+      "The requirement applies to users such as working students mentioned in the source."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "It is mandatory that learning time is between 2 to 4 hours at maximum, because many task are delegated to working students."
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-053",
+    "title": "Clear and consistent terminology",
+    "description": "The web interface should use clear and consistence terminology.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The web interface uses clear and consistence terminology."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Web interface should use clear and consistence terminology in such a way that user; with basic experience on internet and office; find the application easy to use"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-054",
+    "title": "Clear and consistent terminology in the web interface",
+    "description": "The web interface should use clear and consistence terminology in such a way that users with basic experience on internet and office find the application easy to use.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The intended users include users with basic experience on internet and office tools.",
+      "The web interface is specified to be easy to use for those users.",
+      "Usability of the web interface is evaluated against this user group."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Web interface should use clear and consistence terminology in such a way that user; with basic experience on internet and office; find the application easy to use"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-055",
+    "title": "Application availability during working hours",
+    "description": "The application should be available always at working hours.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The application is operational and accessible throughout defined working hours.",
+      "Users can access the application during working hours, including from outside the university.",
+      "Any unavailability during working hours is treated as a failure against this requirement."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "The Application should be available always at working hours.",
+        "The IUFA guarantee a secure access to the data from outside university at any time during working hours"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-056",
+    "title": "Maintenance or backup outside working time",
+    "description": "Any maintenance or backup operation should be conducted out of working time.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Planned maintenance activities are scheduled only outside working time.",
+      "No maintenance window is executed during working hours.",
+      "Maintenance records show execution times outside working time.",
+      "Backup jobs are scheduled only outside working time.",
+      "No backup job runs during working hours.",
+      "Backup execution logs show run times outside working time."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Any maintenance or backup operation should be conducted out of working time"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-057",
+    "title": "Support installation on Microsoft and Unix platforms",
+    "description": "The application should be installed on any Microsoft or Unix platform.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The application can be installed on at least one Microsoft platform.",
+      "The application can be installed on at least one Unix platform.",
+      "Installation completes without requiring a platform outside Microsoft or Unix families."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "The Application should be installed in any Microsoft or Unix platform"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-058",
+    "title": "Run on specified web browsers",
+    "description": "The web application should be available to run on browsers like IE, Firefox, Chrome, Opera or Safari.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The web application runs in Internet Explorer.",
+      "The web application runs in Firefox and Chrome.",
+      "The web application runs in Opera and Safari."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Web application should available to run on browsers like IE, Firefox, Chrome, Opera or Safari"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-059",
+    "title": "Restrict local database server access to IT team members",
+    "description": "Only IT team members can access and maintain database servers locally.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "Access to database servers is limited to IT team members.",
+      "Non-IT users are prevented from locally accessing database servers.",
+      "Database server maintenance activities can be performed only by IT team members."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Only IT team member can access and maintain data base servers locally"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-060",
+    "title": "Terminate queries exceeding one minute",
+    "description": "Queries that take more than 1 min are killed.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "A query running longer than 1 minute is terminated.",
+      "A query running for less than or equal to 1 minute is not terminated by this limit alone.",
+      "The enforced timeout threshold is 1 minute."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Query is killed if takes more than 1 min"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-061",
+    "title": "Execute periodic backup operations",
+    "description": "Backup operations shall be executed periodically.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The system performs backup operations on a recurring basis.",
+      "Backup execution is periodic rather than one-time only.",
+      "Backup operations are configured and run as part of system operation."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "Backup operation are executed periodically"
+      ]
+    }
+  },
+  {
+    "requirement_id": "REQ-062",
+    "title": "Support future evolution and maintenance",
+    "description": "The system shall be designed to facilitate future evolution and maintenance operations.",
+    "type": "non-functional",
+    "acceptance_criteria": [
+      "The system design documentation states that the design facilitates future evolution.",
+      "The system design documentation states that the design facilitates maintenance operations.",
+      "The maintainability requirement is included under section 6.5 Maintainability."
+    ],
+    "source_location": {
+      "document": "inventory",
+      "verse": [
+        "It is important to design system to facilitated future evolution and facilitate maintenance operations"
+      ]
+    }
+  }
+]
