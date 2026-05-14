@@ -10,7 +10,7 @@ Project: Requirement Traceability Helper Using LLM
 ```
 final-project-deliverables/
 ├── part-a-system-design/          # Part A — System Design Document
-│   └── PART_A_System_Design.md   # Export to PDF for submission
+│   └── PART_A_System_Design.md
 ├── part-b-notebooks/              # Part B — Jupyter Notebooks
 │   ├── B1_Data_Exploration.ipynb
 │   ├── B2_Model_Training.ipynb
@@ -44,10 +44,6 @@ final-project-deliverables/
 │   ├── MLmodel
 │   ├── model.pkl
 │   └── model_config.json
-├── slides-content/
-│   └── SLIDES.md                  # Slide deck content for Google Slides
-├── video-script/
-│   └── VIDEO_SCRIPT.md            # Video presentation script
 └── scripts/                       # Helper scripts
     ├── run_mlflow_experiments.py
     └── generate_mlflow_charts.py
@@ -77,12 +73,3 @@ Then open http://localhost:5000 in your browser.
 
 ### View HTML Mockups
 Open any `mockup_*.html` file in a browser.
-
-### Create Slides
-Copy content from `SLIDES.md` into Google Slides.
-
-### Create Video
-Follow `VIDEO_SCRIPT.md` for screen recording.
-
-### Export Part A to PDF
-Open `PART_A_System_Design.md` → Print/Export as PDF.
