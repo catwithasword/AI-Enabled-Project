@@ -7,6 +7,3 @@ dist/
 build/
 *.egg
 .env
-mlflow-experiments/
-model-artifacts/
-uv.lock
